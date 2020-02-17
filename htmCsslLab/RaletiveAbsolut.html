@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ความแตกต่างระหว่าง absolute lenghts และ relative lenghts</title>
+    <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .content {
+            text-align: center;
+            color: blue;
+            font-family: 'Sriracha', cursive;
+        }
+
+        .subcontent {
+            font-weight: bold;
+            margin-top: 40px;
+        }
+
+        div.gallery div{
+            position: relative;
+            
+        }
+        div.gallery div img{
+            width: 100%;
+        }
+
+        div.gallery div p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 34px;
+            position: absolute;
+            bottom: -25px;
+            right: 10px;
+            color : black;
+            -webkit-text-stroke: 1px white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="content">ความแตกต่างระหว่าง absolute lenghts และ relative lenghts</h1>
+        <h3 class="subcontent">หน้าที่ของ relative lenghts</h3>
+        <p>การแสดงผลของ position: relative; จะแสดงผลต่อจาก ณ จุดที่มันอยู่ตรงนั้น “แบบตรงไปตรงมา” ซึ่ง position:
+            relative; สามารถระบุค่าจุด x, y ให้มันได้
+            เช่น ถ้ามี div ข้างบนอันนึงแล้ว div อันล่างสั่งคำสั่ง top : 20px มันจะสร้างระยะห่างต่อจาก div อันบน
+        </p>
+        <h3 class="subcontent">หน้าที่ของ absolute lenghts</h3>
+        <p>การแสดงผลของ position: absolute; จะแสดงผลเป็น “อิสระ” คือจะให้มันไปอยู่ตรงไหนก็ได้ ซึ่งมันจะอยู่แค่ภายใต้
+            element ที่ครอบมันอีกทีเท่านั้น
+            การใช้งานที่นิยมมักจะเป็นการใส่ข้อความไปบนรูปภาพ เช่น กำหนดรูปภาพเป็น relative แล้วกำหนดข้อความเป็น absolute
+        </p>
+        <h4 style="text-align: center;">ตัวอย่าง</h4>
+        <div class="gallery">
+            <div>
+                <img src="2.jpg" alt="IceCream Chocolate">
+                <p>ไอติมช็อกโกแลต</p>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>

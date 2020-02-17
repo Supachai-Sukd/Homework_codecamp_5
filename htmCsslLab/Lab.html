@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .content{
+            text-align: center;
+        }
+        .tablelab{
+            width: 100%;
+        }
+            
+            
+       
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+          }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <br>
+    <div>
+    <h1 class="content">1.ให้หาว่า Attribute ของ Tag ต่อไปนี้มีอะไรบ้างและใช้งานอย่างไร</h1>
+    <table class="tablelab">
+        <tr>
+            <th>ชื่อ Tag</th>
+            <th>ลักษะณะการใช้งาน</th>
+            
+        </tr>
+        <tr>
+            <td>H</td>
+            <td>ใช้ประกาศหัวข้อของเนื้อหาในส่วนนั้นๆ</td>
+        </tr>
+        <tr>
+            <td>p</td>
+            <td>paragraph นั้นใช้ในการอธิบายสิ่งต่างๆโดยทุก tag p จะขึ้นย่อหน้าใหม่ทุกครั้ง</td>
+        </tr>
+        <tr>
+            <td>div</td>
+            <td>division คือ tag ที่ช่วยในการจัดการหน้าเว็ปให้เป็นส่วนๆเป็น group เช่น div <br> นี้เราต้องการให้มี class อะไรห่างตรงนั้นเท่าไรอีก div นึงต้องการตัวหนังสือคนละสีกับอีก div นึงเป็นต้น</td>
+        </tr>
+        <tr>
+            <td>img</td>
+            <td>ใช้ในการ ใส่รูปภาพ</td>
+        </tr>
+        <tr>
+            <td>a</td>
+            <td>ใช้ในการทำ Link ต่างๆไม่ว่าจะเป็น text link,button link เป็นต้น</td>
+        </tr>
+        <tr>
+            <td>ul</td>
+            <td>unorder list ใช้แสดงรายการเป็น List โดยข้างหน้าเป็น bullet จุดดำๆไม่มีตัวเลข</td>
+        </tr>
+        <tr>
+            <td>ol</td>
+            <td>order list ใช้แสดงรายการเป็น list โดยข้างหน้าเป็นตัวเลขกำกับ</td>
+        </tr>
+        <tr>
+            <td>table</td>
+            <td>ใช้ในการสร้างตารางส่วนใหญ่ใช้ในการแสดงข้อมูลในหน้าเว็ป</td>
+        </tr>
+        <tr>
+            <td>form</td>
+            <td>ใช้ทำเป็นฟอร์มในการลงทะเบียน ล๊อกอิน หรือ อื่นๆ</td>
+        </tr>
+        <tr>
+            <td>button</td>
+            <td>เป็นปุ่มใช้ในการ submit cancel form หรือทำเป็น link ได้เป็นต้น</td>
+        </tr>
+
+    </table>
+</div>
+<br>
+<div>
+    <h1 class="content">
+        2.ให้หาความเหมือนและความแตกต่างระหว่าง 2 tag ที่กำหนดให้
+    </h1>
+    <table class="tablelab">
+<tr>
+    <th>Tag</th>
+    <th>ความเหมือน</th>
+    <th>ความต่าง</th>
+</tr>
+<tr>
+    <td>hr & br</td>
+    <td>เป็นการเว้นระยะของแต่ละส่วนที่เราต้องการ</td>
+    <td>ต่างกันตรง hr เป็นขีดยาว br ไม่มีขีด</td>
+</tr>
+<tr>
+    <td>ul & ol</td>
+    <td>แสดงรายการเป็น list เหมือนกัน</td>
+    <td>ul เป็น bullet จุดดำๆข้างหน้า ol เป็นตัวเลข</td>
+</tr>
+<tr>
+    <td>select & checkbox & radio button</td>
+    <td>เป็นการเลือกเหมือนกัน เช่น เลือกเพศ</td>
+    <td>select เป็นแบบ drop down <br> checkbox เป็นแบบช่องติ๊กถูกเลือกได้มากกว่า 1 <br>radio button เป็นช่องกลมๆให้เลือกและเลือกได้อันเดียว </td>
+</tr>
+<tr>
+    <td>div & span</td>
+    <td>เป็นการแบ่งกลุ่มของ code ช่วยในการจัดการหน้าเว็ปให้ง่าย</td>
+    <td>div เป็นการแบ่งกลุ่ม code เป็นแนวตั้งเช่น div อันที่ 2 ต่อจาก div บนลงมาข้างล่างแต่การใช้งานในระดับสูงสามารถประยุกต์ใส่ 
+        class ต่างๆให้อยู่แนวนอนหรือตั้งได้หมด <br>span เป็นการแบ่งกลุ่มออกไปทางแนวนอน</td>
+</tr>
+<tr>
+    <td>script & style</td>
+    <td>เป็น tag ที่ใช้สำหรับใส่ code ที่ไม่ใช่ html เหมือนกัน</td>
+    <td>script เป็น tag ที่ใช้สำหรับใส่ code javascript เข้าไปข้างใน <br>style เป็น tag
+    สำหรับใส่ code css เข้าไปข้างใน</td>
+</tr>
+    </table>
+</div>
+<br>
+<div>
+    
+    
+    <h1 class="content">3.ให้หาว่า input type มีอะไรบ้างแต่ละ type แตกต่างกันอย่างไร</h1>
+    <table class="tablelab">
+        <tr>
+            <th>ประเภท Input</th>
+            <th>หน้าที่</th>
+        </tr>
+        <tr>
+            <td>input type="text"</td>
+            <td>Input ประเภทข้อความ</td>
+        </tr>
+        <tr>
+            <td>input type="password"</td>
+            <td>Input ประเภทรหัสผ่านตอนกรอกจะเป็นกลมๆไม่แสดงตัวหนังสือ</td>
+        </tr>
+        <tr>
+            <td>input type="submit"</td>
+            <td>Input นิยมใช้กับ form กดแล้วจะส่งข้อมูลใน form ที่กรอกไว้ไปยัง server</td>
+        </tr>
+        <tr>
+            <td>input type="reset"</td>
+            <td>Input นิยมใช้กับ form กดแล้วจะ clear form ไปค่า default</td>
+        </tr>
+        <tr>
+            <td>input type="radio"</td>
+            <td>Input นิยมใช้กับ form เป็นตัวเลือกให้ user เลือกและสามารถเลือกได้แค่อันเดียว</td>
+        </tr>
+        <tr>
+            <td>input type="checkbox"</td>
+            <td>Input นิยมใช้กับ form เป็นตัวเลือกให้ user สามารถเลือกกี่อันก็ได้หรือไม่เลือกก็ได้</td>
+        </tr>
+        <tr>
+            <td>input type="button"</td>
+            <td>เป็นการสร้างปุ่มอยากให้ทำอะไร้เพิ่มต้องระบุ value เพิ่ม</td>
+        </tr>
+        <tr>
+            <td>input type="color"</td>
+            <td>Input ใช้สำหรับเลือกสี</td>
+        </tr>
+        <tr>
+            <td>input type="date"</td>
+            <td>Input ใช้สำหรับเลือกวันที่</td>
+        </tr>
+        <tr>
+            <td>input type="datetime-local"</td>
+            <td>Input ใช้สำหรับเลือกวันที่แบบไม่อ้างอิง time zone</td>
+        </tr>
+        <tr>
+            <td>input type="email"</td>
+            <td>Input ใช้สำหรับกรอก email</td>
+        </tr>
+        <tr>
+            <td>input type="file"</td>
+            <td>Input ใช้สำหรับเลือก file ที่จะ upload</td>
+        </tr>
+        <tr>
+            <td>input type="month"</td>
+            <td>Input ใช้สำหรับเลือกเดือน</td>
+        </tr>
+        <tr>
+            <td>input type="number"</td>
+            <td>Input ใช้สำหรับกรอกตัวเลขเท่านั้น</td>
+        </tr>
+        <tr>
+            <td>input type="range"</td>
+            <td>Input ใช้สำหรับเลือกปริมาณที่เกี่ยวกับตัวเลขเป็นแบบ bar เลื่อนไปมา เช่น เพิ่ม ลด เสียง</td>
+        </tr>
+        <tr>
+            <td>input type="search"</td>
+            <td>Input ใช้สำหรับค้นหาข้อมูล</td>
+        </tr>
+        <tr>
+            <td>input type="tel"</td>
+            <td>Input ใช้สำหรับใส่ข้อมูลเบอร์โทรศัพท์</td>
+        </tr>
+        <tr>
+            <td>input type="time"</td>
+            <td>Input ใช้สำหรับเลือกเวลา</td>
+        </tr>
+        <tr>
+            <td>input type="url"</td>
+            <td>Input ใช้สำหรับใส่ link url เช่น เว็ปของตัวเองเป็นต้น</td>
+        </tr>
+        <tr>
+            <td>input type="week"</td>
+            <td>Input ใช้สำหรับเลือกสัปดาห์</td>
+        </tr>
+    </table>
+</div>
+<div>
+<h1 class="content">Lab เสริม</h1>
+<table class="tablelab">
+    <tr>
+        <th>ชื่อ Tag</th>
+        <th>หน้าที่</th>
+    </tr>
+    <tr>
+        <td><strong>strong</strong></td>
+        <td>ตัวหนังสือหนา</td>
+    </tr>
+    <tr>
+        <td><label>label</label></td>
+        <td>เป็นเหมือนป้ายกับกำเช่น ช่องใส่ password จะมี label กำกับไว้ข้างบนว่า password</td>
+    </tr>
+    <tr>
+        <td><del>del</del></td>
+        <td>เป็น tag สำหรับขีดฆ่าตัวหนังสือ</td>
+    </tr>
+    <tr>
+        <td><b>b</b></td>
+        <td>ตัวหนังสือหนา</td>
+    </tr>
+    <tr>
+        <td><em>em</em></td>
+        <td>ตัวหนังสือเอียง</td>
+    </tr>
+    <tr>
+        <td><mark>mark</mark></td>
+        <td>เป็น tag สำหรับเน้นตัวหนังสือ</td>
+    </tr>
+    <tr>
+        <td><i>i</i></td>
+        <td>ตัวหนังสือเอียง</td>
+    </tr>
+    <tr>
+        <td>test<sub>sub</sub></td>
+        <td>ตัวหนังสือห้อย</td>
+    </tr>
+    <tr>
+        <td>test<sup>sup</sup></td>
+        <td>ตัวหนังสือสูงขึ้นไปข้างบน</td>
+    </tr>
+    <tr>
+        <td>Lorem</td>
+        <td>ใช้สำหรับจำลองข้อความขึ้นมาเพื่อที่ตอนดูภาพรวมของเว็ปจะได้เห็นภาพชัดมากขึ้นในกรณียังไม่รู้จะพิมพ์อะไร</td>
+        
+    </tr>
+
+</table>
+
+
+</div>
+<br>
+<br>
+</div>
+</body>
+</html>
