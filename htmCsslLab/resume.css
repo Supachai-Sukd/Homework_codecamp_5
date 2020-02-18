@@ -1,0 +1,64 @@
+.resume{
+    text-align: center;
+    color: blue;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+.profilepic{
+    border: solid black 1px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: auto;
+}
+.myname{
+    font-weight: bold;
+    text-align: center;
+    font-size: 35px;
+}
+.slogan{
+    font-size: 24px;
+        font-style: italic;
+        text-transform: capitalize;
+        color: maroon;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.skill {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+ul.sk li {
+    color: mediumseagreen;
+    font-weight: bold;
+}
+.exp {
+    text-decoration: underline;
+}
+.year {
+    color: blue;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.job {
+    color: hotpink;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+table {
+    border-collapse: collapse;
+}
+.workyear {
+    width: 30%;
+    padding: 10px;
+    word-spacing: 5px;
+    color: blue;
+}
+.jd {
+    width: 70%;
+    word-spacing: 5px;
+    color: blue;
+}
