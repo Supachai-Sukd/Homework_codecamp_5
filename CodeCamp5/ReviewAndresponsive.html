@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review and responsive</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        
+
+        .anstable {
+            border: solid 1px black;
+            border-collapse: collapse;
+        }
+        #pfont{
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="anstable" border="1">
+        <tr>
+            <th>CSS syntax</th>
+            <th>CSS Writing</th>
+            <th>selector</th>
+            <th>combinator</th>
+        </tr>
+        <tr>
+            <td>1.Selector คือ ส่วน HTML tag ที่เราต้องการจะให้แสดงผล เช่น tag table <br>
+                2.Property คือ ส่วนของคุณสมบัติที่เราต้องการให้แสดง เช่น <br> สีตัวอักษร , ชนิดตัวอักษร , ขนาดตัวอักษร
+                <br>
+                3.Value คือ ค่าที่เราต้องการให้แสดง เช่น <br> ตัวอักษรสีแดง , ตัวอักษรแบบ tahoma , ตัวอักษรขนาด 12 pt
+            </td>
+            <td>มี 3 แบบ <br> 1.ประกาศ tag style ในส่วน head <br>
+                2.ทำไฟล์แยกแล้ว import เข้า file html <br>
+                3.Inline style คือ เขียนใน element นั้นๆเลย</td>
+            <td>1.Class selector <br>
+                2.Id selector <br>
+                3.Tag Selector</td>
+            <td>1.Descendant combinators <br>
+                2.Child combinators <br>
+                3.Sibling combinators</td>
+        </tr>
+    </table>
+   <h2>For example css syntax </h2>
+   <img src="/CodeCamp5/csspattle.png" alt="css syntax">
+   <p>รูปแบบของคำสั่ง CSS นั้นจะประกอบไปด้วย 3 ส่วนคือ</p>
+  <ol>
+      <li>Selector คือ ส่วน HTML tag ที่เราต้องการจะให้แสดงผล เช่น <table> ก็จะแสดงผลในส่วนของตาราง</li>
+      <li>Property คือ ส่วนของคุณสมบัติที่เราต้องการให้แสดง เช่น สีตัวอักษร , ชนิดตัวอักษร , ขนาดตัวอักษร</li>
+      <li>Value คือ ค่าที่เราต้องการให้แสดง เช่น ตัวอักษรสีแดง , ตัวอักษรแบบ tahoma , ตัวอักษรขนาด 12 pt</li>
+  </ol>
+<h2>CSS Writing Style</h2>
+<h3>Class selector</h3>
+<img src="/CodeCamp5/classselect.png" alt="classselect">
+<p>ในการกำหนด selector นั้นเราจะใช้ . หรือ จุดในการกำหนด selector ประเภท class ตามรูปตัวอย่างข้างบน
+แล้วเราต้องการให้มีคุณสมบัติอะไรเราก็ใส่ไปในการกำหนด selector ของอันนั้นๆส่วนวิธีการใช้นั้นใน tag html 
+ที่เราต้องการใช้นั้นเราก็พิมพ์คำว่า class ตามรูปตัวอย่าง การใช้ selector แบบ class นั้นมีข้อดีคือ จะยืดหยุ่นกว่าแบบ ID เพราะ
+ใน 1 html tag ที่มีการใช้ class ต่างๆเราสามารถใส่ได้มากกว่า 1 class
+</p>
+<h3>ID Selector</h3>
+<p>ตัวอย่างการใช้งาน ID selector</p>
+<img src="/CodeCamp5/idselect.png" alt="idselector">
+<p id="pfont">ตัวอย่าง id selector ใน P tag</p>
+<img src="/CodeCamp5/idselectshow.png" alt="tag p color">
+<p>เป็นการกำหนด selector อีกแบบหนึ่ง ซึ่งเราจะใช้สัญลักษณ์ # นำหน้า selector ของเรา 
+    เราควรเลือกใช้ ID เมื่อเราต้องการระบุถึงส่วนสำคัญของหน้าที่ในหน้าหนึ่งๆจะมีแค่หนึ่งเดียวเท่านั้น เช่น ส่วนหัวด้านบนของหน้า, ส่วนเมนูหลักของหน้า, ส่วนเนื้อหาของหน้า หรือส่วนท้ายสุดที่ประกอบในหน้า หรือเลือกใช้ ID ในส่วนที่เราต้องการใส่
+</p>
+
+</body>
+
+</html>
