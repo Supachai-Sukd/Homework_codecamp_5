@@ -10,14 +10,24 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        
+
 
         .anstable {
             border: solid 1px black;
             border-collapse: collapse;
         }
-        #pfont{
+
+        #pfont {
             color: green;
+        }
+
+        div.show p {
+            color: crimson;
+        }
+
+        div.child>div {
+            color: darkblue;
+            
         }
     </style>
 </head>
@@ -47,31 +57,82 @@
                 3.Sibling combinators</td>
         </tr>
     </table>
-   <h2>For example css syntax </h2>
-   <img src="/CodeCamp5/csspattle.png" alt="css syntax">
-   <p>รูปแบบของคำสั่ง CSS นั้นจะประกอบไปด้วย 3 ส่วนคือ</p>
-  <ol>
-      <li>Selector คือ ส่วน HTML tag ที่เราต้องการจะให้แสดงผล เช่น <table> ก็จะแสดงผลในส่วนของตาราง</li>
-      <li>Property คือ ส่วนของคุณสมบัติที่เราต้องการให้แสดง เช่น สีตัวอักษร , ชนิดตัวอักษร , ขนาดตัวอักษร</li>
-      <li>Value คือ ค่าที่เราต้องการให้แสดง เช่น ตัวอักษรสีแดง , ตัวอักษรแบบ tahoma , ตัวอักษรขนาด 12 pt</li>
-  </ol>
-<h2>CSS Writing Style</h2>
-<h3>Class selector</h3>
-<img src="/CodeCamp5/classselect.png" alt="classselect">
-<p>ในการกำหนด selector นั้นเราจะใช้ . หรือ จุดในการกำหนด selector ประเภท class ตามรูปตัวอย่างข้างบน
-แล้วเราต้องการให้มีคุณสมบัติอะไรเราก็ใส่ไปในการกำหนด selector ของอันนั้นๆส่วนวิธีการใช้นั้นใน tag html 
-ที่เราต้องการใช้นั้นเราก็พิมพ์คำว่า class ตามรูปตัวอย่าง การใช้ selector แบบ class นั้นมีข้อดีคือ จะยืดหยุ่นกว่าแบบ ID เพราะ
-ใน 1 html tag ที่มีการใช้ class ต่างๆเราสามารถใส่ได้มากกว่า 1 class
-</p>
-<h3>ID Selector</h3>
-<p>ตัวอย่างการใช้งาน ID selector</p>
-<img src="/CodeCamp5/idselect.png" alt="idselector">
-<p id="pfont">ตัวอย่าง id selector ใน P tag</p>
-<img src="/CodeCamp5/idselectshow.png" alt="tag p color">
-<p>เป็นการกำหนด selector อีกแบบหนึ่ง ซึ่งเราจะใช้สัญลักษณ์ # นำหน้า selector ของเรา 
-    เราควรเลือกใช้ ID เมื่อเราต้องการระบุถึงส่วนสำคัญของหน้าที่ในหน้าหนึ่งๆจะมีแค่หนึ่งเดียวเท่านั้น เช่น ส่วนหัวด้านบนของหน้า, ส่วนเมนูหลักของหน้า, ส่วนเนื้อหาของหน้า หรือส่วนท้ายสุดที่ประกอบในหน้า หรือเลือกใช้ ID ในส่วนที่เราต้องการใส่
-</p>
-
+    <h2>For example css syntax </h2>
+    <img src="/CodeCamp5/csspattle.png" alt="css syntax">
+    <p>รูปแบบของคำสั่ง CSS นั้นจะประกอบไปด้วย 3 ส่วนคือ</p>
+    <ol>
+        <li>Selector คือ ส่วน HTML tag ที่เราต้องการจะให้แสดงผล เช่น <table> ก็จะแสดงผลในส่วนของตาราง</li>
+        <li>Property คือ ส่วนของคุณสมบัติที่เราต้องการให้แสดง เช่น สีตัวอักษร , ชนิดตัวอักษร , ขนาดตัวอักษร</li>
+        <li>Value คือ ค่าที่เราต้องการให้แสดง เช่น ตัวอักษรสีแดง , ตัวอักษรแบบ tahoma , ตัวอักษรขนาด 12 pt</li>
+    </ol>
+    <h2>CSS Writing Style</h2>
+    <h3>Class selector</h3>
+    <img src="/CodeCamp5/classselect.png" alt="classselect">
+    <p>ในการกำหนด selector นั้นเราจะใช้ . หรือ จุดในการกำหนด selector ประเภท class ตามรูปตัวอย่างข้างบน
+        แล้วเราต้องการให้มีคุณสมบัติอะไรเราก็ใส่ไปในการกำหนด selector ของอันนั้นๆส่วนวิธีการใช้นั้นใน tag html
+        ที่เราต้องการใช้นั้นเราก็พิมพ์คำว่า class ตามรูปตัวอย่าง การใช้ selector แบบ class นั้นมีข้อดีคือ
+        จะยืดหยุ่นกว่าแบบ ID เพราะ
+        ใน 1 html tag ที่มีการใช้ class ต่างๆเราสามารถใส่ได้มากกว่า 1 class
+    </p>
+    <h3>ID Selector</h3>
+    <p>ตัวอย่างการใช้งาน ID selector</p>
+    <img src="/CodeCamp5/idselect.png" alt="idselector">
+    <p id="pfont">ตัวอย่าง id selector ใน P tag</p>
+    <img src="/CodeCamp5/idselectshow.png" alt="tag p color">
+    <p>เป็นการกำหนด selector อีกแบบหนึ่ง ซึ่งเราจะใช้สัญลักษณ์ # นำหน้า selector ของเรา
+        เราควรเลือกใช้ ID เมื่อเราต้องการระบุถึงส่วนสำคัญของหน้าที่ในหน้าหนึ่งๆจะมีแค่หนึ่งเดียวเท่านั้น เช่น
+        ส่วนหัวด้านบนของหน้า, ส่วนเมนูหลักของหน้า, ส่วนเนื้อหาของหน้า หรือส่วนท้ายสุดที่ประกอบในหน้า หรือเลือกใช้ ID
+        ในส่วนที่เราต้องการใส่
+    </p>
+    <h2>Example combinator</h2>
+    <h3>Descendant combinators</h3>
+    <div class="show">
+        <p>คือ การเขียน Selector เพื่อสั่งการทำงานทั้งหมด ทั้ง ลูก หลาน เหลน โหลน โดยการเขียนนั้น ใช้ "ช่องว่าง"
+            ในการสั่งงาน
+            ตัวอย่างตามรูปด้านล่าง ความหมายคือ division ที่มี class show ให้ tag paragraph ใน division นี้ใช้สี crimson
+            
+        </p>
+        <img src="/CodeCamp5/divshowp.png">
+        <blockquote>ข้างบนที่ใส่ class เผื่อไปทำตัวอย่างอื่นจะได้ไม่ซ้ำกัน ส่วน tag นี้อยู่ใน division เดียวกันกับ tag p
+            แต่ว่าไม่โดนใช้สีเดียวกันกับ tag p เพราะไม่ตรงกับเงือนไข CSS ที่เราประกาศนั่นเองตัวอย่างรูปด้านล่าง
+        </blockquote>
+        <img src="/CodeCamp5/qouteindiv.png">
+    </div>
+    <h3>Child combinators</h3>
+    <div class="child">
+        <div>
+            <p>คือ การใช้งานจะเหมือนๆกับ Descendant ไม่ใช่สั่งงานแค่ลูกต่างกันแค่เราถนัดอะไร รูปตัวอย่างด้านล่าง แต่ถ้าเรา
+                ต้องการอะไรที่เฉพาะเจาะจงเราสามารถใส่ class หรือ id ที่ css ได้เลยและใน html tag เราก็เรียกใช้
+                class หรือ id นั้นๆ
+            </p>
+                <div>หลาน<div>เหลน<div>โหลน<p>หลืบ</p></div></div></div>
+        </div>
+        <p>รูปตัวอย่างด้านล่าง</p>
+        <img src="/CodeCamp5/divchild.png">
+       <img src="/CodeCamp5/laan.png" alt="">
+        
+    </div>
+    <br>
+<table class="anstable" border="1">
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
+        <th>Unit</th>
+        <th>Different</th>
+    </tr>
+    <tr>
+        <td>คือชื่อคุณสมบัติของ css เช่น width, height, position ฯลฯ</td>
+        <td>คือค่าของ property นั้นๆ ครับ เช่น 500px สำหรับความกว้าง</td>
+        <td>เป็นหน่วยต่างๆ เช่น <ol>
+            <li>px เป็นการกำหนดขนาดแบบตายตัว คือกำหนดไว้เท่าไรคือเท่านั้นเลย</li>
+            <li>em เป็น relative ซึ่งขนาดของ em นั้น จะขึ้นอยู่กับ parent element <br> ที่อยู่ใกล้ที่สุดโดย 1 em จะเท่ากับ 1 เท่าของขนาด font-size ของ parent element</li>
+            <li>rem นั้นก็คล้าย ๆ กับ em คือเป็น relative จะมีจุดต่างกันก็คือ rem <br> นั้นหมายถึง (root em) ซึ่งค่าของมันไม่ได้ขึ้นอยู่กับ element parent แต่จะขึ้นอยู่กับขนาดของ root element</li>
+        </ol></td>
+        <td>ไม่มีอะไรแตกต่างแต่เราต้องเข้าใจว่า css มี property : value และใน value พวกหน่วยที่เกี่ยวกับขนาดต่างๆจะมี
+            unit เป็นการกำหนดค่าของ value นั้นๆเช่น font-size: 40px; เป็นต้น
+        </td>
+    </tr>
+</table>
 </body>
 
 </html>
