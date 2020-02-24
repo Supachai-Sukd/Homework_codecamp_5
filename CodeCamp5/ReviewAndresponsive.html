@@ -248,14 +248,14 @@
     <table class="anstable" border="1" style="margin-top: 40px;">
         <tr>
             <th>Display Value</th>
-            
+
             <th>Grid</th>
             <th>Flex</th>
             <th>Justify and Align</th>
         </tr>
         <tr>
-            
-            <td  style="width: 25%;">
+
+            <td style="width: 25%;">
                 <ol>
                     <div>
                         <li>inline</li>
@@ -268,13 +268,15 @@
                     <div>
                         <li>block</li>
                         <ul>
-                            <li>แสดงองค์ประกอบเป็นองค์ประกอบบล็อก (เช่น p) มันเริ่มต้นในบรรทัดใหม่และรับความกว้างทั้งหมด</li>
+                            <li>แสดงองค์ประกอบเป็นองค์ประกอบบล็อก (เช่น p) มันเริ่มต้นในบรรทัดใหม่และรับความกว้างทั้งหมด
+                            </li>
                         </ul>
                     </div>
                     <div>
                         <li>contents</li>
                         <ul>
-                            <li>ทำให้คอนเทนเนอร์หายไปทำให้องค์ประกอบย่อยเป็นองค์ประกอบย่อยขององค์ประกอบระดับถัดไปใน DOM</li>
+                            <li>ทำให้คอนเทนเนอร์หายไปทำให้องค์ประกอบย่อยเป็นองค์ประกอบย่อยขององค์ประกอบระดับถัดไปใน DOM
+                            </li>
                         </ul>
                     </div>
                     <div>
@@ -293,7 +295,8 @@
                         <li>inline-block</li>
                         <ul>
                             <li>แสดงองค์ประกอบเป็นคอนเทนเนอร์บล็อกระดับแบบอินไลน์
-                                องค์ประกอบนั้นถูกจัดรูปแบบเป็นองค์ประกอบแบบอินไลน์ <br> แต่คุณสามารถใช้ค่าความสูงและความกว้างได้</li>
+                                องค์ประกอบนั้นถูกจัดรูปแบบเป็นองค์ประกอบแบบอินไลน์ <br>
+                                แต่คุณสามารถใช้ค่าความสูงและความกว้างได้</li>
                         </ul>
                     </div>
                     <div>
@@ -401,26 +404,29 @@
 
                 </ol>
             </td>
-        
+
             <td style="width: 25%;">
                 <img src="/CodeCamp5/gridcontain.png">
                 <blockquote>อันนี้คือการประกาศ CSS แบบ Class โดยการเขียนนั้นบรรทัดแรกคือบอกว่า
                     อันนี้คือ display แบบกริดนะ
-                    บรรทัด 2 คือ การประกาศความสูงในแนวตั้งให้สูง 150px แล้ว กำหนดให้มี auto 5 อัน 
-                    ความหมายคือเป็นการกำหนดคอลั่มนะว่าใน 1 row เนี่ยมี 5 Column ที่เหลือ คือ ช่องว่างระหว่างกัน สี ช่องว่างจากขอบ <br>
-                    อันนี้จะเหมือน div.row ของ boostrap แต่ boostrap จะมี std 12 column 
+                    บรรทัด 2 คือ การประกาศความสูงในแนวตั้งให้สูง 150px แล้ว กำหนดให้มี auto 5 อัน
+                    ความหมายคือเป็นการกำหนดคอลั่มนะว่าใน 1 row เนี่ยมี 5 Column ที่เหลือ คือ ช่องว่างระหว่างกัน สี
+                    ช่องว่างจากขอบ <br>
+                    อันนี้จะเหมือน div.row ของ boostrap แต่ boostrap จะมี std 12 column
                 </blockquote>
                 <img src="/CodeCamp5/gridcondiv.png">
                 <blockquote>บรรทัดแรก สี บรรทัดสอง ข้อความอะไรใน div ให้อยู่กลาง
-                    บรรทัดสามคือ ระยะห่างจากขอบ 20 ส่วน 0 คือ เป็นตำแหน่ง Default ของการใช้้ padding ถ้าเราปรับตัวเลขมากขึ้นหรือน้อย
+                    บรรทัดสามคือ ระยะห่างจากขอบ 20 ส่วน 0 คือ เป็นตำแหน่ง Default ของการใช้้ padding
+                    ถ้าเราปรับตัวเลขมากขึ้นหรือน้อย
                     ลงตัวหนังสือก็จะขยับขึ้นลงตาม บรรทัดสี่ ขนาดตัวอักษร สรุปความหมายของอันนี้คือ div ที่มี class
                     grid-container แล้ว div ข้างในให้มีคุณสมบัติตามข้างในนี้
-    
+
                 </blockquote>
             </td>
-            <td style="width: 25%;">Flex จะคล้ายๆกับ Grid แต่จะยืดหยุนมากกว่า Flex ใช้สิ่งที่เรียกว่า “Layout Mode” ในการกำหนดขนาด และจัดตำแหน่งของกล่องต่างๆ ซึ่ง layout mode นี้จะประกอบไปด้วย <br>
+            <td style="width: 25%;">Flex จะคล้ายๆกับ Grid แต่จะยืดหยุนมากกว่า Flex ใช้สิ่งที่เรียกว่า “Layout Mode”
+                ในการกำหนดขนาด และจัดตำแหน่งของกล่องต่างๆ ซึ่ง layout mode นี้จะประกอบไปด้วย <br>
 
-               <br> block <br>
+                <br> block <br>
                 ใช้จัดตำแหน่งเนื้อหาให้อยู่ในรูปแบบของ block <br>
                 inline
                 ใช้จัดตำแหน่งเนื้อหาให้อยู่ในรูปแบบของ text <br>
@@ -429,18 +435,53 @@
                 position <br>
                 ใช้จัดตำแหน่งของ elements ต่างๆ ได้อย่างอิสระมากขึ้น
             </td>
-            <td style="width: 25%;"></td>
-            
+            <td style="width: 25%;">Justify <br> เป็นการกำหนดการจัดตำแหน่งของ Flex Item ภายใน Flex Container<br>
+
+                <br> flex-start: จัด Flex Item ให้ชิดซ้าย
+                <br> flex-end: จัด Flex Item ให้ชิดขวา
+                <br> center: จัด Flex Item ให้อยู่ตรงกลาง
+                <br> space-between: จัด Flex Item ให้อยู่ระหว่างกัน
+                <br> space-around: จัด Flex Item ให้มีช่องว่างระหว่าง ด้านหน้า ตรงกลาง ด้านหลัง ให้เท่ากัน <br><br><br>
+                Align<br> เป็นการกำหนดการจัดตำแหน่งของ Flex Item ในแนวตั้ง ภายใน Flex Container<br>
+
+                <br>flex-start: จัด Flex Item ให้อยู่บนสุดใน Flex Container
+                <br> center: จัด Flex Item ให้อยู่ตรงกลางใน Flex Container
+                <br> flex-end: จัด Flex Item ให้อยู่ล่างสุดใน Flex Container</td>
+
         </tr>
     </table>
-    <table>
+
+    <table class="anstable" border="1" style="margin-top: 40px;">
         <tr>
-           
+<th>Position</th>
+<th>Z-Index</th>
         </tr>
         <tr>
-           
+<td>Position มี Value ดังนี้ <br>
+<ol>
+    <li>Static : เป็นค่าพื้นฐานของทุกบล๊อกโดยจะเลื่อนตามหน้าเว็บปกติ</li>
+    <li>relative : การเลื่อนออกจากตำแหน่งเดิม ตามที่เรากำหนดการดัน block จากทาง ซ้าย ขวา บน ล่าง</li>
+    <li>fixed : กำหนดให้ block นั้นยึดอยู่กับที่บนหน้าเว็บ</li>
+    <li>absolute : การเลื่อนออกจากมุมซ้ายบนสุดของหน้าจะ ตามการกำหนดการดัน block จากทางซ้าย บน ขวา ล่าง</li>
+    <li>sticky : การรวม relative กับ fixed ไว้ด้วยกัน โดยการกำหนด relative เพิ่มว่าจะให้ไป fix ที่ top หรือ bottom ทำให้เราเห็น block นั้นเลื่อนและถูกตรึงไว้เมื่อเรา เลื่อน scroll เมาส์</li>
+</ol></td>
+<td>Z-Index : เป็นการจัดการ element ในรูปแบบชั้น layer บนหน้าจอโดยค่าน้อยจะอยู่ด้านหลัง
+    ส่วนค่ามากจะอยู่ด้านหน้า ค่าเริ่มต้นของทุก element คือ z index = 0
+</td>
         </tr>
     </table>
+    <h2>ตัวอย่าง CSS Property</h2>
+    <h3>static</h3>
+    <img src="/CodeCamp5/static.png">
+    <h3>absolute</h3>
+    <img src="/CodeCamp5/absolute.png">
+    <h3>fixed</h3>
+    <img src="/CodeCamp5/fixed.png">
+    <h3>relatiive</h3>
+    <img src="/CodeCamp5/relative.png">
+    <h3>initial</h3>
+    <img src="/CodeCamp5/initial.png">
+
 </body>
 
 </html>
