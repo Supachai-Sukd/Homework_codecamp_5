@@ -27,8 +27,36 @@
 
         div.child>div {
             color: darkblue;
+
+        }
+        .formnakub{
+            border: solid black 1px;
+            padding: 20px;
+            width: 600px;
+            height: 400px;
+            display: block;
+            margin: auto;
             
         }
+        .gapinput{
+            padding: 5px;
+        }
+        .inputform{
+            
+            margin: auto;
+        }
+        div form div label{
+            width: 25%;
+            float: left;
+            text-align: left;
+        } 
+        div form div select{
+            width: 25%;
+        }
+        div form div{
+            overflow: hidden;
+        }
+        
     </style>
 </head>
 
@@ -90,7 +118,7 @@
         <p>คือ การเขียน Selector เพื่อสั่งการทำงานทั้งหมด ทั้ง ลูก หลาน เหลน โหลน โดยการเขียนนั้น ใช้ "ช่องว่าง"
             ในการสั่งงาน
             ตัวอย่างตามรูปด้านล่าง ความหมายคือ division ที่มี class show ให้ tag paragraph ใน division นี้ใช้สี crimson
-            
+
         </p>
         <img src="/CodeCamp5/divshowp.png">
         <blockquote>ข้างบนที่ใส่ class เผื่อไปทำตัวอย่างอื่นจะได้ไม่ซ้ำกัน ส่วน tag นี้อยู่ใน division เดียวกันกับ tag p
@@ -101,38 +129,116 @@
     <h3>Child combinators</h3>
     <div class="child">
         <div>
-            <p>คือ การใช้งานจะเหมือนๆกับ Descendant ไม่ใช่สั่งงานแค่ลูกต่างกันแค่เราถนัดอะไร รูปตัวอย่างด้านล่าง แต่ถ้าเรา
+            <p>คือ การใช้งานจะเหมือนๆกับ Descendant ไม่ใช่สั่งงานแค่ลูกต่างกันแค่เราถนัดอะไร รูปตัวอย่างด้านล่าง
+                แต่ถ้าเรา
                 ต้องการอะไรที่เฉพาะเจาะจงเราสามารถใส่ class หรือ id ที่ css ได้เลยและใน html tag เราก็เรียกใช้
                 class หรือ id นั้นๆ
             </p>
-                <div>หลาน<div>เหลน<div>โหลน<p>หลืบ</p></div></div></div>
+            <div>หลาน<div>เหลน<div>โหลน<p>หลืบ</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <p>รูปตัวอย่างด้านล่าง</p>
         <img src="/CodeCamp5/divchild.png">
-       <img src="/CodeCamp5/laan.png" alt="">
-        
+        <img src="/CodeCamp5/laan.png" alt="">
+
     </div>
     <br>
-<table class="anstable" border="1">
-    <tr>
-        <th>Property</th>
-        <th>Value</th>
-        <th>Unit</th>
-        <th>Different</th>
-    </tr>
-    <tr>
-        <td>คือชื่อคุณสมบัติของ css เช่น width, height, position ฯลฯ</td>
-        <td>คือค่าของ property นั้นๆ ครับ เช่น 500px สำหรับความกว้าง</td>
-        <td>เป็นหน่วยต่างๆ เช่น <ol>
-            <li>px เป็นการกำหนดขนาดแบบตายตัว คือกำหนดไว้เท่าไรคือเท่านั้นเลย</li>
-            <li>em เป็น relative ซึ่งขนาดของ em นั้น จะขึ้นอยู่กับ parent element <br> ที่อยู่ใกล้ที่สุดโดย 1 em จะเท่ากับ 1 เท่าของขนาด font-size ของ parent element</li>
-            <li>rem นั้นก็คล้าย ๆ กับ em คือเป็น relative จะมีจุดต่างกันก็คือ rem <br> นั้นหมายถึง (root em) ซึ่งค่าของมันไม่ได้ขึ้นอยู่กับ element parent แต่จะขึ้นอยู่กับขนาดของ root element</li>
-        </ol></td>
-        <td>ไม่มีอะไรแตกต่างแต่เราต้องเข้าใจว่า css มี property : value และใน value พวกหน่วยที่เกี่ยวกับขนาดต่างๆจะมี
-            unit เป็นการกำหนดค่าของ value นั้นๆเช่น font-size: 40px; เป็นต้น
-        </td>
-    </tr>
-</table>
+    <table class="anstable" border="1">
+        <tr>
+            <th>Property</th>
+            <th>Value</th>
+            <th>Unit</th>
+            <th>Different</th>
+        </tr>
+        <tr>
+            <td>คือชื่อคุณสมบัติของ css เช่น width, height, position ฯลฯ</td>
+            <td>คือค่าของ property นั้นๆ ครับ เช่น 500px สำหรับความกว้าง</td>
+            <td>เป็นหน่วยต่างๆ เช่น <ol>
+                    <li>px เป็นการกำหนดขนาดแบบตายตัว คือกำหนดไว้เท่าไรคือเท่านั้นเลย</li>
+                    <li>em เป็น relative ซึ่งขนาดของ em นั้น จะขึ้นอยู่กับ parent element <br> ที่อยู่ใกล้ที่สุดโดย 1 em
+                        จะเท่ากับ 1 เท่าของขนาด font-size ของ parent element</li>
+                    <li>rem นั้นก็คล้าย ๆ กับ em คือเป็น relative จะมีจุดต่างกันก็คือ rem <br> นั้นหมายถึง (root em)
+                        ซึ่งค่าของมันไม่ได้ขึ้นอยู่กับ element parent แต่จะขึ้นอยู่กับขนาดของ root element</li>
+                </ol>
+            </td>
+            <td>ไม่มีอะไรแตกต่างแต่เราต้องเข้าใจว่า css มี property : value และใน value
+                พวกหน่วยที่เกี่ยวกับขนาดต่างๆจะมี
+                unit เป็นการกำหนดค่าของ value นั้นๆเช่น font-size: 40px; เป็นต้น
+            </td>
+        </tr>
+    </table>
+    <div style="margin-top: 40px;" class="formnakub">
+        <form action="#">
+            <div class="gapinput">
+                <label for="name">Name <span style="color: red;">*</span></label>
+                <input type="text" class="inputform"> &#63;
+            </div>
+            <div class="gapinput">
+                <label for="#">Tab Text <span style="color: red;">*</span></label>
+                <input type="text"> &#63;
+            </div>
+            <div class="gapinput">
+                <label for="#">URL <span style="color: red;">*</span></label>
+                <span>http://www.wizehive.com/webform</span>
+                <input type="text">
+            </div>
+            <h2 style="text-transform: uppercase;background-color:gray;padding:3px">Form Setup</h2>
+            <div class="gapinput">
+                <label for="#">Form</label>
+                <select name="test" id="test">
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                </select>
+                <button>edit</button>
+            </div>
+            <div class="gapinput">
+                <label for="#">Logo</label>
+                <span style="color: gray;">no logo uploadded</span>
+                <input type="file">
+            </div>
+            <div class="gapinput">
+                <label for="">Template Text</label>
+                <select name="" id="">
+                    <option value="english">English</option>
+                    <option value="france">France</option>
+                </select>
+                <button>Edit</button>
+            </div>
+            <div class="gapinput">
+                <label for="#">Review Form</label>
+                <select name="" id="">
+                    <option value="default">Default</option>
+                   
+                </select>
+            </div>
+            <div class="gapinput">
+                <label for="">Review Score</label>
+                <select name="" id="">
+                    <option value="">Rating</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button>Reload Fields</button>
+            </div>
+            <div class="gapinput">
+                <label for="">Scoring Type</label>
+                <select name="" id="" style="width: 14%;">
+                    <option value="average">Average</option>
+                    <option value="max">Max</option>
+                    <option value="min">Min</option>
+                </select>
+            </div>
+            <div class="gapinput">
+                <label for="">Max Score</label>
+                <input type="text" value="4.00">
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
