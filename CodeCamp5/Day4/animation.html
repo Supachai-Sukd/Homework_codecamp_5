@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            display: block;
+            margin: auto;
+            border: solid black 1px;
+            border-radius: 5%;
+            animation-name: firstbox;
+            animation-duration: 10s;
+            background-color: red;
+
+        }
+
+        @keyframes firstbox {
+            form {
+                background-color: red;
+
+            }
+
+            to {
+                border: solid black 5px;
+                border-radius: 50%;
+                background-color: blueviolet;
+            }
+        }
+
+        #box2 {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            display: block;
+            margin: auto;
+            border: solid black 1px;
+            border-radius: 5%;
+            animation-name: secondbox;
+            animation-duration: 10s;
+            background-color: darkslateblue;
+            visibility:hidden;
+            
+        }
+
+        @keyframes secondbox {
+            1% {
+                left:0px; top:0px;
+                background-color: blue;
+                visibility:unset;
+                border: solid rosybrown 1px;
+            }
+
+            25% {
+                left:200px; top:0px;
+                background-color: brown;
+                border: dotted gold 20px;
+            }
+
+            50% {
+                left:200px; top:200px;
+                background-color: chartreuse;
+                border: double red 15px;
+            }
+            75%{
+                left:0px; top:200px;
+                background-color: darkorange;
+                border: groove blue 30px;
+            }
+
+            100% {
+               background-color: deepskyblue;
+               left:0px; top:0px;
+               border:  ridge tomato 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+
+</html>
