@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            display: block;
+            margin: auto;
+            border: solid black 1px;
+            border-radius: 5%;
+            animation-name: firstbox;
+            animation-duration: 10s;
+            background-color: red;
+            animation-delay: 5s;
+            visibility: hidden;
+            animation-iteration-count: 5;
+            animation-direction: alternate;
+
+        }
+        @keyframes firstbox {
+            1% {
+                left:0px; top:0px;
+                background-color: blue;
+                visibility:unset;
+                border: solid rosybrown 1px;
+            }
+
+            25% {
+                left:200px; top:0px;
+                background-color: brown;
+                border: dotted gold 20px;
+            }
+
+            50% {
+                left:200px; top:200px;
+                background-color: chartreuse;
+                border: double red 15px;
+            }
+            75%{
+                left:0px; top:200px;
+                background-color: darkorange;
+                border: groove blue 30px;
+            }
+
+            100% {
+               background-color: deepskyblue;
+               left:0px; top:0px;
+               border:  ridge tomato 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+   
+</body>
+</html>
