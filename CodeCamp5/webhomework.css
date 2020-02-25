@@ -1,0 +1,162 @@
+.row{
+    display: flex;
+    
+    
+}
+    
+   
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+
+
+/* For desktop: */
+.col-1 {
+width: 8.33%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+-ms-flex: 0 0 8.33%;
+flex: 0 0 8.33%;}
+.col-2 {
+width: 16.66%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+-ms-flex: 0 0 16.66%;
+flex: 0 0 16.66%;}
+.col-3 {
+width: 25%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px; 
+-ms-flex: 0 0 25%;
+flex: 0 0 25%;}
+.col-4 {
+width: 33.33%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+-ms-flex: 0 0 33.33%;
+flex: 0 0 33.33%;}
+.col-5 {
+width: 41.66%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+-ms-flex: 0 0 41.66%;
+flex: 0 0 41.66%;}
+.col-6 {
+width: 50%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+-ms-flex: 0 0 50%;
+flex: 0 0 50%;}
+.col-7 {
+width: 58.33%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+-ms-flex: 0 0 58.33%;
+flex: 0 0 58.33%;}
+.col-8 {
+width: 66.66%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+-ms-flex: 0 0 66.66%;
+flex: 0 0 66.66%;}
+.col-9 {
+width: 75%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+-ms-flex: 0 0 75%;
+flex: 0 0 75%;}
+.col-10 {
+width: 83.33%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+-ms-flex: 0 0 83.33%;
+flex: 0 0 83.33%;}
+.col-11 {
+width: 91.66%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+-ms-flex: 0 0 91.66%;
+flex: 0 0 91.66%;}
+.col-12 {
+width: 100%;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+-ms-flex: 0 0 100%;
+flex: 0 0 100%;}
+  
+  .content{
+      text-align: center;
+  }
+  .mylogo{
+      height: 600px;
+  }
+  .footnakub{
+      display: block;
+      margin: auto;
+  }
+.mynav{
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+  
+footer table tr th{
+    width: 25%;
+    float: left;
+    text-align: left;
+}
+  
+
