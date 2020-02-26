@@ -12,4 +12,4 @@
 
 ---
 
-> Writing in branch Dev.
+> Writing in branch Dev Day 6.
