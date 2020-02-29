@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2 - HTML Form Validation Project</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .formsimple {
+            width: 600px;
+            display: block;
+            margin: auto;
+        }
+
+        div.formsimple form span {
+            font-weight: bold;
+            color: purple;
+            margin-bottom: 5px;
+        }
+
+        div.formsimple form p {
+            color: rgb(185, 76, 185);
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .field {
+            padding: 10px;
+        }
+
+        div.formsimple div.field fieldset input {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Project 2 - HTML Form Validation Project -->
+    <div class="formsimple">
+        <form action="" autocomplete="on">
+            <span> A Simple Form </span> <br>
+            <p> Form Fundamentals</p>
+            <div class="field">
+                <fieldset>
+
+                    <legend>Customer Info</legend>
+                    <label>Name:
+                    <input type="text" placeholder="Enter your name" autofocus required size="50"><br><br>
+                </label>
+                    <label>Telephone:
+                    <input type="tel" placeholder="Pattern 1-234-567-8910" pattern="([0-9]{1}(-[0-9]{3})(-[0-9]{3})(-[0-9]{4}))"><br><br>
+                </label>
+                    <label>Email address:
+                    <input type="email" placeholder="Enter your email address" required multiple size="50"><br>
+                </label>
+                </fieldset>
+            </div>
+            <div class="field">
+                <fieldset>
+                    <legend>Books</legend>
+                    <label>
+                        <input type="text" style="width: 200px;" list="books">
+                        <datalist id="books">
+                            <option value="HTML เล่ม 1">
+                            <option value="HTML เล่ม 2">
+                            <option value="HTML เล่ม 3">
+                            <option value="HTML เล่ม 4">
+                            <option value="HTML เล่ม 5">
+                        </datalist>
+                    </label>
+                    <label>Quantity (Maximum 5):</label>
+                    <input type="number" style="width: 150px;" min="1" max="5">
+                </fieldset>
+            </div>
+            <button type="submit">Submit</button>
+            <blockquote>&copy; 2011 Acme United All rights reserved.</blockquote>
+        </form>
+    </div>
+
+</body>
+
+</html>
