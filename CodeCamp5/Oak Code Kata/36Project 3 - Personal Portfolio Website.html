@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3 - Personal Portfolio Website</title>
+    <script src=" https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <style>
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            box-shadow: 0 2px 0 black;
+            z-index: 10;
+            background-color: brown;
+            height: 80px;
+            align-items: center;
+
+        }
+
+        nav.nav div a {
+            color: azure;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-size: 30px;
+            text-decoration: none;
+        }
+
+        nav.nav div a:hover {
+            background-color: blueviolet;
+        }
+
+        .welcome-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: #000;
+            background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+        }
+
+        section.welcome-section h1 {
+            font-size: 60px;
+            color: aliceblue;
+        }
+
+        section.welcome-section p {
+            font-style: italic;
+            color: brown;
+            font-size: 35px;
+        }
+
+        .projects-section-head {
+            max-width: 640px;
+            margin: 0 auto 6rem auto;
+            border-bottom: 0.2rem solid white;
+            font-size: 45px;
+            color: aliceblue;
+        }
+
+        .projects-section {
+            text-align: center;
+            padding: 10rem 2rem;
+            background: rgb(141, 51, 141);
+        }
+
+        .projects-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-gap: 4rem;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            margin-bottom: 6rem;
+
+        }
+
+        .project-image {
+            height: calc(100% - 6.8rem);
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .project-title {
+            font-size: 25px;
+
+        }
+
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+
+        }
+
+        .code {
+            color: #3a3d40;
+            transition: color 0.3s ease-out;
+
+        }
+
+        .project:hover .code {
+            color: #ff7f50;
+        }
+
+
+        .project {
+            text-decoration: none;
+            box-shadow: 1px 1px 2px 2px black;
+            border-radius: 2px;
+        }
+
+        img {
+            display: block;
+        }
+
+        p {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+
+        section.projects-section div.projects-layout a p {
+            background-color: #3a3d40;
+            color: aliceblue;
+
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 2px;
+            background-color: #3a3d40;
+            color: aliceblue;
+            border: solid 1px #3a3d40;
+        }
+
+        button.btn:hover {
+            background-color: brown;
+            cursor: pointer;
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #303841;
+            color: aliceblue;
+        }
+
+        section.contact div a {
+            color: aliceblue;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        section.contact div {
+            display: flex;
+            padding: 1px;
+
+        }
+        .logocontact{
+            position: relative;
+        }
+
+        .logocontact:hover {
+            top: 10px;
+
+        }
+
+
+
+
+        section.contact h1 {
+            font-size: 45px;
+        }
+
+        section.contact p {
+            font-size: 25px;
+            font-style: italic;
+
+        }
+        .footport{
+            background-color: #303841;
+            color: aliceblue;
+           text-align: center;
+            height: 150px;
+            font-size: 20px;
+            display: flex;
+            margin-top: 5px;
+            justify-content: center;
+            align-items: center;
+        }
+            
+            
+            
+        
+        footer.footport span a{
+            color: aliceblue;
+            text-decoration: none;
+            
+            
+           
+        }
+       body{
+           background-color: brown;
+       }
+    </style>
+</head>
+
+<body>
+    <!-- Project 3 - Personal Portfolio Website -->
+    <nav class="nav">
+
+        <div>
+            <a href="">About</a>
+        </div>
+        <div>
+            <a href="">Work</a>
+
+        </div>
+        <div>
+            <a href="">Contact</a>
+        </div>
+
+    </nav>
+    <section class="welcome-section" id="welcome-section">
+        <h1>Hey I am Bank</h1>
+        <p>a web developer</p>
+    </section>
+    <section id="projects" class="projects-section">
+        <h2 class="projects-section-head">These are some of my projects</h2>
+        <div class="projects-layout">
+            <a href="#" target="_blank" class="project project-title" style="background-color: #3a3d40;">
+                <img class="project-image" src="/CodeCamp5/Oak Code Kata/images/PortfolioProject.png" alt="">
+                <p class="project-title">
+
+                    <span class="code">
+                        < </span>
+                            Tribute Page
+                            <span class="code">/> </span>
+
+
+                </p>
+            </a>
+            <a href="#" target="_blank" class="project project-title" style="background-color: #3a3d40;">
+                <img class="project-image" src="/CodeCamp5/Oak Code Kata/images/PortfolioProject.png" alt="">
+                <p class="project-title">
+
+                    <span class="code">
+                        < </span>
+                            Tribute Page
+                            <span class="code">/> </span>
+
+
+                </p>
+            </a>
+            <a href="#" target="_blank" class="project project-title" style="background-color: #3a3d40;">
+                <img class="project-image" src="/CodeCamp5/Oak Code Kata/images/PortfolioProject.png" alt="">
+                <p class="project-title">
+
+                    <span class="code">
+                        < </span>
+                            Tribute Page
+                            <span class="code">/> </span>
+
+
+                </p>
+            </a>
+            <a href="#" target="_blank" class="project project-title" style="background-color: #3a3d40;">
+                <img class="project-image" src="/CodeCamp5/Oak Code Kata/images/PortfolioProject.png" alt="">
+                <p class="project-title">
+
+                    <span class="code">
+                        < </span>
+                            Tribute Page
+                            <span class="code">/> </span>
+
+
+                </p>
+            </a>
+            <a href="#" target="_blank" class="project project-title" style="background-color: #3a3d40;">
+                <img class="project-image" src="/CodeCamp5/Oak Code Kata/images/PortfolioProject.png" alt="">
+                <p class="project-title">
+
+                    <span class="code">
+                        < </span>
+                            Tribute Page
+                            <span class="code">/> </span>
+
+
+                </p>
+            </a>
+            <a href="#" target="_blank" class="project project-title" style="background-color: #3a3d40;">
+                <img class="project-image" src="/CodeCamp5/Oak Code Kata/images/PortfolioProject.png" alt="">
+                <p class="project-title">
+
+                    <span class="code">
+                        < </span>
+                            Tribute Page
+                            <span class="code">/> </span>
+
+
+                </p>
+            </a>
+
+        </div>
+        <button class="btn">Show all ></button>
+    </section>
+    <section class="contact">
+        <h1>Let's work together...</h1>
+        <p>How do you take your coffee?</p>
+        <div style="margin-bottom: 100px;">
+
+            <a href="#"><img class="logocontact" src="/CodeCamp5/Oak Code Kata/icon/facebook.png" alt=""></a>
+            <a href="#"><img class="logocontact" src="/CodeCamp5/Oak Code Kata/icon/github.png" alt=""></a>
+            <a href="#"><img class="logocontact" src="/CodeCamp5/Oak Code Kata/icon/twitter.png" alt=""></a>
+            <a href="#"><img class="logocontact" src="/CodeCamp5/Oak Code Kata/icon/sendmail.png" alt=""></a>
+            <a href="#"><img class="logocontact" src="/CodeCamp5/Oak Code Kata/icon/callme.png" alt=""></a>
+        </div>
+
+
+
+
+
+    </section>
+    
+    <footer class="footport">
+        
+        <span>
+            **This is just a fake portfolio. All the projects and contact details given
+            are not real.&copy; Created for <a href="#" target="_blank">CodeCamp 5</a>
+        </span>
+        
+    </footer>
+</body>
+
+</html>
