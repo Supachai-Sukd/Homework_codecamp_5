@@ -1,6 +1,6 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: chartreuse;
+    
 }
 .mynav{
     justify-content: center;
@@ -27,11 +27,11 @@ body{
 .mynews{
     padding: 10px;
 }
-.col-4 div.media div.media-body h5 a:hover{
+div.card div.media div.media-body h5 a:hover{
     color: orangered;
     text-decoration: none;
 }
-.col-4 div.media div.media-body h5 a{
+div.card div.media div.media-body h5 a{
     
     font-weight: bold;
     color: black
@@ -50,8 +50,30 @@ body{
 }
 .listnews{
     margin-left: 70px;
+    width: 400px;
+}
+.firstcard{
+   position: relative;
+    flex-wrap: wrap;
+    display: flex;
+    margin: auto;
 }
 
 
-
-
+.newsleft{
+    order: 1;
+    
+    margin: auto;
+    position: relative;
+    
+}
+.newsmid{
+    order: 2;
+    position: relative;
+   
+}
+.newsright{
+    order: 3;
+    position: relative;
+   margin: auto;
+}
