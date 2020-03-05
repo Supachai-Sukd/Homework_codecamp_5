@@ -63,17 +63,33 @@ div.card div.media div.media-body h5 a{
 .newsleft{
     order: 1;
     
-    margin: auto;
-    position: relative;
+    
+    
     
 }
 .newsmid{
     order: 2;
-    position: relative;
+    
    
 }
 .newsright{
     order: 3;
-    position: relative;
    margin: auto;
+   margin-top: 0px;
+}
+.columnnews img{
+    display: flex;
+    
+    width: 122px;
+}
+.columnnews div.media-body p{
+    width: 122px;
+}
+.columnnews{
+    display: flex;
+    flex-direction: column;
+}
+
+.magazine{
+    
 }
