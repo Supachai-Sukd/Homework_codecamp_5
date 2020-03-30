@@ -1,11 +1,19 @@
 function method(n) {
-    let i;
-    for(i = 1;i <= n;i++){
-    console.log('*')
+    let i, j, star = "";
+    for (i = 1; i <= n; i++){
+        for(j=1;j<=n;j++){
+            star += String(j);
+        }
+        star += "\n";
+    }
+    console.log(star)
 }
-}  
-method(4) 
-    
+
+   
+
+
+method(4)
+
 
 
 
