@@ -1,5 +1,5 @@
 function method(n) {
-    let i,j;
+    let i;
     for(i = 1;i <= n;i++){
     console.log('*')
 }
