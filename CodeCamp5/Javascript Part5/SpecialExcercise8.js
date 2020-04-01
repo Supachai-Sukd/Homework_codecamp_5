@@ -1,5 +1,5 @@
 function method(n) {
-    let i,j,step="",result;
+    let i,step="",result;
     result = 0;
     for(i = 0;i < n;i++){
         
@@ -13,4 +13,4 @@ function method(n) {
     
 }
 
-method(3)
+method(2)
