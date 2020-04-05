@@ -43,3 +43,10 @@ console.log(obj);
 //     ann : 160,
 //     pete : 130
 // }
+
+// let multiplyNumberic = (obj, times) => {
+//     for (let key in obj) {
+//         if (typeof obj[key] !== "number") continue;
+//         obj[key] *= times
+//     }
+// }
