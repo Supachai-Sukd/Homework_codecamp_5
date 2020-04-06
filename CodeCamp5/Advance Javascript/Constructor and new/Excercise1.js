@@ -89,12 +89,45 @@
 
 
 
-function Salculator () {
+// function Salculator () {
+//     this.read = function () {
+//         this.num1 = Number(prompt(`Enter first number`));
+//         this.num2 = Number(prompt(`Enter second number`));
+//     }
+//     this.sum =function () {
+//         return this.num1 + this.num2;
+//     }
+//     this.mul = function () {
+//         return this.num1 * this.num2;
+//     }
+// }
+
+// let calc = new Salculator()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Calccu () {
     this.read = function () {
         this.num1 = Number(prompt(`Enter first number`));
         this.num2 = Number(prompt(`Enter second number`));
     }
-    this.sum =function () {
+    this.sum = function () {
         return this.num1 + this.num2;
     }
     this.mul = function () {
@@ -102,4 +135,4 @@ function Salculator () {
     }
 }
 
-let calc = new Salculator()
+let calc = new Calccu()
