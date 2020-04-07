@@ -1,10 +1,18 @@
-function sumInput (sum) {
-    let i,result;
-    let total = [];
-    while (sum !== typeof(Number)) {
-        let read = prompt("Enter number");
-        read = total[i]
-        i++;
-    }
-    alert(result)
+function sumInput() {
+  let numbers = /^[0-9]+$/;
+  let total = [];
+  let result = 0;
+
+  let read = prompt(`Enter number`);
+  for (let i = 0; read.match(numbers); i++) {
+    total[i] = read;
+
+    result += total[i];
+
+    read = prompt(`Enter number`);
+  }
+
+  alert(result);
 }
+
+sumInput();
