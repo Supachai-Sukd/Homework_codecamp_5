@@ -1,9 +1,13 @@
+//###########################################################################
+
 let array1 = [1, 2, 30, 400].map(function (x) {
   return x * 2;
 });
 
 console.log(array1);
 
+
+//###########################################################################
 let array2 = [1, 2, 3, 4];
 let array22 = array2.map(function(item, index, array) {
     return (` "${item}" `)
@@ -11,6 +15,8 @@ let array22 = array2.map(function(item, index, array) {
 
 console.log(array22);
 
+
+//###########################################################################
 let array3 = [1, "1", 2, {}];
 let array33 = array3.map(function(item, index, array) {
     return typeof(item);
@@ -18,6 +24,8 @@ let array33 = array3.map(function(item, index, array) {
 
 console.log(array33);
 
+
+//###########################################################################
 let array4 = ["apple", "banana", "orange"];
 let array44 = array4.map(function(item, index, array) {
     return item.toUpperCase();
@@ -25,6 +33,8 @@ let array44 = array4.map(function(item, index, array) {
 
 console.log(array44);
 
+
+//###########################################################################
 let array5 = [
     { name: "apple", age: 14 },
     { name: "banana", age: 18 },
@@ -36,6 +46,8 @@ let array55 = array5.map(function(item, index, array) {
 
 console.log(array55);
 
+
+//###########################################################################
 let array6 = [
     { name: "apple", age: 14 },
     { name: "banana", age: 18 },
@@ -47,6 +59,8 @@ let array66 = array6.map(function(item, index, array) {
 
 console.log(array66);
 
+
+//###########################################################################
 let array7 = [
     { name: "apple", surname: "London" },
     { name: "banana", surname: "Bangkok" },
@@ -58,6 +72,8 @@ let array77 = array7.map(function(item, index, array) {
 
 console.log(array77);
 
+
+//###########################################################################
 let array8 = [1,3,4,5,6,7,8];
 let array88 = array8.map(function(item, index, array) {
     let result;
@@ -73,6 +89,7 @@ let array88 = array8.map(function(item, index, array) {
 console.log(array88);
 
 
+//###########################################################################
 let array9 = [1, -3, 2, 8, -4, 5]
 let array99 = array9.map(function(item, index, array) {
     let result;
@@ -87,6 +104,7 @@ let array99 = array9.map(function(item, index, array) {
 console.log(array99);
 
 
+//###########################################################################
 let array10 = [100, 200.25, 300.84, 400.3]
 let array1010 = array10.map(function(item, index, array) {
     return item.toFixed(2);
@@ -95,6 +113,7 @@ let array1010 = array10.map(function(item, index, array) {
 console.log(array1010);
 
 
+//###########################################################################
 let array11 = [
     { name: "apple", birth: "2000-01-01" },
     { name: "banana", birth: "1990-10-01" },
@@ -110,3 +129,21 @@ let array1111 = array11.map(function(item, index, array) {
 })
 
 console.log(array1111);
+
+
+//###########################################################################
+let array12 = [
+    { name: "apple", birth: "2000-01-01" },
+    { name: "banana", birth: "1990-10-10" },
+    { name: "watermelon", birth: "1985-12-30" },
+  ]
+let array1212 = array12.map(function(item, index, array) {
+    let display = (`<tr>
+    <td>${item.name}</td> 
+    <td>${item.birth}</td>
+   </tr>
+`)
+return display
+})
+
+console.log(array1212);
