@@ -89,3 +89,18 @@ let array10 = ["APPLE", "appLE", "PEACH", "PEach"].filter(function(x) {
     return x == x.toUpperCase();
 })
 console.log(array10);
+//#####################################################################################
+//#####################################################################################
+
+// filter คนเกิดเดือน 10
+let array11 = [
+    { name: "apple", birth: "2001-01-01" },
+    { name: "banana", birth: "1990-10-10" },
+    { name: "watermelon", birth: "1985-12-30" },
+    { name: "peach", birth: "2002-10-13" },
+  ].filter(function(x) {
+      let dueanTen;
+      dueanTen = x.birth.includes("-10-")
+    return dueanTen
+  })
+console.log(array11);
