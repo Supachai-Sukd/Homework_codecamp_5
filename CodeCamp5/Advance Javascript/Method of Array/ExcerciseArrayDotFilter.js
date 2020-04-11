@@ -21,3 +21,11 @@ let array3 = [1, "1", 2, {}].filter(function(x) {
   return x === parseInt(x)
 })
 console.log(array3);
+//#####################################################################################
+//#####################################################################################
+
+// filter ตัวอักษร > 6
+let array4 = ["apple", "banana", "orange", "pineapple", "watermeon"].filter(function(x) {
+    return x.length > 6;
+})
+console.log(array4);
