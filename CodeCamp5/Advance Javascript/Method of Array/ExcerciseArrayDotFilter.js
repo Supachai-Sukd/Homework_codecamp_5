@@ -101,6 +101,20 @@ let array11 = [
   ].filter(function(x) {
       let dueanTen;
       dueanTen = x.birth.includes("-10-")
-    return dueanTen
+    return dueanTen;
   })
 console.log(array11);
+//#####################################################################################
+//#####################################################################################
+
+// filter คนเกิดก่อนปี 2000
+let array12 = [
+    { name: "apple", birth: "2001-01-01" },
+    { name: "banana", birth: "1990-10-10" },
+    { name: "watermelon", birth: "1985-12-30" },
+    { name: "peach", birth: "2002-10-13" },
+  ].filter(function(x) {
+      let before2000;
+      return before2000 = x.birth.slice(0, 4) < 2000;
+  })
+console.log(array12);
