@@ -11,8 +11,10 @@ function sumInput() {
 
     read = prompt(`Enter number`);
   }
-
-  alert(result);
+  let resultOfMap = total.map(function (item, index, array) {
+    return item;
+  });
+  alert(resultOfMap);
 }
 
 sumInput();
