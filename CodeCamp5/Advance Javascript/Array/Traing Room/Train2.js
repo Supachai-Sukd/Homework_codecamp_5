@@ -4,6 +4,7 @@ function getMaxSubSum (arr) {
     for (let value of arr) {
         maxSum += value
         maxValue = Math.max(maxValue, maxSum);
+        maxValue
         if (maxSum < 0 ) maxSum = 0;
     }
     return maxValue;
