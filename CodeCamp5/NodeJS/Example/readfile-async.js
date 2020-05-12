@@ -2,11 +2,12 @@ const fs = require("fs");
 
 const getFile = (filename) => {
     return new Promise((resolve, reject) => {
+        if (filename == 'f02.txt') reject('Error from fs02')
         fs.readFile(filename, (err, data) => resolve(data) )
     })
 }
 
-async function rungetFile() {
+(async function rungetFile() {
     try {
     const data = await getFile('./start.txt')
     console.log(`${data}`)
@@ -20,6 +21,6 @@ async function rungetFile() {
     console.error('error :  ' + err);
     
 }
-}
+})()
 
-rungetFile()
+// rungetFile()
