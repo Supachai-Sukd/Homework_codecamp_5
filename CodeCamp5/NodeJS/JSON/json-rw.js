@@ -1,5 +1,5 @@
 const fs = require('fs')
-let data, jsobj, users
+let data, jsobj, users, newData
 
 data = fs.readFileSync('./sample.json')
 // console.log(data.toString());
@@ -8,7 +8,10 @@ jsobj = JSON.parse(data)
 // console.log(jsobj);
 users = jsobj.users
 users.map((item ,index ,array ) => {
-    console.log(`${item.firstName} : ${item.phoneNumber}`)
+    if (item.lastName === 'neo') item.lastName = 'Neoakrub'
+    console.log(`${item.firstName} : ${item.lastName}`)
 })
 
-
+newData = JSON.stringify(jsobj)
+fs.writeFileSync('./output.json', newData)
+console.log('Save output.json OK');
