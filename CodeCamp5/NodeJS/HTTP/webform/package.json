@@ -1,0 +1,17 @@
+{
+  "name": "webform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "web-formbody.js",
+  "scripts": {
+    "start": "nodemon web-formbody.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body": "^5.1.0",
+    "lodash": "^4.17.15"
+  }
+}

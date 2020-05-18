@@ -12,6 +12,10 @@ function renderHtml(filename, req, res) {
 http.createServer( (req, res) => {
     if (req.url === '/')
     return renderHtml('./index.html', req, res)
+
+    if (req.url === '/form')
+    return renderHtml('./form.html', req, res)
+    
     res.writeHead(404, {'content-type' : 'text/html'})
     res.write('file not found')
     res.end()
