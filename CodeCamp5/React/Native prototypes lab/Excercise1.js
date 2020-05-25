@@ -3,9 +3,7 @@ function f() {
 }
 
 Function.prototype.defer = function (ms) {
-  setTimeout((ms) => {
-    f();
-  }, ms);
+  setTimeout(this, ms) 
 };
 
-f.defer(10000);
+f.defer(5000);
