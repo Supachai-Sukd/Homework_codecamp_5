@@ -9,7 +9,8 @@ import ParentCom from './component/ParentComponent'
 function App() {
   return (
     <div className="App">
-      <ParentCom/>
+    <p id="content">CSS by ID</p>
+    <ParentCom/>
     <ComponentClass/>
     <ComponentClass/>
     <ChildClass/>
