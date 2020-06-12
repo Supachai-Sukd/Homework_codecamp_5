@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import {Card} from "./cardmovie/card"
 import Chat from "./Chat/Chat"
+import Todo from "./todoList/TodoList"
 
 class App extends React.Component {
   state = {
@@ -66,6 +67,7 @@ class App extends React.Component {
           {card.map( item => <Card pic={item.pic} title={item.title} content={item.content}/>)}
           
         </div>
+        <Todo/>
         <Chat />
         </div>
         

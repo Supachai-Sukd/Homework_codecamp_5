@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import next from 
+import next from ".../public/arrow.png"
 
 export default class TodoList extends Component {
     state = {
