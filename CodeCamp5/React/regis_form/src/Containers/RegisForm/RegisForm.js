@@ -69,16 +69,25 @@ class RegisForm extends Component {
     onChangeInput = (e) => {
         const fieldName = e.target.name
         const fieldValue = e.target.value
-        const upDateFormUpdate = {...this.state.formData}
-        upDateFormUpdate[fieldName].value = fieldValue
+        const upDateForm = {...this.state.formData}
+        upDateForm[fieldName].value = fieldValue
 
-        let { isValid, message } = this.checkValue(e.target.value, upDateFormUpdate[fieldName].validator)
+        let { isValid, message } = this.checkValue(e.target.value, upDateForm[fieldName].validator)
 
-        upDateFormUpdate[fieldName].error.status = !isValid
-        upDateFormUpdate[fieldName].error.message = message
+        upDateForm[fieldName].error.status = !isValid
+        upDateForm[fieldName].error.message = message
+
+        let newIsFormValid = true
+        for (let fn in upDateForm) {
+            //ถ้า error เป็นจริง newIsFormValid ต้องไม่เป็นจริง
+            if (upDateForm[fn].validator.required === true) {
+                newIsFormValid = !upDateForm[fn].error.status && newIsFormValid
+            }
+        }
 
         this.setState({
-            formData: upDateFormUpdate
+            formData: upDateForm,
+            isFormValid: newIsFormValid
         })
     }
 
