@@ -110,3 +110,13 @@
     transform: rotate(360deg);
   }
 }
+
+.Invalid {
+  border: 1px solid red;
+  background-color:red;
+}
+
+.ErrorMessage {
+  color: red;
+  margin: 5px 0;
+}

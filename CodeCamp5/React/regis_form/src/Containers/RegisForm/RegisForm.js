@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Input from '../Input/input'
 
 class RegisForm extends Component {
     state = {
@@ -10,7 +11,7 @@ class RegisForm extends Component {
                 maxLength: 6,
                 required: true
             },
-            error: { status: true, message: "" }
+            error: { status: true, message: "", isTouched: false }
         },
         phoneNumber: {
             value : "",
@@ -18,14 +19,14 @@ class RegisForm extends Component {
                 minLength: 10,
                 maxLength: 10
             },
-            error: { status: true, message: "" }
+            error: { status: true, message: "", isTouched: false }
         },
         email: {
             value: "",
             validator: {
                 required: true
             },
-            error: { status: true, message: "" }
+            error: { status: true, message: "" , isTouched: false}
         },
         password: {
             value: "",
@@ -34,7 +35,7 @@ class RegisForm extends Component {
                 maxLength: 24,
                 required: true
             },
-            error: { status: true, message: "" }
+            error: { status: true, message: "", isTouched: false }
         }
        },
        isFormValid: false
@@ -76,6 +77,7 @@ class RegisForm extends Component {
 
         upDateForm[fieldName].error.status = !isValid
         upDateForm[fieldName].error.message = message
+        upDateForm[fieldName].error.isTouched = true
 
         let newIsFormValid = true
         for (let fn in upDateForm) {
@@ -103,10 +105,11 @@ class RegisForm extends Component {
             
             <div className="RegisterForm">
                 <form onSubmit={this.onSubmitForm}>
-                <input onChange={this.onChangeInput} value={name.value} className="Input InputElement" name="name" placeholder="Name" />
-                <input onChange={this.onChangeInput} value={phoneNumber.value} className="Input InputElement" name="phoneNumber" placeholder="Phone" />
-                <input onChange={this.onChangeInput} value={email.value} className="Input InputElement" name="email" placeholder="Mail" />
-                <input onChange={this.onChangeInput} value={password.value} className="Input InputElement" name="password" type="password" placeholder="pass" />
+                <Input onChangeInput={this.onChangeInput} value={name.value} name="name" placeholder="ชื่อ" error={name.error} />
+                <Input onChangeInput={this.onChangeInput} value={phoneNumber.value} name="phoneNumber" placeholder="เบอร์" error={phoneNumber.error} />
+                <Input onChangeInput={this.onChangeInput} value={email.value} name="email" placeholder="เมลล์" error={email.error} />
+                <Input onChangeInput={this.onChangeInput} value={password.value} name="password" placeholder="รหัสผ่าน" error={password.error} />
+                
                 <button disabled={!isFormValid} htmlFor="submit" className="Button">Register</button>
 
             </form>
