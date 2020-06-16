@@ -1,41 +1,75 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {Row,Col,Form,Input} from "antd"
-
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Row, Col, Form, Input, Button } from "antd";
 
 function App() {
   const layout = {
     labelCol: {
-      span: 8,
+      xs: 6,
+      sm: 8,
+      md: 10,
     },
     wrapperCol: {
-      span: 16,
+      xs: 18,
+      sm: 16,
+      md: 14,
     },
-  }
-  
-return (
+  };
+
+  let onFinish = (values) => {
+    console.log(values);
+  };
+
+  return (
     <div className="App">
       <Row justify="center">
         <Col xs={24} sm={24} md={20} lg={16} xl={14} xxl={12}>
-        <Form {...layout}>
-          <Form.Item label="name">
-            <Input/>
-          </Form.Item>
-          <Form.Item label="Phone">
-            <Input/>
-          </Form.Item>
-          <Form.Item label="email">
-            <Input/>
-          </Form.Item>
-          <Form.Item label="password">
-            <Input/>
-          </Form.Item>
-        </Form>
+          <Form onFinish={onFinish} {...layout}>
+            <Form.Item
+              label="name"
+              name="name"
+              rules={[
+                { max: 6, min: 3, message: "ชื่อต้องอยู่ระหว่าง 3 - 6 นะจ๊ะ" },
+                { required: true, message: "คุณต้องกรอกช่องนี้" },
+              ]}
+            >
+              <Input placeholder="ชื่อของคุณ" />
+            </Form.Item>
+
+            <Form.Item 
+            label="Phone" 
+            name="phoneNumber"
+            rules={[
+              {len: 10, message:"เบอร์คุณไม่ถูกต้อง"}
+            ]} >
+              <Input placeholder="เบอร์ของคุณ" />
+            </Form.Item>
+
+            <Form.Item 
+            label="email" 
+            name="email"
+            rules={[
+              {type: "email", message: "รูปแบบเมลไม่ถูกต้อง"},
+              { required: true, message: "คุณต้องกรอกเมลด้วยนะจ้ะ"}
+            ]} >
+              <Input placeholder="เมลของคุณ" />
+            </Form.Item>
+
+            <Form.Item 
+            label="password" 
+            name="password"
+            rules={[
+              { required: true, message: "คุณต้องใส่รหัสผ่านด้วย"},
+              {min: 12, max: 24, message: "รหัสผ่านต้องมี 12 - 24 ตัว"}
+            ]} >
+              <Input type="password" placeholder="รหัสของคุณ" />
+            </Form.Item>
+
+            <Button htmlType="submit">ลงทะเบียน</Button>
+          </Form>
         </Col>
-       
       </Row>
-      
     </div>
   );
 }
