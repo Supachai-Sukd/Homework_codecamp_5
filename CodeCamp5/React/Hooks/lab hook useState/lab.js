@@ -34,27 +34,27 @@ export const TodoList = () => {
     })
 
      //แบบจำลอง  useEffect แบบ componentDidmount
-     useEffect(()=> {
-        console.log("แบบจำลอง useEffect แบบ componentDidmount ")
-        console.log("เช่นเราคอย track ไว้พอ done ทำงานปุบในปีกกา useEffect ก็จะทำคำสั่งที่อยู่ข้างใน เช่น")
-        console.log("listUpdate(list + 1) เราสามารถใส่โลจิกอะไรไปก็ได้จากการที่เราคอย track done ไว้")
-    }, [done])
+    //  useEffect(()=> {
+    //     console.log("แบบจำลอง useEffect แบบ componentDidmount ")
+    //     console.log("เช่นเราคอย track ไว้พอ done ทำงานปุบในปีกกา useEffect ก็จะทำคำสั่งที่อยู่ข้างใน เช่น")
+    //     console.log("listUpdate(list + 1) เราสามารถใส่โลจิกอะไรไปก็ได้จากการที่เราคอย track done ไว้")
+    // }, [done])
     
     //แบบจำลอง  useEffect แบบ componentDidupdate
-    useEffect(()=> {
-        console.log("สมมุดว่า track done ไว้พอ event done เกิดก็ให้ทำคำสั่งที่เป็นการ Update ในนี้่")
-        const handleAdd1 = () => {
-            listUpdate([...list, text])
-            textUpdate("")
-        }
-    }, [done])
+    // useEffect(()=> {
+    //     console.log("สมมุดว่า track done ไว้พอ event done เกิดก็ให้ทำคำสั่งที่เป็นการ Update ในนี้่")
+    //     const handleAdd1 = () => {
+    //         listUpdate([...list, text])
+    //         textUpdate("")
+    //     }
+    // }, [done])
 
 
 
 
 
 
-
+    
 
 
 
