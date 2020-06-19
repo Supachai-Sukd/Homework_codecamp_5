@@ -4,12 +4,12 @@ import Home from './component/home'
 import Context, {Context2} from './Context'
 
 function App() {
-  const [state, setState] = useState([{content: "Hello world"}])
+  const [state, setState] = useState({content: "Hello world"})
   return (
-    <Context.Provider value={{state, setState}} >
+    <Context2.Provider value={{state, setState}} >
       <Home />
       
-    </Context.Provider>
+    </Context2.Provider>
     
   );
 }
