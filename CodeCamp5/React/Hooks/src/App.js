@@ -12,7 +12,7 @@ import Example from './component/Example'
 function App() {
   const [state, setState] = useState({content: "Hello World"})
   return (
-  
+    <Counter />
     
   );
 }
