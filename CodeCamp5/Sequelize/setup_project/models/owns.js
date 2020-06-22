@@ -3,7 +3,10 @@ module.exports = (sequelize, DataTypes) => {
         day: {
             type: DataTypes.STRING(10)
         }
+    },{
+        tableName: 'owns',
+        timestamps: false,
     })
 
-    return model
+    return model;
 }

@@ -7,12 +7,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER
         }
     },{
-        tableName: 'customers'
+        tableName: 'customers',
+        timestamps: false,
     }
     )
     model.associate = models => {
-        model.belongsToMany(models.Account, { through: models.Owns })
+        model.belongsToMany(models.Account, { through: models.Owns,  foreignKey: 'customer_id'  })
     }
 
-    return model
+    return model;
 }
