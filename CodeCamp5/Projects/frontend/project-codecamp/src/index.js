@@ -7,10 +7,9 @@ import { BrowserRouter } from 'react-router-dom'
 import 'antd/dist/antd.css';
 
 ReactDOM.render(
- <BrowserRouter>
+  <BrowserRouter>
     <App />
- </BrowserRouter>
- ,
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
