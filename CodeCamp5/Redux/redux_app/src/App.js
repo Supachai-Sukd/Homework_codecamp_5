@@ -11,8 +11,8 @@ class App extends React.Component {
 
   addHistory = (e) => {
     e.preventDefault()
-    this.props.addHistory({ type: "ADD_HISTORY", name: this.state.name, email: this.state.email })
-    this.setState({ name: "", email: "" })
+    this.props.addHistory({ type: "ADD_HISTORY", name: this.props.state.textName, email: this.props.state.textEmail })
+    
   }
 
   render() {
