@@ -1,40 +1,80 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
+import { Card, Row, Col, Button } from 'antd';
 import '../../App.css'
-import { Layout, Menu, Breadcrumb } from 'antd';
-const { Row, Col, Header, Footer, Sider, Content } = Layout
-
-
-
-
+const { Meta } = Card;
 
 function Home() {
     return (
+        <Row>
+            <Row span={24} style={{ display: "flex", margin: "auto" }}>
 
-        ReactDOM.render(
-            <Layout>
-            <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-              <div className="logo" />
-              <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-                <Menu.Item key="1">nav 1</Menu.Item>
-                <Menu.Item key="2">nav 2</Menu.Item>
-                <Menu.Item key="3">nav 3</Menu.Item>
-              </Menu>
-            </Header>
-            <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
-              <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>List</Breadcrumb.Item>
-                <Breadcrumb.Item>App</Breadcrumb.Item>
-              </Breadcrumb>
-              <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
-                Content
-              </div>
-            </Content>
-            <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-          </Layout>
-          
-            )
+
+
+                <Col className="card-product" span={6} style={{ margin: "30px" }}>
+                    <Card
+
+                        hoverable
+                        style={{ width: 240 }}
+                        cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                    >
+                        <Meta title="Laptop" description="First you get !!" />
+                        <Row style={{ marginTop:"15px" }}>
+
+                            <Col span={12}>
+                                <Button type="primary" size="small" style={{ backgroundColor: "green", color:"white" }}>
+                                    Buy
+                                </Button>
+                            </Col>
+
+                            <Col span={12}>
+                                <Button type="primary" size="small" style={{ backgroundColor: "yellow", color:"black"}}>
+                                    Add to cart
+                                </Button>
+                            </Col>
+
+                        </Row>
+                    </Card>
+                </Col>
+
+
+
+                <Col className="card-product" span={6} style={{ margin: "30px" }}>
+                    <Card
+
+                        hoverable
+                        style={{ width: 240 }}
+                        cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                    >
+                        <Meta title="Computer" description="First you get !!" />
+                    </Card>
+                </Col>
+
+
+
+
+                <Col className="card-product" span={6} style={{ margin: "30px" }}>
+                    <Card
+
+                        hoverable
+                        style={{ width: 240 }}
+                        cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                    >
+                        <Meta title="Notebook" description="First you get !!" />
+                    </Card>
+                </Col>
+
+
+
+
+
+
+
+
+
+            </Row>
+
+        </Row>
+
     )
 }
 
