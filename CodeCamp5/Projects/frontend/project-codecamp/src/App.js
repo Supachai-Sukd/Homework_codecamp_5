@@ -8,6 +8,7 @@ import Login from './component/pages/Login'
 import Register from './component/pages/Register'
 import Mycart from './component/pages/Mycart'
 import Comingsoon from './component/pages/Comingsoon'
+import Logoutsuccess from './component/pages/Logout'
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider , Footer} = Layout;
@@ -21,13 +22,12 @@ function App() {
 <Layout className="layout">
     <Header>
       <div className="logo" />
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item key="1"><Link to={"/"} >Home</Link>  </Menu.Item>
-        <Menu.Item key="2"> <Link to={"/"} >Product</Link> </Menu.Item>
-        <Menu.Item key="3"><Link to={"/mycart"}>My Cart</Link>  </Menu.Item>
-        <Menu.Item key="4" style={{ float:"right" }}><Link to={"/coming"}>Logout</Link></Menu.Item>
-        <Menu.Item key="5" style={{ float:"right" }}  ><Link to={"/login"}>Login</Link></Menu.Item>
-        <Menu.Item key="6" style={{ float:"right" }}><Link to={"/mycart"}>Welcome Mr.Supachai</Link></Menu.Item>
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+        <Menu.Item key="1"><Link to={"/"} >Lasapee</Link>  </Menu.Item>
+        <Menu.Item key="2"><Link to={"/mycart"}>My Cart</Link>  </Menu.Item>
+        <Menu.Item key="3" style={{ float:"right" }}><Link to={"/logout"}>Logout</Link></Menu.Item>
+        <Menu.Item key="4" style={{ float:"right" }}  ><Link to={"/login"}>Login</Link></Menu.Item>
+        <Menu.Item key="5" style={{ float:"right" }}><Link to={"/mycart"}>Welcome Mr.Supachai</Link></Menu.Item>
       </Menu>
     </Header>
     <Content style={{ padding: '0 50px' }}>
@@ -44,6 +44,7 @@ function App() {
         <Route exact path="/register" component={Register}  />
         <Route exact path="/mycart" component={Mycart}  />
         <Route exact path="/coming" component={Comingsoon} />
+        <Route exact path="/logout" component={Logoutsuccess} />
         
       </Switch>
 
