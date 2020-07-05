@@ -41,13 +41,14 @@ class App extends React.Component {
 
 }
 
+// Used to add reducer's state into the props
 const mapStateToProps = state => {
   return {
     data: state.count,
     state: state
   }
 }
-
+// Used to add action (dispatch) into the props
 const mapDispatchToProps = dispatch => {
   return {
     plus: (action) => dispatch(action),
@@ -57,5 +58,17 @@ const mapDispatchToProps = dispatch => {
     addPerson: (action) => dispatch(action)
   }
 }
+
+// Used to add reducer's state into the props
+const mapStateToProps = (state) => ({
+  fetchReducer: state.fetchReducer
+})
+// Used to add action (dispatch) into the props
+const mapDispatchToProps = {
+  fetchData
+}
+
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
