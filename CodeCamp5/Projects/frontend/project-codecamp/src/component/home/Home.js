@@ -1,81 +1,85 @@
 import React from 'react'
-import { Card, Row, Col, Button } from 'antd';
+import { Form, Input, Button, Checkbox } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import '../../App.css'
-const { Meta } = Card;
 
-function Home() {
+// ห้านี้คือหน้า Login
+
+
+function Logins() {
+    const onFinish = values => {
+        console.log('Received values of form: ', values);
+    };
+
+   
+    
+
     return (
-        <Row>
-            <Row span={24} style={{ display: "flex", margin: "auto" }}>
+
+       <div>
+
+      <h1 style={{ textAlign:"center",fontSize:"40px",fontWeight:"bold",marginTop:"40px" }}>Inventory System</h1>
+
+        <Form
+            style={{ display: "block", margin: "auto", marginTop: "60px" }}
+            name="normal_login"
+            className="login-form"
+            initialValues={{
+                remember: true,
+            }}
+            onFinish={onFinish}
+        >
+            <Form.Item
+                name="username"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Please input your Username!',
+                    },
+                ]}
+            >
+                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+            </Form.Item>
+            <Form.Item
+                name="password"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Please input your Password!',
+                    },
+                ]}
+            >
+                <Input
+                    prefix={<LockOutlined className="site-form-item-icon" />}
+                    type="password"
+                    placeholder="Password"
+                />
+            </Form.Item>
+            <Form.Item>
+                <Form.Item name="remember" valuePropName="checked" noStyle>
+                    <Checkbox>Remember me</Checkbox>
+                </Form.Item>
+
+                <a className="login-form-forgot" href="">
+                    Forgot password
+              </a>
+            </Form.Item>
+
+            <Form.Item>
+                <Button type="primary" htmlType="submit" className="login-form-button">
+                    Log in
+              </Button>
+              Or <a href="/register">register now!</a>
+            </Form.Item>
+        </Form>
+
+        </div>
+
+    );
+   
+};
 
 
 
-                <Col className="card-product" span={6} style={{ margin: "30px" }}>
-                    <Card
 
-                        hoverable
-                        style={{ width: 240 }}
-                        cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                    >
-                        <Meta title="Laptop" description="First you get !!" />
-                        <Row style={{ marginTop:"15px" }}>
-
-                            <Col span={12}>
-                                <Button type="primary" size="small" style={{ backgroundColor: "green", color:"white" }}>
-                                    Buy
-                                </Button>
-                            </Col>
-
-                            <Col span={12}>
-                                <Button type="primary" size="small" style={{ backgroundColor: "yellow", color:"black"}}>
-                                    Add to cart
-                                </Button>
-                            </Col>
-
-                        </Row>
-                    </Card>
-                </Col>
-
-
-
-                <Col className="card-product" span={6} style={{ margin: "30px" }}>
-                    <Card
-
-                        hoverable
-                        style={{ width: 240 }}
-                        cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                    >
-                        <Meta title="Computer" description="First you get !!" />
-                    </Card>
-                </Col>
-
-
-
-
-                <Col className="card-product" span={6} style={{ margin: "30px" }}>
-                    <Card
-
-                        hoverable
-                        style={{ width: 240 }}
-                        cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                    >
-                        <Meta title="Notebook" description="First you get !!" />
-                    </Card>
-                </Col>
-
-
-
-
-
-
-
-
-
-            </Row>
-
-        </Row>
-
-    )
-}
-
-export default Home
+export default Logins
