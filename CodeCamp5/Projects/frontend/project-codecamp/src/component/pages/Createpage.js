@@ -1,22 +1,22 @@
 import React from 'react'
 import Navbar from '../Template-menu/Navbar'
-import ContentInventory from '../Template-menu/Content'
 import Leftmenu from '../Template-menu/Left-menu'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import Createuser from '../Createuserpage/Createpage'
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
-function Profile() {
+function Createpage() {
     return (
         <div>
-            <Layout>
+             <Layout>
                 <Navbar />
                 <Layout>
                     <Leftmenu />
                     <Layout>
-                        <ContentInventory />
+                        <Createuser />
                     </Layout>
                 </Layout>
             </Layout>
@@ -24,4 +24,4 @@ function Profile() {
     )
 }
 
-export default Profile
+export default Createpage

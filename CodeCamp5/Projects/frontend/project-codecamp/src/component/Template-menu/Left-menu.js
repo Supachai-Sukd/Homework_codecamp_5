@@ -5,13 +5,10 @@ import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
-function Sidemenu() {
-  return (
-    <div>
-      <Layout style={{float:"left"}}>
-    
-    <Layout>
-      <Sider width={200} className="site-layout-background">
+function Leftmenu() {
+    return (
+        <div>
+            <Sider width={200} className="site-layout-background">
         <Menu
           mode="inline"
           defaultSelectedKeys={['1']}
@@ -38,27 +35,8 @@ function Sidemenu() {
           </SubMenu>
         </Menu>
       </Sider>
-      <Layout style={{ padding: '0 24px 24px' }}>
-        <Breadcrumb style={{ margin: '16px 0' }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
-        <Content
-          className="site-layout-background"
-          style={{
-            padding: 24,
-            margin: 0,
-            minHeight: 280,
-          }}
-        >
-          Content
-        </Content>
-      </Layout>
-    </Layout>
-  </Layout>
-    </div>
-  )
+        </div>
+    )
 }
 
-export default Sidemenu
+export default Leftmenu
