@@ -1,108 +1,133 @@
-import React from 'react'
-import { Input, InputNumber, Button, Form,Row, Col } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
+import React, { useState } from 'react'
+import { Row, Col,Input, List, Avatar, Button, Skeleton} from 'antd';
+import '../../App.css'
+import reqwest from 'reqwest';
 
 const { Search } = Input;
+const count = 3;
+const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat&noinfo`;
 
-const layout = {
-    labelCol: {
-      span: 8,
-    },
-    wrapperCol: {
-      span: 16,
-    },
-  };
-  const validateMessages = {
-    required: '${label} is required!',
-    types: {
-      email: '${label} is not validate email!',
-      number: '${label} is not a validate number!',
-    },
-    number: {
-      range: '${label} must be between ${min} and ${max}',
-    },
+
+class editprofilepage extends React.Component {
+
+  state = {
+    initLoading: true,
+    loading: false,
+    data: [],
+    list: [],
   };
 
+  componentDidMount() {
+    this.getData(res => {
+      this.setState({
+        initLoading: false,
+        data: res.results,
+        list: res.results,
+      });
+    });
+  }
+
+  getData = callback => {
+    reqwest({
+      url: fakeDataUrl,
+      type: 'json',
+      method: 'get',
+      contentType: 'application/json',
+      success: res => {
+        callback(res);
+      },
+    });
+  };
+
+  onLoadMore = () => {
+    this.setState({
+      loading: true,
+      list: this.state.data.concat([...new Array(count)].map(() => ({ loading: true, name: {} }))),
+    });
+    this.getData(res => {
+      const data = this.state.data.concat(res.results);
+      this.setState(
+        {
+          data,
+          list: data,
+          loading: false,
+        },
+        () => {
+          // Resetting window's offsetTop so as to display react-virtualized demo underfloor.
+          // In real scene, you can using public method of react-virtualized:
+          // https://stackoverflow.com/questions/46700726/how-to-use-public-method-updateposition-of-react-virtualized
+          window.dispatchEvent(new Event('resize'));
+        },
+      );
+    });
+  };
+
+  render() {
+    const { initLoading, loading, list } = this.state;
+    const loadMore =
+      !initLoading && !loading ? (
+        <div
+          style={{
+            textAlign: 'center',
+            marginTop: 12,
+            height: 32,
+            lineHeight: '32px',
+          }}
+        >
+          <Button onClick={this.onLoadMore}>loading more</Button>
+        </div>
+      ) : null;
+
+  return (
+    <div>
+      <Row justify="center">
+        <Search style={{ width: "600px", marginTop: "40px" }} placeholder="input search text" onSearch={value => console.log(value)} enterButton />
+      </Row>
+      <br />
+      <br />
+      <br />
+      <Row justify="center">
+      
+<Col span={20}>
+      <List
+        className="demo-loadmore-list"
+        loading={initLoading}
+        itemLayout="horizontal"
+        loadMore={loadMore}
+        dataSource={list}
+        renderItem={item => (
+          <List.Item
+            actions={[<a key="list-loadmore-edit">edit</a>]}
+          >
+            <Skeleton avatar title={false} loading={item.loading} active>
+              <List.Item.Meta
+                avatar={
+                  <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                }
+                title={<a href="https://ant.design">{item.name.last}</a>}
+                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+              />
+              <div>content</div>
+            </Skeleton>
+          </List.Item>
+        )}
+      />
+      </Col>
+       </Row>
+    </div>
+    );
+   
+  }
+}
+
+
+     
+ 
+    
+
+
+    
   
 
-function editprofilepage () {
-
-    const onFinish = values => {
-        console.log(values);
-      };
-
-    return (
-
-
-
-        <div>
-        
-            
-            <Row justify="center">
-            <Search style={{width:"600px",marginTop:"40px"}} placeholder="input search text" onSearch={value => console.log(value)} enterButton />
-            </Row>
-            <br />
-            <br />
-            <br />
-            <Row justify="center">
-            <Col span={14}>
-            <Form {...layout} name="nest-messages"  onFinish={onFinish} validateMessages={validateMessages}>
-      <Form.Item
-        name={['user', 'name']}
-        label="Name"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name={['user', 'email']}
-        label="Email"
-        rules={[
-          {
-            type: 'email',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name={['user', 'age']}
-        label="Age"
-        rules={[
-          {
-            type: 'number',
-            min: 0,
-            max: 99,
-          },
-        ]}
-      >
-        <InputNumber />
-      </Form.Item>
-      <Form.Item name={['user', 'website']} label="Website">
-        <Input />
-      </Form.Item>
-      <Form.Item name={['user', 'introduction']} label="Introduction">
-        <Input.TextArea />
-      </Form.Item>
-      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
-    </Col>
-
-    </Row>
-    </div>
-
-
-    )
-}
- 
-       
 
 export default editprofilepage

@@ -262,15 +262,10 @@ class Createpage extends React.Component {
                 onClose={this.onClose}
                 visible={this.state.visible}
               >
-                <Row>
-                  <Col span={18} >
+                
                   <p className="site-description-item-profile-p" style={{ marginBottom: 24 }}>
                     User Profile</p>
-                    </Col>
-                      <Col>
-                  <Button type="primary" >Edit profile</Button>
-                  </Col>
-                  </Row>
+                   
                 <p className="site-description-item-profile-p">Personal</p>
                 <Row>
                   <Col span={12}>

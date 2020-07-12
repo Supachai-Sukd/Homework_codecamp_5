@@ -100,7 +100,7 @@ class Deleteuserprofile extends React.Component {
         dataSource={list}
         renderItem={item => (
           <List.Item
-            actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
+            actions={[<a key="list-loadmore-edit">delete</a>]}
           >
             <Skeleton avatar title={false} loading={item.loading} active>
               <List.Item.Meta
