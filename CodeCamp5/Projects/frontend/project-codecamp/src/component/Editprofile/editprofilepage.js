@@ -37,7 +37,7 @@ function editprofilepage () {
 
         <div>
         
-            <br />
+            
             <Row justify="center">
             <Search style={{width:"600px",marginTop:"40px"}} placeholder="input search text" onSearch={value => console.log(value)} enterButton />
             </Row>
