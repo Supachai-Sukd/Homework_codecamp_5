@@ -1,7 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
     const model = sequelize.define('Company' , {
        name: {
-            type: DataTypes.STRING(100)
+            type: DataTypes.STRING(100),
+            unique: true
         }
     }, {
         tableName: 'companies',

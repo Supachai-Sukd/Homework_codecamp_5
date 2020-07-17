@@ -1,7 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
     const model = sequelize.define('Phonenumber' , {
        number: {
-            type: DataTypes.STRING(100)
+            type: DataTypes.STRING(100),
+            unique: true
         }
     }, {
         tableName: 'phones',
@@ -9,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     model.associate = models => {
-        model.belongsToMany(models.User, { through: models.BorrowReturn, foreignKey: 'phone_id' })
+        model.belongsToMany(models.User, { through: models.Hasphone, foreignKey: 'phone_id' })
         model.belongsTo(models.Company, { foreignKey: 'company_id' })
         model.belongsTo(models.Provider, { foreignKey: 'provider_id' })
     }

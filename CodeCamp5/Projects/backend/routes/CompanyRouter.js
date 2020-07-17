@@ -1,10 +1,10 @@
-const express = require('express')
-const router = express.Router()
-const companyControllers = require('../controllers/companyControl')
+// const express = require('express')
+// const router = express.Router()
+// const companyControllers = require('../controllers/companyControl')
 
 
-router.get('/', companyControllers)
-router.post('/', companyControllers)
+// router.get('/', companyControllers)
+// router.post('/', companyControllers)
 
 
-module.exports = router
+// module.exports = router

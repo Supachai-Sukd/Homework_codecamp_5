@@ -15,12 +15,12 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded( { extended: false } ))
 
-app.use('/brands', brandRouters)
-app.use('/companies', companyRouters)
-app.use('/notebooks', notebookRouter)
-app.use('/phones', phonenumberRouters)
-app.use('/providers', providerRouters)
-app.use('/users', userRouters)
+// app.use('/brands', brandRouters)
+// app.use('/companies', companyRouters)
+// app.use('/notebooks', notebookRouter)
+// app.use('/phones', phonenumberRouters)
+// app.use('/providers', providerRouters)
+// app.use('/users', userRouters)
 
 db.sequelize.sync( {force: true} ).then( () => {
     app.listen(8000, () => {
