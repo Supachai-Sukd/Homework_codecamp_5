@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         name: {
             type: DataTypes.STRING(100)
+        },
+        userlevel: {
+            type: DataTypes.STRING(10)
         }
     }, {
         tableName: 'users',
