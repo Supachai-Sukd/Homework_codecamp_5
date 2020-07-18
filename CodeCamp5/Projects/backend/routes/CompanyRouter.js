@@ -7,4 +7,5 @@ router.get('/', companyControllers.getAllCompany)
 router.post('/create', companyControllers.createNewCompanyAndUser)
 
 
+
 module.exports = router

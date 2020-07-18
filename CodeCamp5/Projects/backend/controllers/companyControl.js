@@ -19,17 +19,12 @@ const createNewCompanyAndUser = async (req, res) => {
         company_id: newCompany.id
     } )
 
-
-    // const newUser = await db.User.create( {
-    //     name: userNameEmployee
-    // } )
-    // const newCompany = await db.Company.create( {
-    //     name: companyName,
-    //     company_id: newUser.id
-    // } )
-
     res.status(201).send(newUser)
 }
+
+
+
+
 
 module.exports = {
     getAllCompany,
