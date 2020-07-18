@@ -3,8 +3,10 @@
 // const brandControllers = require('../controllers/brandControl')
 
 
-// router.get('/', brandControllers)
-// router.post('/', brandControllers)
+// router.get('/', brandControllers.getAllBrands)
+// router.post('/add', brandControllers.addNewBrand)
+// router.put('/update/:id', brandControllers.updateNotebookToBrand)
+
 
 
 // module.exports = router
