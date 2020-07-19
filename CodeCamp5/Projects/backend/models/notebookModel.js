@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     model.associate = models => {
-        model.belongsToMany(models.User, { through: models.Own, foreignKey: 'notebook_id' })
+        model.belongsToMany(models.User, { through: models.Ownnotebook, foreignKey: 'notebook_id' })
        }
 
     return model

@@ -54,26 +54,18 @@ const getAllUsers = async (req, res) => {
 }
 
 
-const updateCompanyAndUser = async (req, res) => {
-    const targetId = req.params.id
-    const { targetCompany } = req.body
-    await db.User.update({
 
-        company_id: targetCompany
-    }, {
-        where: { id: targetId }
-    }
-    )
-
-    res.status(200).send({ message: "updating is success" })
-}
 
 
 const createNewCompanyAndAdmin = async (req, res) => {
-    const { userNameAdmin, companyName, usernameLoginAdmin, passwordLoginAdmin, levelAdmin, positionOrganize } = req.body
+    const { NameAdmin, companyName, usernameLoginAdmin, passwordLoginAdmin, levelAdmin, positionOrganize } = req.body
     const targetUser = await db.User.findOne({ where: { username: usernameLoginAdmin } })
+    const targetCompany = await db.Company.findOne({ where: { name: companyName } })
+
     if (targetUser) {
         res.status(400).send({ message: "Username already taken" })
+    } else if (targetCompany) {
+        res.status(400).send({ message: "Company already taken" })
     } else {
         const salt = bcryptjs.genSaltSync(12)
         const hashedPassword = bcryptjs.hashSync(passwordLoginAdmin, salt)
@@ -85,15 +77,42 @@ const createNewCompanyAndAdmin = async (req, res) => {
             username: usernameLoginAdmin,
             password: hashedPassword,
             user_level: levelAdmin,
-            name: userNameAdmin,
+            name: NameAdmin,
             position: positionOrganize,
             company_id: newCompany.id
         })
-    
+
         res.status(201).send(newUser)
 
     }
+
+}
+
+
+const employeeRegister = async (req, res) => {
+    const { empUsername, empPassword, empLevel, empName, empPosition, targetCompany } = req.body
+    const targetUser = await db.User.findOne({ where: { username: empUsername } })
     
+    if (targetUser) {
+        res.status(400).send({ message: "Username already taken" })
+    } else {
+        const salt = bcryptjs.genSaltSync(12)
+        const hashedPassword = bcryptjs.hashSync(empPassword, salt)
+
+        const empRegister = await db.User.create({
+            username: empUsername,
+            password: hashedPassword,
+            user_level: empLevel,
+            name: empName,
+            position: empPosition,
+            company_id: targetCompany
+        }
+        )
+
+        res.status(200).send({ message: "Register is success" })
+    }
+
+
 }
 
 
@@ -102,6 +121,6 @@ module.exports = {
     loginUser,
     registerUser,
     getAllUsers,
-    updateCompanyAndUser,
-    createNewCompanyAndAdmin
+    createNewCompanyAndAdmin,
+    employeeRegister
 }

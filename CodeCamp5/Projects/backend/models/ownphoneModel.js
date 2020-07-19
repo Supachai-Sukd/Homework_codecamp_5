@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
-    const model = sequelize.define('Ownnotebook', {
+    const model = sequelize.define('Ownphone', {
         day: {
             type: DataTypes.STRING(10)
         }
     },{
-        tableName: 'ownsnotebook',
+        tableName: 'ownsphone',
         timestamps: true,
     })
 

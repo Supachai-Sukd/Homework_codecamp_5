@@ -8,7 +8,8 @@ router.post('/register', userControllers.registerUser)
 router.post('/login', userControllers.loginUser)
 router.post('/registeradmin', userControllers.createNewCompanyAndAdmin)
 router.get('/', userControllers.getAllUsers)
-router.put('/update/:id', userControllers.updateCompanyAndUser)
+router.post('/empregister', userControllers.employeeRegister)
+// router.put('/empregister', userControllers.employeeRegisterToCompany)
 // router.delete('/:id', userControllers)
 
 
