@@ -8,5 +8,9 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: true,
     })
 
-    return model;
+    model.associate = models => {
+        model.belongsTo(models.User)
+    }
+
+    return model
 }

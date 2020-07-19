@@ -7,6 +7,8 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'ownsnotebook',
         timestamps: true,
     })
-
+    model.associate = models => {
+        model.belongsTo(models.User)
+    }
     return model;
 }

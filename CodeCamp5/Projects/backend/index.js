@@ -22,7 +22,7 @@ app.use('/companies', companyRouters)
 app.use('/notebooks', notebookRouter)
 app.use('/users', userRouters)
 
-db.sequelize.sync( {force: false} ).then( () => {
+db.sequelize.sync( {force: true} ).then( () => {
     app.listen(process.env.PORT, () => {
         console.log(`Server is running on port ${process.env.PORT}`)
     })
