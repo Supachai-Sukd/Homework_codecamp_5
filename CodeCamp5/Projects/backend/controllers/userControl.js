@@ -69,9 +69,39 @@ const updateCompanyAndUser = async (req, res) => {
 }
 
 
+const createNewCompanyAndAdmin = async (req, res) => {
+    const { userNameAdmin, companyName, usernameLoginAdmin, passwordLoginAdmin, levelAdmin, positionOrganize } = req.body
+    const targetUser = await db.User.findOne({ where: { username: usernameLoginAdmin } })
+    if (targetUser) {
+        res.status(400).send({ message: "Username already taken" })
+    } else {
+        const salt = bcryptjs.genSaltSync(12)
+        const hashedPassword = bcryptjs.hashSync(passwordLoginAdmin, salt)
+
+        const newCompany = await db.Company.create({
+            name: companyName
+        })
+        const newUser = await db.User.create({
+            username: usernameLoginAdmin,
+            password: hashedPassword,
+            user_level: levelAdmin,
+            name: userNameAdmin,
+            position: positionOrganize,
+            company_id: newCompany.id
+        })
+    
+        res.status(201).send(newUser)
+
+    }
+    
+}
+
+
+
 module.exports = {
     loginUser,
     registerUser,
     getAllUsers,
-    updateCompanyAndUser
+    updateCompanyAndUser,
+    createNewCompanyAndAdmin
 }

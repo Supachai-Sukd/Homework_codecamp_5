@@ -4,7 +4,7 @@ const companyControllers = require('../controllers/companyControl')
 
 
 router.get('/', companyControllers.getAllCompany)
-router.post('/create', companyControllers.createNewCompanyAndUser)
+// router.post('/create', companyControllers.createNewCompanyAndUser)
 
 
 

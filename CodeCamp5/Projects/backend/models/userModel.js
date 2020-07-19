@@ -1,17 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
     const model = sequelize.define('User' , {
         username: {
-            type: DataTypes.STRING(200),
+            type: DataTypes.STRING(20),
             unique: true
         },
         password: {
             type: DataTypes.STRING(255)
         },
+        user_level: {
+            type: DataTypes.STRING(10)
+        },
         name: {
             type: DataTypes.STRING(100)
         },
-        userlevel: {
-            type: DataTypes.STRING(10)
+        position: {
+            type: DataTypes.STRING(20)
         }
     }, {
         tableName: 'users',
@@ -19,9 +22,9 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     model.associate = models => {
-        model.belongsToMany(models.Notebook, { through: models.BorrowReturn, foreignKey: 'user_id' })
-        model.belongsToMany(models.Phonenumber, { through: models.Hasphone, foreignKey: 'user_id' })
-        model.hasOne(models.Company, { foreignKey: 'company_id' })
+        model.belongsTo(models.Company, { foreignKey: 'company_id' })
+        model.belongsToMany(models.Notebook, { through: models.Own, foreignKey: 'user_id' })
+        model.belongsToMany(models.Phone, { through: models.Own, foreignKey: 'user_id' })
     }
 
     return model

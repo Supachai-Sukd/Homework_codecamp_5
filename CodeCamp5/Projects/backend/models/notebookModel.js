@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const model = sequelize.define('Notebook' , {
-        serial: {
+        serial_number: {
             type: DataTypes.STRING(50),
             unique: true
         },
@@ -12,14 +12,12 @@ module.exports = (sequelize, DataTypes) => {
         }
     }, {
         tableName: 'notebooks',
-        timestamps: true,
+        timestamps: false,
     })
 
     model.associate = models => {
-        model.belongsToMany(models.User, { through: models.BorrowReturn, foreignKey: 'notebook_id' })
-        model.belongsTo(models.Company, { foreignKey: 'company_id' })
-        // model.belongsTo(models.Brand, { foreignKey: 'brand_id' })
-    }
+        model.belongsToMany(models.User, { through: models.Own, foreignKey: 'notebook_id' })
+       }
 
     return model
 }
