@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     model.associate = models => {
-        model.hasMany(models.User, { foreignKey: 'company_id' })
+        model.belongsTo(models.User, { foreignKey: 'company_id' })
         model.hasMany(models.Notebook, { foreignKey: 'company_id' })
         model.hasMany(models.Phonenumber, { foreignKey: 'company_id' })
         }
