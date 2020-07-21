@@ -1,5 +1,8 @@
 import React from 'react'
-import { Form, Input, InputNumber, Button, Row, Col } from 'antd';
+import { Form, Input, Button, Row, Col, Select, InputNumber, Cascader } from 'antd';
+
+const { Option } = Select;
+
 
 const layout = {
   labelCol: {
@@ -9,16 +12,14 @@ const layout = {
     span: 8,
   },
 };
-const validateMessages = {
-  required: '${label} is required!',
-  types: {
-    email: '${label} is not validate email!',
-    number: '${label} is not a validate number!',
-  },
-  number: {
-    range: '${label} must be between ${min} and ${max}',
-  },
-};
+
+
+
+
+
+
+
+
 
 function Register() {
   const onFinish = values => {
@@ -26,61 +27,143 @@ function Register() {
   };
 
   return (
-    <div style={{ marginTop:"40px" }}>
-
-    
-    <Form {...layout}
-      name="nest-messages"
-      onFinish={onFinish}
-      validateMessages={validateMessages}
-      style={{ display: "block", margin: "auto" }}
-    >
+    <div style={{ marginTop: "40px" }}>
 
 
-      <Form.Item
-        name={['user', 'username']}
-        label="Username"
-        rules={[
-          {
-            required: true,
-            min: 4,
-            max: 24,
-            type: "text"
-          },
-        ]}
+      <Form {...layout}
+        onFinish={onFinish}
+        style={{ display: "block", margin: "auto" }}
       >
-        <Input placeholder="Please enter your username" />
-      </Form.Item>
 
 
-      <Form.Item
-        name={['user', 'password']}
-        label="Password"
-        rules={[
-          {
-            required: true,
-            min: 6,
-            max: 128
-          },
-        ]}
-      >
-        <Input placeholder="Please enter your password" />
-      </Form.Item>
+        <Form.Item
+          name='username'
+          label="Username"
+          rules={[
+            {
+              type: 'email',
+              message: 'The input is not valid E-mail!',
+            },
+            {
+              required: true,
+              message: 'Please input your E-mail!',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+
+        <Form.Item
+          name='password'
+          label="Password"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your password!'
+            },
+          ]}
+          hasFeedback
+        >
+          <Input.Password />
+        </Form.Item>
+
+        <Form.Item
+          name="confirm"
+          label="Confirm Password"
+          dependencies={['password']}
+          hasFeedback
+          rules={[
+            {
+              required: true,
+              message: 'Please confirm your password!',
+            },
+            ({ getFieldValue }) => ({
+              validator(rule, value) {
+                if (!value || getFieldValue('password') === value) {
+                  return Promise.resolve()
+                }
+                return Promise.reject('Confirm password ต้องตรงกับ password')
+              }
+            })
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
+
+
+        <Form.Item
+          name='company'
+          label="Company"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your Company',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+
+        <Form.Item
+          name={['yourname']}
+          label="Yourname"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your Yourname',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+
+        <Form.Item
+          name='position'
+          label="Position"
+          rules={[
+            {
+              message: 'Please input your Yourname',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+
+        <Form.Item
+          name={['level']}
+          label="Level"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your Level',
+            },
+          ]}
+        >
+
+          <Cascader
+            options={[
+              {
+                value: 'admin',
+                label: 'Admin'
+              },
+              {
+                value: 'staff',
+                label: 'Staff'
+              }
+            ]}
+           
+          />
+
+
+        </Form.Item>
 
 
 
 
-      <Form.Item
-        name={['user', 'email']}
-        label="Email"
-        rules={[
-          {
-            type: 'email',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
 
 
 
@@ -93,28 +176,26 @@ function Register() {
 
 
 
-
-
-      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-        <Row>
-          <Col span={8}>
-            <Button type="primary" htmlType="submit">
-              Submit
+        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+          <Row>
+            <Col span={8}>
+              <Button type="primary" htmlType="submit">
+                Submit
           </Button>
-          </Col>
+            </Col>
 
-          <Col span={12}>
-            <Button type="danger" htmlType="reset">
-              Cancel
+            <Col span={12}>
+              <Button type="danger" htmlType="reset">
+                Cancel
           </Button>
-          </Col>
-        </Row>
-      </Form.Item>
+            </Col>
+          </Row>
+        </Form.Item>
 
 
 
 
-    </Form>
+      </Form>
     </div>
   );
 };
