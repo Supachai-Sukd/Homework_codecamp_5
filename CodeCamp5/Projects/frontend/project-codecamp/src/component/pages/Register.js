@@ -1,5 +1,7 @@
 import React from 'react'
-import { Form, Input, Button, Row, Col, Select, InputNumber, Cascader } from 'antd';
+import { Form, Input, Button, Row, Col, Select, notification } from 'antd';
+import axios from '../../config/axios'
+import { withRouter } from 'react-router-dom'
 
 const { Option } = Select;
 
@@ -21,9 +23,29 @@ const layout = {
 
 
 
-function Register() {
+function Register(props) {
   const onFinish = values => {
     console.log(values);
+    const body = {
+      usernameLoginAdmin: values.username,
+      passwordLoginAdmin: values.password,
+      levelAdmin: values.level,
+      NameAdmin: values.yourname,
+      positionOrganize: values.position,
+      companyName: values.company
+    }
+    axios.post("/users/register", body)
+      .then(res => {
+        notification.success({
+          message: `คุณ ${values.yourname} ได้สมัครสมาชิกเรียบร้อยแล้ว`,
+      })
+      props.history.push("/login")
+      })
+      .catch(err => {
+        notification.error({
+          message: `การสมัครสมาชิกล้มเหลว`,
+      })
+      })
   };
 
   return (
@@ -107,7 +129,7 @@ function Register() {
 
 
         <Form.Item
-          name={['yourname']}
+          name='yourname'
           label="Yourname"
           rules={[
             {
@@ -134,7 +156,7 @@ function Register() {
 
 
         <Form.Item
-          name={['level']}
+          name='level'
           label="Level"
           rules={[
             {
@@ -144,19 +166,10 @@ function Register() {
           ]}
         >
 
-          <Cascader
-            options={[
-              {
-                value: 'admin',
-                label: 'Admin'
-              },
-              {
-                value: 'staff',
-                label: 'Staff'
-              }
-            ]}
-           
-          />
+          <Select>
+            <Select.Option value="admin">Admin</Select.Option>
+            <Select.Option value="staff">Staff</Select.Option>
+          </Select>
 
 
         </Form.Item>
@@ -200,4 +213,4 @@ function Register() {
   );
 };
 
-export default Register
+export default withRouter(Register)
