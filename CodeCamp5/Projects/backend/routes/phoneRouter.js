@@ -1,15 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const phoneControllers = require('../controllers/phonenumberControl')
-const editphoneControllers = require('../controllers/ownphoneControl')
+const phonesControllers = require('../controllers/phonenumberControl')
 
-router.get('/', phoneControllers.getAllPhones)
+router.get('/', phonesControllers.getAllPhones)
 // router.get('/:id', phoneControllers)
-router.post('/add', phoneControllers.addNewPhones)
-router.post('/edit', editphoneControllers.addPhoneToUser)
-router.get('/resultupdate', editphoneControllers.getPhoneAndUser)
-// router.put('/:id', phoneControllers)
-// router.delete('/:id', phoneControllers)
+router.post('/add', phonesControllers.addNewPhones)
+router.put('/update/:id', phonesControllers.addPhonesToUser)
+router.delete('/remove/:id', phonesControllers.deletePhoneNumber)
 
 
 module.exports = router

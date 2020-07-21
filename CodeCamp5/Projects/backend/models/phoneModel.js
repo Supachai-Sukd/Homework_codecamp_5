@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     model.associate = models => {
-        model.belongsToMany(models.User, { through: models.Ownphone, foreignKey: 'phone_id' })
+        model.belongsTo(models.User, { foreignKey: 'user_id' })
     }
 
     return model

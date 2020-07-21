@@ -49,7 +49,9 @@ const loginUser = async (req, res) => {
 }
 
 const getAllUsers = async (req, res) => {
-    const allUsers = await db.User.findAll()
+    const allUsers = await db.User.findAll({
+        attributes: ['name', 'position', 'user_level']})
+
     res.status(200).send(allUsers)
 }
 
@@ -92,7 +94,7 @@ const createNewCompanyAndAdmin = async (req, res) => {
 const employeeRegister = async (req, res) => {
     const { empUsername, empPassword, empLevel, empName, empPosition, targetCompany } = req.body
     const targetUser = await db.User.findOne({ where: { username: empUsername } })
-    
+
     if (targetUser) {
         res.status(400).send({ message: "Username already taken" })
     } else {
@@ -116,11 +118,21 @@ const employeeRegister = async (req, res) => {
 }
 
 
+const deleteUser = async (req, res) => {
+    const targetID = req.params.id
+    await db.User.destroy({
+        where: { id: targetID }
+    })
+    res.status(204).send({ message: "Delete user success" })
+}
+
+
 
 module.exports = {
     loginUser,
     registerUser,
     getAllUsers,
     createNewCompanyAndAdmin,
-    employeeRegister
+    employeeRegister,
+    deleteUser
 }

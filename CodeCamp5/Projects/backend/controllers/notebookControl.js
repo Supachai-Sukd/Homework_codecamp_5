@@ -3,7 +3,7 @@ const db = require('../models')
 
 
 const getAllNoteBooks = async (req, res) => {
-    const allBrands = await db.Notebook.findAll()
+    const allBrands = await db.Notebook.findAll({include: db.User })
     res.status(200).send(allBrands)
 }
 
@@ -23,8 +23,30 @@ const addNewNotebook = async (req, res) => {
     }
 }
 
+const addNotebookToUser = async (req, res) => {
+    const targetNotebook = req.params.id
+    const { targetUser } = req.body
+
+    await db.Notebook.update({
+        user_id: targetUser
+    }, {
+        where: { id: targetNotebook }
+    })
+
+    res.status(201).send({ message: "Update notebook success" })
+}
+
+const deleteNotebook = async (req, res) => {
+    const targetID = req.params.id
+    await db.Notebook.destroy({
+        where: { id: targetID }
+    })
+    res.status(204).send(targetID)
+}
 
 module.exports = {
     addNewNotebook,
-    getAllNoteBooks
+    getAllNoteBooks,
+    addNotebookToUser,
+    deleteNotebook
 };
