@@ -6,19 +6,19 @@ import deleteprofilePage from '../component/pages/Deleteprofile'
 const components = {
     register: {
         url: "/register",
-        component: RegisterPage
+        component: RegisterPage,
     },
     login: {
         url: "/login",
-        component: LoginPage
+        component: LoginPage,
     },
     editprofile: {
         url: "/editprofile",
-        component: editprofilePage
+        component: editprofilePage,
     },
     deleteprofile: {
         url: "/deleteprofile",
-        component: deleteprofilePage
+        component: deleteprofilePage,
     }
 }
 

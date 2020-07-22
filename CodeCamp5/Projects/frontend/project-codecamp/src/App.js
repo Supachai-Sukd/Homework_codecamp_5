@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import PrivateRoutes from './component/private-routes/PrivateRoutes';
 import LocalStorageServices from './services/localStorageService'
 
 
+// LocalStorage ทำให้รอดจากการ Refresh
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
   );
 }
 
-export default App;
+export default App
 
 
 
