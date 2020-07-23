@@ -3,7 +3,7 @@ import { Form, Input, Button, Row, Col, Select, notification } from 'antd';
 import axios from '../../config/axios'
 import { withRouter } from 'react-router-dom'
 
-const { Option } = Select;
+// const { Option } = Select;
 
 
 const layout = {
@@ -27,7 +27,7 @@ function Register(props) {
   const onFinish = values => {
     console.log(values);
     const body = {
-      usernameLoginAdmin: values.username,
+      usernameLoginAdmin: values.email,
       passwordLoginAdmin: values.password,
       levelAdmin: values.level,
       NameAdmin: values.yourname,
@@ -38,18 +38,18 @@ function Register(props) {
       .then(res => {
         notification.success({
           message: `คุณ ${values.yourname} ได้สมัครสมาชิกเรียบร้อยแล้ว`,
-      })
-      props.history.push("/login")
+        })
+        props.history.push("/users/login")
       })
       .catch(err => {
         notification.error({
           message: `การสมัครสมาชิกล้มเหลว`,
-      })
+        })
       })
   };
 
   return (
-    <div style={{ marginTop: "40px" }}>
+    <div className="Form" style={{ marginTop: "40px" }}>
 
 
       <Form {...layout}
@@ -59,8 +59,8 @@ function Register(props) {
 
 
         <Form.Item
-          name='username'
-          label="Username"
+          name="email"
+          label="E-mail"
           rules={[
             {
               type: 'email',
@@ -77,7 +77,7 @@ function Register(props) {
 
 
         <Form.Item
-          name='password'
+          name="password"
           label="Password"
           rules={[
             {
@@ -102,7 +102,7 @@ function Register(props) {
             },
             ({ getFieldValue }) => ({
               validator(rule, value) {
-                if (!value || getFieldValue('password') === value) {
+                if (!value || getFieldValue("password") === value) {
                   return Promise.resolve()
                 }
                 return Promise.reject('Confirm password ต้องตรงกับ password')
@@ -115,7 +115,7 @@ function Register(props) {
 
 
         <Form.Item
-          name='company'
+          name="company"
           label="Company"
           rules={[
             {
@@ -129,7 +129,7 @@ function Register(props) {
 
 
         <Form.Item
-          name='yourname'
+          name="yourname"
           label="Yourname"
           rules={[
             {
@@ -143,7 +143,7 @@ function Register(props) {
 
 
         <Form.Item
-          name='position'
+          name="position"
           label="Position"
           rules={[
             {
@@ -156,7 +156,7 @@ function Register(props) {
 
 
         <Form.Item
-          name='level'
+          name="level"
           label="Level"
           rules={[
             {
@@ -192,13 +192,13 @@ function Register(props) {
         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
           <Row>
             <Col span={8}>
-              <Button type="primary" htmlType="submit">
+              <Button className="Button" type="primary" htmlType="submit">
                 Submit
           </Button>
             </Col>
 
             <Col span={12}>
-              <Button type="danger" htmlType="reset">
+              <Button className="Button" type="danger" htmlType="reset">
                 Cancel
           </Button>
             </Col>

@@ -5,11 +5,11 @@ import deleteprofilePage from '../component/pages/Deleteprofile'
 
 const components = {
     register: {
-        url: "/register",
+        url: "/users/register",
         component: RegisterPage,
     },
     login: {
-        url: "/login",
+        url: "/users/login",
         component: LoginPage,
     },
     editprofile: {
@@ -30,7 +30,7 @@ export default {
             components.login,
             components.register
         ],
-        redirectRoutes: "/login"
+        redirectRoutes: "/users/login"
     },
     admin: {
         allowedRoutes: [

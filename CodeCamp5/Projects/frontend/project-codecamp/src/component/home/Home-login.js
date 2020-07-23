@@ -38,7 +38,7 @@ function Logins(props) {
             <Form
                 style={{ display: "block", margin: "auto", marginTop: "60px" }}
                 name="normal_login"
-                className="login-form"
+                className="Form"
                 initialValues={{
                     remember: true,
                 }}

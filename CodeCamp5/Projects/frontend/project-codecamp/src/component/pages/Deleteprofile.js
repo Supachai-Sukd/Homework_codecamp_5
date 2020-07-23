@@ -16,6 +16,7 @@ function Deleteprofile() {
                 <Layout>
                     <Leftmenu />
                     <Layout>
+                    
                         <Deleteprofilepage />
                     </Layout>
                 </Layout>

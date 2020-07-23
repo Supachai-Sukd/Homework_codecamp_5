@@ -3,7 +3,7 @@ const router = express.Router()
 const userControllers = require('../controllers/userControl')
 
 
-router.post('/register', userControllers.registerUser)
+router.post('/register', userControllers.createNewCompanyAndAdmin)
 router.post('/login', userControllers.loginUser)
 router.post('/registeradmin', userControllers.createNewCompanyAndAdmin)
 router.get('/', userControllers.getAllUsers)

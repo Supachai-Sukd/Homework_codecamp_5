@@ -1,20 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
     const model = sequelize.define('User' , {
         username: {
-            type: DataTypes.STRING(20),
+            type: DataTypes.STRING(200),
             unique: true
         },
         password: {
             type: DataTypes.STRING(255)
         },
         user_level: {
-            type: DataTypes.STRING(10)
+            type: DataTypes.STRING(100)
         },
         name: {
             type: DataTypes.STRING(100)
         },
         position: {
-            type: DataTypes.STRING(20)
+            type: DataTypes.STRING(200)
         }
     }, {
         tableName: 'users',
