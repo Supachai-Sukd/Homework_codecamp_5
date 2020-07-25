@@ -1,12 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const userControllers = require('../controllers/userControl')
+// const authentiCation = passport.authenticate("jwt", { session:false })
 
-router.get('/', userControllers)
-router.get('/:id', userControllers)
-router.post('/', userControllers)
-router.put('/:id', userControllers)
-router.delete('/:id', userControllers)
+
+router.post('/register', userControllers.createNewCompanyAndAdmin)
+router.post('/login', userControllers.loginUser)
+
+router.get('/',userControllers.getAllUsers)
+// router.post('/empregister', userControllers.employeeRegister)
+router.delete('/remove/:id', userControllers.deleteUser)
 
 
 module.exports = router

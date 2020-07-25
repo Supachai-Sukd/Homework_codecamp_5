@@ -1,6 +1,7 @@
 import React from 'react'
 import { Input, Row, List, Avatar, Button, Skeleton, Col } from 'antd';
 import reqwest from 'reqwest';
+import { Link } from 'react-router-dom'
 
 const { Search } = Input;
 const count = 3;
@@ -111,6 +112,7 @@ class Deleteuserprofile extends React.Component {
                 description="Ant Design, a design language for background applications, is refined by Ant UED Team"
               />
               <div>content</div>
+              <Link to="/editprofile">    <Button>Go Profile</Button></Link>
             </Skeleton>
           </List.Item>
         )}

@@ -7,8 +7,14 @@ module.exports = (sequelize, DataTypes) => {
         password: {
             type: DataTypes.STRING(255)
         },
+        user_level: {
+            type: DataTypes.STRING(100)
+        },
         name: {
             type: DataTypes.STRING(100)
+        },
+        position: {
+            type: DataTypes.STRING(200)
         }
     }, {
         tableName: 'users',
@@ -16,9 +22,9 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     model.associate = models => {
-        model.belongsToMany(models.Notebook, { through: models.BorrowReturn, foreignKey: 'user_id' })
-        model.belongsToMany(models.Phonenumber, { through: models.BorrowReturn, foreignKey: 'user_id' })
         model.belongsTo(models.Company, { foreignKey: 'company_id' })
+        model.hasMany(models.Notebook, { foreignKey: 'user_id' })
+        model.hasMany(models.Phone, { foreignKey: 'user_id' })
     }
 
     return model
