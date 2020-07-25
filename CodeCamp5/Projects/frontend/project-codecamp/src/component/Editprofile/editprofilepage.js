@@ -17,6 +17,8 @@ class editprofilepage extends React.Component {
     list: [],
   };
 
+  
+
   componentDidMount() {
     this.getData(res => {
       this.setState({

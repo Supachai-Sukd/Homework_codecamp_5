@@ -1,6 +1,7 @@
 import React from 'react'
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
+import { UserOutlined, LaptopOutlined, PhoneOutlined, UserDeleteOutlined, TeamOutlined, UserAddOutlined, GlobalOutlined, EditOutlined, ScissorOutlined, MonitorOutlined, PlusSquareOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -15,23 +16,23 @@ function Leftmenu() {
           defaultOpenKeys={['sub1']}
           style={{ height: '100%', borderRight: 0 }}
         >
-          <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
-            <Menu.Item key="1">option1</Menu.Item>
-            <Menu.Item key="2">option2</Menu.Item>
-            <Menu.Item key="3">option3</Menu.Item>
-            <Menu.Item key="4">option4</Menu.Item>
+          <SubMenu key="sub1" icon={<GlobalOutlined />} title="User">
+            <Menu.Item key="1"  icon={<UserAddOutlined />} ><Link to="/create">  Add user</Link></Menu.Item>
+            <Menu.Item key="2" icon={<UserOutlined />} >View user</Menu.Item>
+            <Menu.Item key="3" icon={<TeamOutlined />} >Edit user</Menu.Item>
+            <Menu.Item key="4" icon={<UserDeleteOutlined />} >Delete user</Menu.Item>
           </SubMenu>
-          <SubMenu key="sub2" icon={<LaptopOutlined />} title="subnav 2">
-            <Menu.Item key="5">option5</Menu.Item>
-            <Menu.Item key="6">option6</Menu.Item>
-            <Menu.Item key="7">option7</Menu.Item>
-            <Menu.Item key="8">option8</Menu.Item>
+          <SubMenu key="sub2" icon={<LaptopOutlined />} title="Notebook">
+            <Menu.Item key="5" icon={<PlusSquareOutlined />} >Add notebook</Menu.Item>
+            <Menu.Item key="6" icon={<MonitorOutlined />} >View notebook</Menu.Item>
+            <Menu.Item key="7" icon={<EditOutlined />} >Edit notebook</Menu.Item>
+            <Menu.Item key="8" icon={<ScissorOutlined />} >Delete notebook</Menu.Item>
           </SubMenu>
-          <SubMenu key="sub3" icon={<NotificationOutlined />} title="subnav 3">
-            <Menu.Item key="9">option9</Menu.Item>
-            <Menu.Item key="10">option10</Menu.Item>
-            <Menu.Item key="11">option11</Menu.Item>
-            <Menu.Item key="12">option12</Menu.Item>
+          <SubMenu key="sub3" icon={<PhoneOutlined />} title="Phone">
+            <Menu.Item key="9" icon={<PlusSquareOutlined />}>Add phone</Menu.Item>
+            <Menu.Item key="10" icon={<MonitorOutlined />}>View phone</Menu.Item>
+            <Menu.Item key="11" icon={<EditOutlined />}>Edit phone</Menu.Item>
+            <Menu.Item key="12" icon={<ScissorOutlined />}>Delete phone</Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>

@@ -2,6 +2,8 @@ import RegisterPage from '../component/pages/Register'
 import LoginPage from '../component/pages/Login'
 import editprofilePage from '../component/pages/Editprofile'
 import deleteprofilePage from '../component/pages/Deleteprofile'
+import createPage from '../component/pages/Createpage'
+import AddItemUser from '../component/pages/Addallitemuser'
 
 const components = {
     register: {
@@ -19,6 +21,14 @@ const components = {
     deleteprofile: {
         url: "/delete",
         component: deleteprofilePage,
+    },
+    createprofile: {
+        url: "/create",
+        component: createPage
+    },
+    adddevice: {
+        url: "/add",
+        component: AddItemUser
     }
 }
 
@@ -35,8 +45,10 @@ export default {
     user: {
         allowedRoutes: [
             components.editprofile,
-            components.deleteprofile
+            components.deleteprofile,
+            components.adddevice,
+            components.createprofile
         ],
-        redirectRoutes: "/delete"
+        redirectRoutes: "/profile"
     }
 }
