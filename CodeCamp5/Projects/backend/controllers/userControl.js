@@ -23,6 +23,9 @@ const registerUser = async (req, res) => {
 
 }
 
+
+
+
 const loginUser = async (req, res) => {
     const { username, password } = req.body
     const targetUser = await db.User.findOne({ where: { username: username } })
@@ -33,7 +36,7 @@ const loginUser = async (req, res) => {
         if (isCorrectPassword) {
             const payload = {
                 name: targetUser.name,
-                id: targetUser.id,
+                id: targetUser.id
             }
             const token = jwt.sign(payload, process.env.SECRET_OR_KEY, { expiresIn: 3600 })
 

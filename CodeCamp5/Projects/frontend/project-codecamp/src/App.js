@@ -3,10 +3,6 @@ import './App.css';
 import PrivateRoutes from './component/private-routes/PrivateRoutes';
 import LocalStorageServices from './services/localStorageService'
 
-
-// LocalStorage ทำให้รอดจากการ Refresh
-
-
 function App() {
   const [role, setRole] = useState(LocalStorageServices.getRole())
   
@@ -16,6 +12,8 @@ function App() {
     </div>
   );
 }
+
+
 
 export default App
 

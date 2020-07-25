@@ -38,9 +38,10 @@ function Editprofile(props) {
                     <Leftmenu />
                     <Layout>
                         <Editprofilepage />
-                        {name}{id}
-                    <Link to="/deleteprofile">    <Button>Go to other</Button></Link>
+                        {id}
+                    <Link to="/delete">    <Button>Go to other</Button></Link>
                         <Button onClick={logout}>Logout</Button>
+                        {name}
                     </Layout>
                 </Layout>
             </Layout>

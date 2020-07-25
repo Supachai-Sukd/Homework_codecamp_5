@@ -1,9 +1,9 @@
 import React from 'react'
 import ConfigurationRouters from '../../config/configRoutes'
-import { Switch, Redirect, Route } from 'react-router-dom'
+import { Switch,  Route, Redirect } from 'react-router-dom'
 
 function PrivateRoutes(props) {
-    const role = props.role || 'guest'
+    const role = props.role || "guest"
 
     const allowedRoutesUser = ConfigurationRouters[role].allowedRoutes
     const redirectRoutesUser = ConfigurationRouters[role].redirectRoutes
@@ -20,8 +20,8 @@ function PrivateRoutes(props) {
                 </Route>
             )
             )}
-
-            <Redirect to={redirectRoutesUser} />
+    <Redirect to={redirectRoutesUser}  />
+           
         </Switch>
     )
 }

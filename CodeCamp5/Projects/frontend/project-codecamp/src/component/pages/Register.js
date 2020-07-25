@@ -39,7 +39,7 @@ function Register(props) {
         notification.success({
           message: `คุณ ${values.yourname} ได้สมัครสมาชิกเรียบร้อยแล้ว`,
         })
-        props.history.push("/users/login")
+        props.history.push("/login")
       })
       .catch(err => {
         notification.error({
@@ -114,7 +114,7 @@ function Register(props) {
         </Form.Item>
 
 
-        <Form.Item
+         <Form.Item
           name="company"
           label="Company"
           rules={[
@@ -172,7 +172,7 @@ function Register(props) {
           </Select>
 
 
-        </Form.Item>
+        </Form.Item> 
 
 
 

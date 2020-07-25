@@ -12,7 +12,7 @@ function removeToken () {
 
 function getRole () {
     if (getToken()) {
-        return "admin"
+        return "user"
     }
     return "guest"
 }

@@ -6,7 +6,7 @@ axios.defaults.baseURL = "http://localhost:8000";
 axios.interceptors.request.use(
     config => {
         // เช็คว่าถ้า url ที่ยิงไปเป็นสองอันนี้ไม่ต้องใส่ headers และก็รีเทินคอนฟิกไปเลยไม่ต้องปรับแต่งไรเพิ่ม
-        if (config.url.includes("/") || config.url.includes("/register")) return config
+        if (config.url.includes("/login") || config.url.includes("/register")) return config
 
         const token = LocalStorageService.getToken()
 
