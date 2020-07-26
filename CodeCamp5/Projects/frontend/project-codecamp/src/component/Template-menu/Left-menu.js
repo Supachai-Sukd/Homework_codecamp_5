@@ -18,21 +18,20 @@ function Leftmenu() {
         >
           <SubMenu key="sub1" icon={<GlobalOutlined />} title="User">
             <Menu.Item key="1"  icon={<UserAddOutlined />} ><Link to="/create">  Add user</Link></Menu.Item>
-            <Menu.Item key="2" icon={<UserOutlined />} >View user</Menu.Item>
-            <Menu.Item key="3" icon={<TeamOutlined />} >Edit user</Menu.Item>
-            <Menu.Item key="4" icon={<UserDeleteOutlined />} >Delete user</Menu.Item>
+            <Menu.Item key="2" icon={<TeamOutlined />} ><Link to="/editprofile" >  Edit user </Link> </Menu.Item>
+            <Menu.Item key="3" icon={<UserDeleteOutlined />} ><Link to="/delete">  Delete user</Link></Menu.Item>
           </SubMenu>
           <SubMenu key="sub2" icon={<LaptopOutlined />} title="Notebook">
-            <Menu.Item key="5" icon={<PlusSquareOutlined />} >Add notebook</Menu.Item>
-            <Menu.Item key="6" icon={<MonitorOutlined />} >View notebook</Menu.Item>
-            <Menu.Item key="7" icon={<EditOutlined />} >Edit notebook</Menu.Item>
-            <Menu.Item key="8" icon={<ScissorOutlined />} >Delete notebook</Menu.Item>
+            <Menu.Item key="4" icon={<PlusSquareOutlined />} ><Link to="/add">  Add notebook</Link></Menu.Item>
+            <Menu.Item key="5" icon={<MonitorOutlined />} ><Link to="/notebook">  View notebook </Link></Menu.Item>
+            <Menu.Item key="6" icon={<EditOutlined />} >Edit notebook</Menu.Item>
+            <Menu.Item key="7" icon={<ScissorOutlined />} >Delete notebook</Menu.Item>
           </SubMenu>
           <SubMenu key="sub3" icon={<PhoneOutlined />} title="Phone">
-            <Menu.Item key="9" icon={<PlusSquareOutlined />}>Add phone</Menu.Item>
-            <Menu.Item key="10" icon={<MonitorOutlined />}>View phone</Menu.Item>
-            <Menu.Item key="11" icon={<EditOutlined />}>Edit phone</Menu.Item>
-            <Menu.Item key="12" icon={<ScissorOutlined />}>Delete phone</Menu.Item>
+            <Menu.Item key="8" icon={<PlusSquareOutlined />}>Add phone</Menu.Item>
+            <Menu.Item key="9" icon={<MonitorOutlined />}>View phone</Menu.Item>
+            <Menu.Item key="10" icon={<EditOutlined />}>Edit phone</Menu.Item>
+            <Menu.Item key="11" icon={<ScissorOutlined />}>Delete phone</Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>

@@ -4,6 +4,8 @@ import editprofilePage from '../component/pages/Editprofile'
 import deleteprofilePage from '../component/pages/Deleteprofile'
 import createPage from '../component/pages/Createpage'
 import AddItemUser from '../component/pages/Addallitemuser'
+import ProfilePage from '../component/pages/Profile'
+import ViewNotebook from '../component/pages/Viewnotebook'
 
 const components = {
     register: {
@@ -15,7 +17,7 @@ const components = {
         component: LoginPage,
     },
     editprofile: {
-        url: "/profile",
+        url: "/editprofile",
         component: editprofilePage,
     },
     deleteprofile: {
@@ -29,6 +31,14 @@ const components = {
     adddevice: {
         url: "/add",
         component: AddItemUser
+    },
+    profilepage: {
+        url: "/profile",
+        component: ProfilePage
+    },
+    viewnotebooks: {
+        url: "/notebook",
+        component: ViewNotebook
     }
 }
 
@@ -47,7 +57,9 @@ export default {
             components.editprofile,
             components.deleteprofile,
             components.adddevice,
-            components.createprofile
+            components.createprofile,
+            components.profilepage,
+            components.viewnotebooks
         ],
         redirectRoutes: "/profile"
     }

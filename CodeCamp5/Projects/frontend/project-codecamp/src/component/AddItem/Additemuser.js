@@ -28,9 +28,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                 form={form}
                 layout="vertical"
                 name="form_in_modal"
-                initialValues={{
-                    modifier: 'public',
-                }}
+                
             >
                 <Form.Item
                     name="title"
@@ -47,12 +45,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                 <Form.Item name="description" label="Description">
                     <Input type="textarea" />
                 </Form.Item>
-                <Form.Item name="modifier" className="collection-create-form_last-form-item">
-                    <Radio.Group>
-                        <Radio value="public">Public</Radio>
-                        <Radio value="private">Private</Radio>
-                    </Radio.Group>
-                </Form.Item>
+                
             </Form>
         </Modal>
     );
