@@ -36,7 +36,8 @@ const loginUser = async (req, res) => {
         if (isCorrectPassword) {
             const payload = {
                 name: targetUser.name,
-                id: targetUser.id
+                id: targetUser.id,
+                company_id: targetUser.company_id
             }
             const token = jwt.sign(payload, process.env.SECRET_OR_KEY, { expiresIn: 3600 })
 

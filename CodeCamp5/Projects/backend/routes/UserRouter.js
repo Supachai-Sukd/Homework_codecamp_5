@@ -8,7 +8,7 @@ router.post('/register', userControllers.createNewCompanyAndAdmin)
 router.post('/login', userControllers.loginUser)
 
 router.get('/',userControllers.getAllUsers)
-// router.post('/empregister', userControllers.employeeRegister)
+router.post('/empregister', userControllers.employeeRegister)
 router.delete('/remove/:id', userControllers.deleteUser)
 
 
