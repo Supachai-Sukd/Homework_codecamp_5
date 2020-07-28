@@ -23,7 +23,7 @@ function Leftmenu() {
           </SubMenu>
           <SubMenu key="sub2" icon={<LaptopOutlined />} title="Notebook">
             <Menu.Item key="4" icon={<PlusSquareOutlined />} ><Link to="/add">  Add notebook</Link></Menu.Item>
-            <Menu.Item key="5" icon={<MonitorOutlined />} ><Link to="/notebook">  View notebook </Link></Menu.Item>
+            <Menu.Item key="5" icon={<MonitorOutlined />} ><Link to="/notebooks">  View notebook </Link></Menu.Item>
             <Menu.Item key="6" icon={<EditOutlined />} >Edit notebook</Menu.Item>
             <Menu.Item key="7" icon={<ScissorOutlined />} >Delete notebook</Menu.Item>
           </SubMenu>

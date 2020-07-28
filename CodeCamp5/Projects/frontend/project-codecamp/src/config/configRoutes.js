@@ -37,7 +37,7 @@ const components = {
         component: ProfilePage
     },
     viewnotebooks: {
-        url: "/notebook",
+        url: "/notebooks",
         component: ViewNotebook
     }
 }
