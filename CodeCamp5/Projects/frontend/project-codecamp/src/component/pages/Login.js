@@ -6,6 +6,8 @@ import '../../App.css'
 import axios from '../../config/axios'
 import LocalStorageService from '../../services/localStorageService'
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux';
+import {fetchUser} from '../../actions'
 const { SubMenu } = Menu;
 const { Header, Content, Sider , Footer} = Layout;
 
@@ -49,6 +51,7 @@ function Login(props) {
     <Header>
       <div className="logo" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+      
         <Menu.Item key="1"><Link to={"/"} >Inventory System</Link>  </Menu.Item>
         <Menu.Item key="2"><Link to={"/"}>คำแนะนำ</Link>  </Menu.Item> 
       </Menu>
@@ -64,7 +67,7 @@ function Login(props) {
       <div>
 
 <h1 style={{ textAlign: "center", fontSize: "40px", fontWeight: "bold", marginTop: "40px" }}>Inventory System</h1>
-
+<p>{props.fetchData.employees}</p>
 <Form
     style={{ display: "block", margin: "auto", marginTop: "60px" }}
     name="normal_login"
@@ -157,4 +160,14 @@ function Login(props) {
     )
 }
 
-export default withRouter(Login) 
+const mapStateToProps = (state) => ({
+    fetchData: state.fetchUserReducerByIndex
+  })
+  
+  // Used to add action (dispatch) into the props
+  const mapDispatchToProps = {
+    fetchUser
+  }
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login) 

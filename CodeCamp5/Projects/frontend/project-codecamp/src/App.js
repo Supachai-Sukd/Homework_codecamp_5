@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import './App.css';
 import PrivateRoutes from './component/private-routes/PrivateRoutes';
 import LocalStorageServices from './services/localStorageService'
-import fetchData from './actions'
+import {fetchUser} from './actions'
 import { connect } from 'react-redux'
+import { Button } from 'antd';
 
 
-function App() {
+function App(props) {
   const [role, setRole] = useState(LocalStorageServices.getRole())
 
-  props = this.props
+  
   
   return (
     <div className="App">
       <PrivateRoutes role={role} setRole={setRole}  />
-      {/* props.fetchUser.employees */}
+     
     </div>
   );
 }
@@ -24,12 +25,12 @@ function App() {
 
 // Used to add reducer's state into the props
 const mapStateToProps = (state) => ({
-  fetchUser: state.fetchUserReducerByIndex
+  fetchData: state.fetchUserReducerByIndex
 })
 
 // Used to add action (dispatch) into the props
 const mapDispatchToProps = {
-  fetchData
+  fetchUser
 }
 
 
