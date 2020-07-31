@@ -59,14 +59,14 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-// Used to add reducer's state into the props
-const mapStateToProps = (state) => ({
-  fetchReducer: state.fetchReducer
-})
-// Used to add action (dispatch) into the props
-const mapDispatchToProps = {
-  fetchData
-}
+// // Used to add reducer's state into the props
+// const mapStateToProps = (state) => ({
+//   fetchReducer: state.fetchReducer
+// })
+// // Used to add action (dispatch) into the props
+// const mapDispatchToProps = {
+//   fetchData
+// }
 
 
 

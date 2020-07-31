@@ -3,6 +3,8 @@ import { Layout, Menu, Breadcrumb, Button, Modal, Form, Input, Radio, Drawer, Li
 import { UserOutlined, LaptopOutlined, NotificationOutlined, AudioOutlined, PlusOutlined } from '@ant-design/icons';
 import FormCreateEmp from './FormCreate'
 import axios from '../../config/axios';
+import { connect } from 'react-redux'
+import {fetchUser} from '../../actions' 
 
 
 const { Search } = Input;
@@ -54,20 +56,10 @@ class Createpage extends React.Component {
   
 
 
-  componentDidMount() {
-    axios.get('/notebooks')
-      .then(res => {
-        const notebooks = res.data
-        this.setState({ notebooks })
-      })
-  }
+  
 
   componentDidMount() {
-    axios.get('/users')
-      .then(res => {
-        const employees = res.data
-        this.setState({ employees })
-      })
+   this.props.fetchUser()
   }
 
   
@@ -140,20 +132,19 @@ class Createpage extends React.Component {
 
 
               <List
-                dataSource={this.state.employees}
+                dataSource={this.props.posts.employees}
                 bordered
-                renderItem={employee => (
+                renderItem={post => (
 
 
                   <List.Item>
                     
-                   
-                    <List.Item.Meta
+                   <List.Item.Meta
                       avatar={
                         <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
                       }
-                      title={<a href="https://ant.design/index-cn">{employee.name}</a>}
-                      description={employee.position}
+                      title={<a href="https://ant.design/index-cn">{post.name}</a>}
+                      description={post.position}
                     />
 
 
@@ -187,4 +178,15 @@ class Createpage extends React.Component {
   }
 }
 
-export default Createpage
+
+const mapStateToProps = (state) => {
+    return { posts: state.posts }
+}
+
+const mapDispatchToProps = {
+    fetchUser
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Createpage)
+

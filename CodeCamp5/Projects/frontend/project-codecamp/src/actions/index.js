@@ -1,5 +1,5 @@
-import { FETCHING_DATA, FETCHING_DATA_FAILURE, FETCHING_DATA_SUCCESS, ADD_USER } from '../constance'
-import LoadData from './api'
+import { FETCHING_DATA, FETCHING_DATA_FAILURE, FETCHING_DATA_SUCCESS, ADD_USER, FETCHING_NOTEBOOKS } from '../constance'
+import axios from '../config/axios'
 
 export const setStateToSuccess = (data) => ({
     type: FETCHING_DATA_SUCCESS,
@@ -21,16 +21,12 @@ export const setStateToAddUser = (data) => ({
 })
 
 
-export const fetchUser = () => {
-    return (dispatch) => {
-        dispatch(setStateToFetching())
-        LoadData()
-        .then(result => {
-            dispatch(setStateToSuccess(result))
-        })
-        .catch(error => {
-            dispatch(setStateToFailure())
-        })
-    }
+export const fetchUser =  ()  => async dispatch => {
+    const httpResponse = await axios.get("/users")
+    dispatch({ type: FETCHING_DATA, payload: httpResponse.data })
 }
 
+export const fetchNotebook = () => async dispatch => {
+    const response = await axios.get("/notebooks")
+    dispatch({ type: FETCHING_NOTEBOOKS, payload: response.data })
+}

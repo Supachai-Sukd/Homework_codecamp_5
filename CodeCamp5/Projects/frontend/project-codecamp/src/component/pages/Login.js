@@ -67,7 +67,7 @@ function Login(props) {
       <div>
 
 <h1 style={{ textAlign: "center", fontSize: "40px", fontWeight: "bold", marginTop: "40px" }}>Inventory System</h1>
-<p>{props.fetchData.employees}</p>
+
 <Form
     style={{ display: "block", margin: "auto", marginTop: "60px" }}
     name="normal_login"
@@ -160,14 +160,7 @@ function Login(props) {
     )
 }
 
-const mapStateToProps = (state) => ({
-    fetchData: state.fetchUserReducerByIndex
-  })
-  
-  // Used to add action (dispatch) into the props
-  const mapDispatchToProps = {
-    fetchUser
-  }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login) 
+
+export default Login
