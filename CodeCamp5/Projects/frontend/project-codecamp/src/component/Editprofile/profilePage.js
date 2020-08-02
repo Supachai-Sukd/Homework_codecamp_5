@@ -9,11 +9,11 @@
 //     const [changeInput, setChangeInput] = useState("");
 //     const [isEdit, setIsEdit] = useState(false);
 
-//     const updateProfile = async (id) => {
-//         await axios.put(`/notebooks/update/${id}`, { targetUser: changeInput })
-//         props.fetchData()
-//         setIsEdit(false);
-//     }
+    // const updateProfile = async (id) => {
+    //     await axios.put(`/notebooks/update/${id}`, { targetUser: changeInput })
+    //     props.fetchData()
+    //     setIsEdit(false);
+    // }
 
 //     const toggleEdit = () => {
 //         setChangeInput(props.nb.user_id);

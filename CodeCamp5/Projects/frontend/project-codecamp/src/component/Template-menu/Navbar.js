@@ -15,6 +15,7 @@ function Navbar(props) {
     const [name, setName] = useState("")
     const [id, setID] = useState(0)
 
+    
    
 
 
@@ -37,7 +38,7 @@ function Navbar(props) {
                     <Menu.Item key="2">Manual</Menu.Item>
                     <Menu.Item key="3" style={{ float: "right" }} >Hi !!  {name}</Menu.Item>
                 </Menu>
-
+                
                 
             </Header>
 

@@ -1,5 +1,6 @@
-import { FETCHING_DATA, FETCHING_DATA_FAILURE, FETCHING_DATA_SUCCESS, ADD_USER, FETCHING_NOTEBOOKS } from '../constance'
+import { FETCHING_DATA, FETCHING_DATA_FAILURE, FETCHING_DATA_SUCCESS, ADD_USER, FETCHING_NOTEBOOKS, UPDATE_NOTEBOOKS, IS_EDIT, IS_EDIT_TRUE, TOGGLE_EDIT } from '../constance'
 import axios from '../config/axios'
+
 
 export const setStateToSuccess = (data) => ({
     type: FETCHING_DATA_SUCCESS,
@@ -30,3 +31,27 @@ export const fetchNotebook = () => async dispatch => {
     const response = await axios.get("/notebooks")
     dispatch({ type: FETCHING_NOTEBOOKS, payload: response.data })
 }
+
+// targetUser นั้นคือ ตัวที่ต้องเหมือนใน backend เฉยๆ
+export const updateNotebook = (id) => async dispatch => {
+    await axios.put(`/notebooks/update/${id}`, { targetUser: changeInput})
+    dispatch({ type: FETCHING_NOTEBOOKS, payload: response.data })
+    dispatch({ type: IS_EDIT })
+}
+
+export const toggleEdit = (data) => dispatch => {
+    dispatch({ type: TOGGLE_EDIT, payload: props.item.user_id.data })
+    dispatch({ type: IS_EDIT_TRUE })
+}
+
+
+// const updateProfile = async (id) => {
+//     await axios.put(`/notebooks/update/${id}`, { targetUser: changeInput })
+    
+   
+// }
+
+// const deleteNotebook = async (id) => {
+//     await axios.delete(`/notebooks/remove/${id}`)
+//     fetchProfile()
+// }

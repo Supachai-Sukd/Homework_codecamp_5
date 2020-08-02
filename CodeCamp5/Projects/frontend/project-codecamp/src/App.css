@@ -86,3 +86,15 @@
   display: block;
   align-self: flex-end;
 }
+
+
+.width-details {
+  width: 800px;
+  display: block;
+  align-self: center;
+  
+}
+
+.font-details {
+  font-size: 20px;
+}
