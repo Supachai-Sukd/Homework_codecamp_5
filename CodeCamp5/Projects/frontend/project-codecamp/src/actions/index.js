@@ -33,16 +33,12 @@ export const fetchNotebook = () => async dispatch => {
 }
 
 // targetUser นั้นคือ ตัวที่ต้องเหมือนใน backend เฉยๆ
-export const updateNotebook = (id) => async dispatch => {
-    await axios.put(`/notebooks/update/${id}`, { targetUser: changeInput})
+export const updateNotebook = (id, changeInput) => async dispatch => {
+    const response = await axios.put(`/notebooks/update/${id}`, { user_id: changeInput})
     dispatch({ type: FETCHING_NOTEBOOKS, payload: response.data })
-    dispatch({ type: IS_EDIT })
 }
 
-export const toggleEdit = (data) => dispatch => {
-    dispatch({ type: TOGGLE_EDIT, payload: props.item.user_id.data })
-    dispatch({ type: IS_EDIT_TRUE })
-}
+
 
 
 // const updateProfile = async (id) => {
