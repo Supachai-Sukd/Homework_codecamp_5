@@ -41,34 +41,6 @@ const IconText = ({ icon, text }) => (
 
 
 
-let contents = (
-    <List.Item
-        key={item.title}
-        actions={[
-            <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-            <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-            <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
-        ]}
-        extra={
-            <img
-                width={272}
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-            />
-        }
-    >
-        <List.Item.Meta
-            avatar={<RocketOutlined />}
-            className="font-details"
-            title={<h3>Serial : {item.serial_number}</h3>}
-            description={<h4>Brand :  {item.brand} Model : {item.model_name} User : {item.user_id}</h4>}
-        />
-        <Button
-            style={{ backgroundColor: 'green' }}
-            onClick={() => toggleEdit()}
-        > Edit </Button>
-    </List.Item>
-)
 
 
 
@@ -92,18 +64,18 @@ class Editprofile extends React.Component {
     }
 
     updateNotebookToUser = async (id) => {
-        await axios.put(`/notebooks/update/${id}`, { user_id: changeInput })
+        await axios.put(`/notebooks/update/${id}`, { user_id: this.changeInput })
         this.closeInputField()
     }
 
     toggleEditField = () => {
         this.setState({
-            changeInput: this.props.item.user_id,
+            // changeInput: "item.user_id",
             isEdit: true
         })
     }
 
-    
+
 
     closeInputField = () => {
         this.setState({
@@ -114,7 +86,201 @@ class Editprofile extends React.Component {
 
 
 
+
     render() {
+
+
+
+        let contents = (
+
+
+
+            <List
+                itemLayout="vertical"
+                size="large"
+                className="width-details"
+                pagination={{
+                    onChange: page => {
+                        console.log(page);
+                    },
+                    pageSize: 3,
+                }}
+                dataSource={this.props.postsnotebooks.laptops}
+                footer={
+                    <div>
+                        <b>ant design</b> footer part
+  </div>
+                }
+                renderItem={item => (
+
+
+
+
+
+
+
+                    <List.Item
+                        key={item.title}
+                        actions={[
+                            <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
+                            <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
+                            <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
+                        ]}
+                        extra={
+                            <img
+                                width={272}
+                                alt="logo"
+                                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                            />
+                        }
+                    >
+                        <List.Item.Meta
+                            avatar={<RocketOutlined />}
+                            className="font-details"
+                            title={<h3>Serial : {item.serial_number}</h3>}
+                            description={
+                                <h4>
+                                    <Row>
+                                        <Col span={8}>
+                                            Brand :  {item.brand}
+                                        </Col>
+                                        <Col span={8}>
+                                            Model : {item.model_name}
+                                        </Col>
+                                        <Col span={8}>
+                                            User : {item.user_id}
+                                        </Col>
+                                        <Row>
+
+                                            <Col span={8}>
+                                                <Button
+                                                    style={{ backgroundColor: 'green' }}
+                                                    onClick={() => this.setState({ isEdit: true })}
+                                                > Edit </Button>
+                                            </Col>
+                                            <Col span={8}>
+                                                <Button
+                                                    type="danger"
+                                                    style={{ backgroundColor: 'green' }}
+                                                    onClick={() => this.toggleEditField}
+                                                > Delete </Button>
+                                            </Col>
+
+                                        </Row>
+                                    </Row>
+                                </h4>}
+                        />
+                    </List.Item>
+
+
+
+
+                )}
+            />
+
+
+
+        )
+
+
+
+        if (this.isEdit) {
+
+
+
+            contents = (
+
+
+
+
+                <List
+                    itemLayout="vertical"
+                    size="large"
+                    className="width-details"
+                    pagination={{
+                        onChange: page => {
+                            console.log(page);
+                        },
+                        pageSize: 3,
+                    }}
+                    dataSource={this.props.postsnotebooks.laptops}
+                    footer={
+                        <div>
+                            <b>ant design</b> footer part
+          </div>
+                    }
+                    renderItem={item => (
+    
+    
+    
+    
+    
+                        <List.Item
+                            key={item.title}
+                            actions={[
+                                <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
+                                <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
+                                <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
+                            ]}
+                            extra={
+                                <img
+                                    width={272}
+                                    alt="logo"
+                                    src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                                />
+                            }
+                        >
+                            <List.Item.Meta
+                                avatar={<RocketOutlined />}
+                                className="font-details"
+                                title={<h3>Serial : {item.serial_number}</h3>}
+                                description={
+                                    <h4>
+                                        <Row>
+                                            <Col span={8}>
+                                                Brand :  {item.brand}
+                                            </Col>
+                                            <Col span={8}>
+                                                Model : {item.model_name}
+                                            </Col>
+                                            <Col span={8}>
+                                                <Input value={this.changeInput} onChange={(e) => this.setState(e.target.value)} />
+    
+                                            </Col>
+                                            <Row>
+                                                <Col span={10}>
+                                                    <Button
+                                                        style={{ backgroundColor: 'green' }}
+                                                        onClick={() => this.updateNotebookToUser(this.item.id)}
+                                                    > Done
+                                </Button>
+                                                </Col>
+                                            </Row>
+                                        </Row>
+                                    </h4>}
+                            />
+    
+                        </List.Item>
+    
+    
+                    )}
+                />
+    
+    
+            )
+            
+
+        }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -136,52 +302,10 @@ class Editprofile extends React.Component {
 
 
                             <h1 style={{ marginTop: "30px", fontSize: "30px" }}>Notebooks management</h1>
-                            <List
-                                itemLayout="vertical"
-                                size="large"
-                                className="width-details"
-                                pagination={{
-                                    onChange: page => {
-                                        console.log(page);
-                                    },
-                                    pageSize: 3,
-                                }}
-                                dataSource={this.props.postsnotebooks.laptops}
-                                footer={
-                                    <div>
-                                        <b>ant design</b> footer part
-      </div>
-                                }
-                                renderItem={item => (
-                                    <List.Item
-                                        key={item.title}
-                                        actions={[
-                                            <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-                                            <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-                                            <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
-                                        ]}
-                                        extra={
-                                            <img
-                                                width={272}
-                                                alt="logo"
-                                                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-                                            />
-                                        }
-                                    >
-                                        <List.Item.Meta
-                                            avatar={<RocketOutlined />}
-                                            className="font-details"
-                                            title={<h3>Serial : {item.serial_number}</h3>}
-                                            description={<h4>Brand :  {item.brand} Model : {item.model_name} User : {item.user_id}</h4>}
-                                        />
-                                        <Button
-                                            style={{ backgroundColor: 'green' }}
-                                            onClick={() => toggleEdit()}
-                                        > Edit </Button>
-                                    </List.Item>
 
-                                )}
-                            />
+
+                            {contents}
+
 
 
 
@@ -196,7 +320,7 @@ class Editprofile extends React.Component {
                         </Layout>
                     </Layout>
                 </Layout>
-            </div>
+            </div >
         )
     }
 
@@ -208,7 +332,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    updateNotebook,
     fetchNotebook
 }
 

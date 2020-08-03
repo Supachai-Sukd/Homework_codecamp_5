@@ -33,10 +33,10 @@ export const fetchNotebook = () => async dispatch => {
 }
 
 // targetUser นั้นคือ ตัวที่ต้องเหมือนใน backend เฉยๆ
-export const updateNotebook = (id, changeInput) => async dispatch => {
-    const response = await axios.put(`/notebooks/update/${id}`, { user_id: changeInput})
-    dispatch({ type: FETCHING_NOTEBOOKS, payload: response.data })
-}
+// export const updateNotebook = (id, changeInput) => async dispatch => {
+//     const response = await axios.put(`/notebooks/update/${id}`, { user_id: changeInput})
+//     dispatch({ type: FETCHING_NOTEBOOKS, payload: response.data })
+// }
 
 
 
