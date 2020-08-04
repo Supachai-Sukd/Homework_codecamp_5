@@ -1,6 +1,6 @@
 import RegisterPage from '../component/pages/Register'
 import LoginPage from '../component/pages/Login'
-import editprofilePage from '../component/pages/Editprofile'
+import EditNotebooknaKub from '../component/pages/Editnotebook'
 import deleteprofilePage from '../component/pages/Deleteprofile'
 import createPage from '../component/pages/Createpage'
 import AddItemUser from '../component/pages/Addallitemuser'
@@ -16,9 +16,9 @@ const components = {
         url: "/login",
         component: LoginPage,
     },
-    editprofile: {
+    editNotebook: {
         url: "/editprofile",
-        component: editprofilePage,
+        component: EditNotebooknaKub,
     },
     deleteprofile: {
         url: "/delete",
@@ -54,7 +54,7 @@ export default {
     },
     user: {
         allowedRoutes: [
-            components.editprofile,
+            components.editNotebook,
             components.deleteprofile,
             components.adddevice,
             components.createprofile,
