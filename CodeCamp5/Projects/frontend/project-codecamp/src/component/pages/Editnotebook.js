@@ -48,12 +48,13 @@ export default function EditNotebooks() {
                         <Divider orientation="left">Notebook</Divider>
 
                         <List
+                            
                             style={{ width: '100%' }}
                             header={<div style={{ fontWeight: "bold", fontSize: "30px" }} >List notebook</div>}
                             bordered
                             dataSource={notebookList}
                             renderItem={item => (
-
+                               
                                 <List.Item>
                                     <EditNotebooknaKub delete={deleteNotebook} item={item} fetchData={fetchNotebooks} />
                                 </List.Item>

@@ -33,13 +33,12 @@ function Leftmenu() {
             <Menu.Item  icon={<PlusSquareOutlined />} ><Link to="/add" key="4">  Add notebook</Link></Menu.Item>
             <Menu.Item  icon={<MonitorOutlined />} ><Link to="/notebooks" key="5">  View notebook </Link></Menu.Item>
             <Menu.Item key="6" icon={<EditOutlined />}  ><Link to="/editprofile">Edit notebook</Link></Menu.Item>
-            <Menu.Item key="7" icon={<ScissorOutlined />}  >Delete notebook</Menu.Item>
           </SubMenu>
           <SubMenu key="sub3" icon={<PhoneOutlined />} title="Phone">
-            <Menu.Item key="8" icon={<PlusSquareOutlined />} >Add phone</Menu.Item>
-            <Menu.Item key="9" icon={<MonitorOutlined />} >View phone</Menu.Item>
-            <Menu.Item key="10" icon={<EditOutlined />} >Edit phone</Menu.Item>
-            <Menu.Item key="11" icon={<ScissorOutlined />} >Delete phone</Menu.Item>
+            <Menu.Item key="7" icon={<PlusSquareOutlined />} >Add phone</Menu.Item>
+            <Menu.Item key="8" icon={<MonitorOutlined />} >View phone</Menu.Item>
+            <Menu.Item key="9" icon={<EditOutlined />} >Edit phone</Menu.Item>
+            <Menu.Item key="10" icon={<ScissorOutlined />} >Delete phone</Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>

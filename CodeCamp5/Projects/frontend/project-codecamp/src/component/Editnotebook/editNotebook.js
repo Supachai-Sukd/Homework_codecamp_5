@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 // import axios from '../../config/axios'
 import axios from 'axios'
-import { Layout, List, Typography, Divider, Col, Row, Button, Input } from 'antd';
+import { Cascader, Select, Layout, List, Typography, Divider, Col, Row, Button, Input, notification, Form } from 'antd';
+import { fetchUser } from '../../actions';
+
+
+const { Option } = Select;
 
 
 
@@ -10,11 +14,24 @@ function EditNotebooknaKub(props) {
     const [changeInput, setChangeInput] = useState("");
     const [isEdit, setIsEdit] = useState(false);
 
+    
+
     const updateNotebookToUser = async (id) => {
-        await axios.put(`/notebooks/update/${id}`, { targetUser: changeInput });
-        props.fetchData();
-        setIsEdit(false);
+        await axios.put(`/notebooks/update/${id}`, { targetUser: changeInput })
+            .then(res => {
+                props.fetchData()
+                setIsEdit(false)
+                notification.success({
+                    message: `Add notebook to user success.`
+                })
+            })
+            .catch(err => {
+                notification.error({
+                    message: `Add failed.`
+                })
+            })
     }
+
 
     const toggleEdit = () => {
         setChangeInput(props.item.user_id)
@@ -32,6 +49,8 @@ function EditNotebooknaKub(props) {
 
 
                 <Col span={4}>
+
+                    
                     <Typography.Text >
                         Brand : {props.item.brand}
                     </Typography.Text>
@@ -41,6 +60,10 @@ function EditNotebooknaKub(props) {
                 <Col span={8}>
                     <Input value={changeInput} onChange={(e) => setChangeInput(e.target.value)} />
                 </Col>
+
+
+
+
 
 
 
@@ -78,7 +101,7 @@ function EditNotebooknaKub(props) {
 
                     <Col span={4}>
                         <Typography.Text >
-                            Model : {props.item.user_id}
+                            User : {props.item.user_id}
                         </Typography.Text>
                     </Col>
 
@@ -94,6 +117,9 @@ function EditNotebooknaKub(props) {
                             type="danger">Delete</Button>
                     </Col>
 
+                    
+
+
                 </Row>
 
             </List.Item>
@@ -104,7 +130,7 @@ function EditNotebooknaKub(props) {
 
     return (
         <div>
-        {contents}
+            {contents}
         </div>
     )
 }

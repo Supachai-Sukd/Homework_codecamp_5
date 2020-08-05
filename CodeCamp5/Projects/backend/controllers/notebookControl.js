@@ -3,7 +3,10 @@ const db = require('../models')
 
 
 const getAllNoteBooks = async (req, res) => {
-    const allBrands = await db.Notebook.findAll({include: db.User })
+    const allBrands = await db.Notebook.findAll({
+        include: 
+            db.User
+        })
     res.status(200).send(allBrands)
 }
 

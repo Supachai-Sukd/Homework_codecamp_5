@@ -34,7 +34,8 @@ class Createpage extends React.Component {
     visible: false,
     visiblenewaccount: false,
     employees: [],
-    notebooks: []
+    notebooks: [],
+    term: ''
   };
 
   
