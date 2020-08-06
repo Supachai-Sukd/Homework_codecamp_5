@@ -26,7 +26,7 @@ function Leftmenu() {
         >
           <SubMenu key="sub1" icon={<GlobalOutlined />} title="User">
             <Menu.Item   icon={<UserAddOutlined />}   ><Link  to="/create" key="1">  Add user</Link></Menu.Item>
-            <Menu.Item  icon={<TeamOutlined />}   ><Link to="/editprofile" key="2" >  Edit user </Link> </Menu.Item>
+            <Menu.Item  icon={<TeamOutlined />}   ><Link to="/" key="2" >  Edit user </Link> </Menu.Item>
             <Menu.Item  icon={<UserDeleteOutlined />}  ><Link to="/delete" key="3">  Delete user</Link></Menu.Item>
           </SubMenu>
           <SubMenu key="sub2" icon={<LaptopOutlined /> } title="Notebook">

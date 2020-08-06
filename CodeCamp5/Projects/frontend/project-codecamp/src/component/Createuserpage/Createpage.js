@@ -34,8 +34,7 @@ class Createpage extends React.Component {
     visible: false,
     visiblenewaccount: false,
     employees: [],
-    notebooks: [],
-    term: ''
+    notebooks: [] 
   };
 
   
@@ -71,7 +70,7 @@ class Createpage extends React.Component {
 
 
     return (
-      <div>
+      <div >
         <Layout style={{ padding: '0 24px 24px' }}>
           
           
@@ -111,8 +110,7 @@ class Createpage extends React.Component {
               {/* End Button Section */}
 
 
-              <br />
-              <Search placeholder="input search text" onSearch={value => console.log(value)} enterButton />
+              
               <br />
               <br />
 
@@ -133,18 +131,23 @@ class Createpage extends React.Component {
 
 
               <List
+              
                 dataSource={this.props.posts.employees}
                 bordered
                 renderItem={post => (
 
 
-                  <List.Item>
+                  <List.Item 
+                  style={{ textAlign: "left" }}
+                  >
+                  
+                 
                     
                    <List.Item.Meta
                       avatar={
                         <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
                       }
-                      title={<a href="https://ant.design/index-cn">{post.name}</a>}
+                      title={post.name}
                       description={post.position}
                     />
 

@@ -41,10 +41,10 @@ function EditNotebooknaKub(props) {
     let contents = (
 
         <List.Item style={{ justifyContent: "center" }}>
-            <Row style={{ width: "800px", textAlign: "left", fontSize: "20px" }}>
+            <Row style={{ width: "900px", textAlign: "left", fontSize: "20px" }}>
 
                 <Col span={4}>
-                    <Typography.Text >Serial : {props.item.serial_number}</Typography.Text>
+                    <Typography.Text >S/N : {props.item.serial_number}</Typography.Text>
                 </Col>
 
 
@@ -88,7 +88,7 @@ function EditNotebooknaKub(props) {
                 <Row style={{ width: "800px", textAlign: "left", fontSize: "20px" }}>
 
                     <Col span={4}>
-                        <Typography.Text >Serial : {props.item.serial_number}</Typography.Text>
+                        <Typography.Text >S/N : {props.item.serial_number}</Typography.Text>
                     </Col>
 
 
