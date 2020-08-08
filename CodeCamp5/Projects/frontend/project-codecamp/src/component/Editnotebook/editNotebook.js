@@ -41,23 +41,25 @@ function EditNotebooknaKub(props) {
     let contents = (
 
         <List.Item style={{ justifyContent: "center" }}>
-            <Row style={{ width: "900px", textAlign: "left", fontSize: "20px" }}>
+            <Row style={{ width: "100%", textAlign: "left", fontSize: "16px" }}>
 
-                <Col span={4}>
-                    <Typography.Text >S/N : {props.item.serial_number}</Typography.Text>
+                <Col span={3}>
+                    <p>S/N : {props.item.serial_number}</p>
+                    {/* <Typography.Text >{props.item.serial_number}</Typography.Text> */}
                 </Col>
 
 
-                <Col span={4}>
+                {/* <Col span={4}>
 
                     
                     <Typography.Text >
                         Brand : {props.item.brand}
                     </Typography.Text>
-                </Col>
+                </Col> */}
 
 
-                <Col span={8}>
+                <Col span={6}>
+                    
                     <Input value={changeInput} onChange={(e) => setChangeInput(e.target.value)} />
                 </Col>
 
@@ -67,7 +69,7 @@ function EditNotebooknaKub(props) {
 
 
 
-                <Col span={4}>
+                <Col span={3}>
                     <Button
                         onClick={() => updateNotebookToUser(props.item.id)}
                         type="primary">Done</Button>
@@ -85,40 +87,44 @@ function EditNotebooknaKub(props) {
     if (!isEdit) {
         contents = (
             <List.Item style={{ justifyContent: "center" }}>
-                <Row style={{ width: "800px", textAlign: "left", fontSize: "20px" }}>
+                <Row  style={{ width: "100%", textAlign: "left", fontSize: "16px" }}>
 
-                    <Col span={4}>
-                        <Typography.Text >S/N : {props.item.serial_number}</Typography.Text>
+                    
+
+                    <Col span={3}>
+                        <p>S/N : {props.item.serial_number}</p>
+                        {/* <Typography.Text >{props.item.serial_number}</Typography.Text> */}
                     </Col>
 
 
-                    <Col span={4}>
+                    {/* <Col span={4}>
                         <Typography.Text >
                             Brand : {props.item.brand}
                         </Typography.Text>
+                    </Col> */}
+
+
+                    <Col span={3}>
+                        <p>ID : {props.item.user_id}</p>
+                        {/* <Typography.Text >
+                            {props.item.user_id}
+                        </Typography.Text> */}
                     </Col>
 
-
-                    <Col span={4}>
-                        <Typography.Text >
-                            User : {props.item.user_id}
-                        </Typography.Text>
-                    </Col>
-
-                    <Col span={4}>
+                    <Col span={3}>
                         <Button
                             onClick={() => toggleEdit()}
                             style={{ backgroundColor: 'yellow' }}>Edit</Button>
                     </Col>
 
-                    <Col span={4}>
+                    <Col span={3}>
                         <Button
                             onClick={() => props.delete(props.item.id)}
                             type="danger">Delete</Button>
                     </Col>
 
                     
-
+                   
 
                 </Row>
 

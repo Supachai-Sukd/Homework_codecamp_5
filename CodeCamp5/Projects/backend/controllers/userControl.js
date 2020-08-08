@@ -130,6 +130,19 @@ const deleteUser = async (req, res) => {
     res.status(204).send({ message: "Delete user success" })
 }
 
+const changeNameUser = async (req, res) => {
+    const targetUserInCompany = req.params.id
+    const { targetUser } = req.body
+
+    await db.User.update({
+        name: targetUser
+    }, {
+        where: { id: targetUserInCompany }
+    })
+
+    res.status(201).send({ message: "Change name success" })
+}
+
 
 
 module.exports = {
@@ -138,5 +151,6 @@ module.exports = {
     getAllUsers,
     createNewCompanyAndAdmin,
     employeeRegister,
-    deleteUser
+    deleteUser,
+    changeNameUser
 }

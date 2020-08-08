@@ -65,6 +65,10 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
                             required: true,
                             message: 'Please input the serial number!',
                         },
+                        {
+                            max: 6,
+                            message: 'Serial not exceed 6 charectors!'
+                        }
                     ]}
                 >
                     <Input />

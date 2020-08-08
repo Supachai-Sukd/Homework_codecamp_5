@@ -1,11 +1,11 @@
 import RegisterPage from '../component/pages/Register'
 import LoginPage from '../component/pages/Login'
 import EditNotebooknaKub from '../component/pages/Editnotebook'
-import deleteprofilePage from '../component/pages/Deleteprofile'
 import createPage from '../component/pages/Createpage'
 import AddItemUser from '../component/pages/Addallitemuser'
 import ProfilePage from '../component/pages/Profile'
 import ViewNotebook from '../component/pages/Viewnotebook'
+import ChangeName from '../component/pages/Edituser'
 
 const components = {
     register: {
@@ -19,10 +19,6 @@ const components = {
     editNotebook: {
         url: "/editprofile",
         component: EditNotebooknaKub,
-    },
-    deleteprofile: {
-        url: "/delete",
-        component: deleteprofilePage,
     },
     createprofile: {
         url: "/create",
@@ -39,6 +35,10 @@ const components = {
     viewnotebooks: {
         url: "/notebooks",
         component: ViewNotebook
+    },
+    changenameuser: {
+        url: "/change",
+        component: ChangeName
     }
 }
 
@@ -55,12 +55,13 @@ export default {
     user: {
         allowedRoutes: [
             components.editNotebook,
-            components.deleteprofile,
             components.adddevice,
             components.createprofile,
             components.profilepage,
-            components.viewnotebooks
+            components.viewnotebooks,
+            components.changenameuser
         ],
         redirectRoutes: "/profile"
     }
 }
+            

@@ -48,7 +48,7 @@ class Searchbars extends Component {
                     />
                 </div>
                 <div>
-                    <h1>List user</h1>
+                    <br/>
                     {filterdUser.map(user => {
                         return this.renderUser(user)
                     })}

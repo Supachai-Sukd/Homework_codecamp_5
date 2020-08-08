@@ -82,7 +82,7 @@ class Viewnotebooks extends React.Component {
 
 
 
-                            <h1 style={{ marginTop: "30px", fontSize: "30px" }}>Notebooks management</h1>
+                            <h1 style={{ marginTop: "30px", fontSize: "30px" }}>Notebooks List</h1>
                             <List
                                 itemLayout="vertical"
                                 size="large"

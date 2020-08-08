@@ -47,14 +47,26 @@ export default function EditNotebooks() {
                 <Layout>
                     <Leftmenu />
                     <Layout>
-                        <br />
-                        <br />
+                       
+                        
+                        <Row style={{ textAlign: "center", fontSize: "20px" }}>
+                            <Col span={12}>
+                            <Divider orientation="Center" style={{ fontSize: "25px" }} >Notebook List</Divider>
+                            </Col>
+                            <Col span={12}>
+                            <Divider orientation="Center" style={{ fontSize: "25px" }} >Directory</Divider>
+                            </Col>
+
+
+                            
+                        </Row>
                         <Row>
+                            
                             <Col span={12}>
                                 <List
 
-                                    style={{ width: '100%' }}
-                                    header={<div style={{ fontWeight: "bold", fontSize: "30px" }} >List notebook</div>}
+                                    style={{ width: '1000px' }}
+                                    
                                     bordered
                                     dataSource={notebookList}
                                     renderItem={item => (
