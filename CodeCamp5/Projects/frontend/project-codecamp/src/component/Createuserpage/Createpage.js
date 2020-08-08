@@ -147,10 +147,17 @@ class Createpage extends React.Component {
                       avatar={
                         <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
                       }
-                      title={post.name}
-                      description={post.position}
+                      title="Name"
+                      description={post.name}
+                      
                     />
-
+                    <List.Item.Meta
+                      
+                      title="Position"
+                      description={post.position}
+                      
+                    />
+                    
 
                   </List.Item>
 

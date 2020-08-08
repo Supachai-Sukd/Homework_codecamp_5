@@ -54,7 +54,7 @@ const loginUser = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
     const allUsers = await db.User.findAll({
-        attributes: ['name', 'position', 'user_level']})
+        attributes: ['id','name', 'position', 'user_level']})
 
     res.status(200).send(allUsers)
 }
