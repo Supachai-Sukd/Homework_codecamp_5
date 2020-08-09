@@ -1,15 +1,22 @@
 import React, { useState } from 'react'
-import { Layout, Menu, Breadcrumb, Button, Modal, Form, Input, Radio, Drawer, List, Avatar, Divider, Col, Row, Select, DatePicker } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined, AudioOutlined, PlusOutlined } from '@ant-design/icons';
+import { Layout, Menu, Button, Modal, Form, Input, Radio, Drawer, List, Avatar, Space, Col, Row } from 'antd';
+import { AudioOutlined, PlusOutlined, RocketOutlined, MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 import FormCreateEmp from './FormCreate'
 import axios from '../../config/axios';
 import { connect } from 'react-redux'
-import {fetchUser} from '../../actions' 
+import { fetchUser } from '../../actions'
+import '../../App.css'
 
 
 const { Search } = Input;
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
+const IconText = ({ icon, text }) => (
+  <Space>
+    {React.createElement(icon)}
+    {text}
+  </Space>
+);
 
 const DescriptionItem = ({ title, content }) => (
   <div className="site-description-item-profile-wrapper">
@@ -32,12 +39,10 @@ class Createpage extends React.Component {
 
   state = {
     visible: false,
-    visiblenewaccount: false,
-    employees: [],
-    notebooks: [] 
+    visiblenewaccount: false
   };
 
-  
+
 
   showDrawerAccount = () => {
     this.setState({
@@ -53,16 +58,16 @@ class Createpage extends React.Component {
 
 
 
-  
 
 
-  
+
+
 
   componentDidMount() {
-   this.props.fetchUser()
+    this.props.fetchUser()
   }
 
-  
+
 
   render() {
 
@@ -72,8 +77,8 @@ class Createpage extends React.Component {
     return (
       <div >
         <Layout style={{ padding: '0 24px 24px' }}>
-          
-          
+
+
           <Content
             className="site-layout-background"
             style={{
@@ -99,18 +104,18 @@ class Createpage extends React.Component {
                 onClose={this.onCloseAccount}
                 visible={this.state.visiblenewaccount}
                 bodyStyle={{ paddingBottom: 80 }}
-               
+
               >
-                
+
                 <FormCreateEmp />
-                
-                <Button style={{ marginTop:"40px" }} onClick={ this.closeDrawerAccount }>Close</Button>
+
+                <Button style={{ marginTop: "40px" }} onClick={this.closeDrawerAccount}>Close</Button>
               </Drawer>
 
               {/* End Button Section */}
 
 
-              
+
               <br />
               <br />
 
@@ -127,40 +132,64 @@ class Createpage extends React.Component {
 
 
 
-            <>
+           
 
-
+              <h1 style={{ marginTop: "30px", fontSize: "30px" }}>Employees List</h1>
               <List
-              
+                itemLayout="vertical"
+                style={{ alignSelf: "center", display: "block" }}
+                size="large"
+                pagination={{
+                  onChange: page => {
+                    console.log(page);
+                  },
+                  pageSize: 3,
+                }}
                 dataSource={this.props.posts.employees}
-                bordered
-                renderItem={post => (
+                footer={
+                  <div>
+                    <b>ant design</b> footer part
+  </div>
+                }
+                renderItem={item => (
 
 
-                  <List.Item 
-                  style={{ textAlign: "left" }}
+                  <List.Item
+                    key={item.title}
+                    actions={[
+                      <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
+                      <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
+                      <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
+                    ]}
+                    extra={
+                      <img
+                        width={272}
+                        alt="logo"
+                        src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                      />
+                    }
                   >
-                  
-                 
-                    
-                   <List.Item.Meta
-                      avatar={
-                        <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
-                      }
-                      title="Name"
-                      description={post.name}
-                      
-                    />
                     <List.Item.Meta
-                      
-                      title="Position"
-                      description={post.position}
-                      
+                      avatar={<RocketOutlined />}
+                      className="font-details"
+                      title={<h3>Name : {item.name}</h3>}
+                      description={
+                        <h4>
+                          <Row>
+                            <Col span={8}>
+                              ID :  {item.id}
+                            </Col>
+                            <Col span={8}>
+                              Position : {item.position}
+                            </Col>
+                            <Col span={8}>
+                              Level : {item.user_level}
+                            </Col>
+
+                          </Row>
+                        </h4>}
                     />
-                    
-
                   </List.Item>
-
 
 
 
@@ -169,8 +198,8 @@ class Createpage extends React.Component {
 
 
 
-              
-            </>
+
+           
 
 
 
@@ -191,11 +220,11 @@ class Createpage extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    return { posts: state.posts }
+  return { posts: state.posts }
 }
 
 const mapDispatchToProps = {
-    fetchUser
+  fetchUser
 }
 
 

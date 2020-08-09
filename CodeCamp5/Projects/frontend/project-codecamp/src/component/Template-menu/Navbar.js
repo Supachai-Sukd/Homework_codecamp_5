@@ -30,13 +30,12 @@ function Navbar(props) {
 
     return (
         <div>
-{/* defaultSelectedKeys={['1']} */}
+
             <Header className="header">
                 <div className="logo" />
-                <Menu theme="dark" mode="horizontal" >
-                <Menu.Item key="1"> <Link to="/profile">  Profile </Link>  </Menu.Item>
-                    <Menu.Item key="2">Manual</Menu.Item>
-                    <Menu.Item key="3" style={{ float: "right" }} >Hi !!  {name}</Menu.Item>
+                <Menu defaultSelectedKeys={['1']} theme="dark" mode="horizontal" >
+                <Menu.Item key="1"> <Link to="/create">  Profile </Link>  </Menu.Item>
+                    <Menu.Item key="2" style={{ float: "right" }} >Hi !!  {name}</Menu.Item>
                 </Menu>
                 
                 

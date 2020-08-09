@@ -15,9 +15,9 @@ function Profile(props) {
             <Layout>
                 <Navbar />
                 <Layout>
-                    <Leftmenu />
+                   
                     <Layout>
-                        <h1>Profile page</h1>
+                        <h1>Profile user page</h1>
 
 
                         <Button type={"primary"} danger className="logout" onClick={logout} >Logout</Button>

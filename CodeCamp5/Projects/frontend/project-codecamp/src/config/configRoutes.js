@@ -61,6 +61,12 @@ export default {
             components.viewnotebooks,
             components.changenameuser
         ],
+        redirectRoutes: "/create"
+    },
+    staff: {
+        allowedRoutes: [
+            components.profilepage
+        ],
         redirectRoutes: "/profile"
     }
 }

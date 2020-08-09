@@ -66,7 +66,7 @@ function FormCreate(props) {
                         <Col span={12}>
                             <Form.Item
                                 name="email"
-                                label="Name-employee"
+                                label="Email-employee"
 
                                 rules={[
                                     {

@@ -19,18 +19,18 @@ function Leftmenu() {
             <Sider width={200} className="site-layout-background">
         <Menu
           mode="inline"
-          defaultSelectedKeys= {['key']}
-          // selectedKeys={['1']}
+          defaultSelectedKeys= {'key'}
+          // selectedKeys={["selectMenu"]}
           defaultOpenKeys={['sub1','sub2','sub3']}
           style={{ height: '100%', borderRight: 0 }}
         >
           <SubMenu key="sub1" icon={<GlobalOutlined />} title="User">
-            <Menu.Item   icon={<UserAddOutlined />}   ><Link  to="/create" key="1">  Add user</Link></Menu.Item>
-            <Menu.Item  icon={<TeamOutlined />}   ><Link to="/change" key="2" >  Edit user </Link> </Menu.Item>
+            <Menu.Item key="1" icon={<UserAddOutlined />}   ><Link   to="/create" >  Add user</Link></Menu.Item>
+            <Menu.Item key="2" icon={<TeamOutlined />}   ><Link to="/change"  >  Edit user </Link> </Menu.Item>
             
           </SubMenu>
           <SubMenu key="sub2" icon={<LaptopOutlined /> } title="Notebook">
-            <Menu.Item  icon={<PlusSquareOutlined />} ><Link to="/add" key="3">  Add notebook</Link></Menu.Item>
+            <Menu.Item key="3"  icon={<PlusSquareOutlined />}  ><Link to="/add" >  Add notebook</Link></Menu.Item>
             <Menu.Item  icon={<MonitorOutlined />} ><Link to="/notebooks" key="4">  View notebook </Link></Menu.Item>
             <Menu.Item key="5" icon={<EditOutlined />}  ><Link to="/editprofile">Edit notebook</Link></Menu.Item>
           </SubMenu>

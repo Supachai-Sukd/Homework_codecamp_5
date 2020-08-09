@@ -245,3 +245,44 @@ function Searchbars(props) {
 }
 
 export default Searchbars
+
+
+
+
+
+<List
+              
+              dataSource={this.props.posts.employees}
+              bordered
+              renderItem={post => (
+
+
+                <List.Item 
+                style={{ textAlign: "left" }}
+                >
+                
+               
+                  
+                 <List.Item.Meta
+                    avatar={
+                      <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
+                    }
+                    title="Name"
+                    description={post.name}
+                    
+                  />
+                  <List.Item.Meta
+                    
+                    title="Position"
+                    description={post.position}
+                    
+                  />
+                  
+
+                </List.Item>
+
+
+
+
+              )}
+            />
