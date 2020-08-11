@@ -18,9 +18,7 @@ const { Header, Content, Sider, Footer } = Layout;
 
 function Login(props) {
 
-    const [leVel, setLeVel] = useState("")
-
-
+    
 
     const onFinish = values => {
 
@@ -29,59 +27,31 @@ function Login(props) {
             password: values.password
         }
 
+
         axios.post("/users/login", body)
             .then(result => {
                 console.log(result)
                 LocalStorageService.setToken(result.data.token)
 
                 const tokenLogin = LocalStorageService.getToken()
+                //const tokenUser = LocalStorageService.getTokenUser()
                 if (tokenLogin) {
                     const user = jwtDecode(tokenLogin)
-                    setLeVel(user.user_level)
+                    props.setRole(user.user_level)
                 }
 
-                if (leVel == "admin") {
-                    props.setRole("user")
-                } else if (leVel == "staff") {
-                    props.setRole("staff")
-                }
+               
 
 
 
             })
-            .catch(err => {
-                notification.error({
-                    message: `การเข้าสู่ระบบล้มเหลว`,
-                });
-            })
-
+        .catch( err => {
+            notification.error({
+                message: `การเข้าสู่ระบบล้มเหลว`,
+            });
+        } )
 
     }
-
-
-    // const onFinish = values => {
-
-    //     const body = {
-    //         username: values.username,
-    //         password: values.password
-    //     }
-
-
-    //     axios.post("/users/login", body)
-    //         .then(result => {
-    //             console.log(result)
-    //             LocalStorageService.setToken(result.data.token)
-
-    //             props.setRole("user")
-
-    //         })
-    //     .catch( err => {
-    //         notification.error({
-    //             message: `การเข้าสู่ระบบล้มเหลว`,
-    //         });
-    //     } )
-
-    // }
 
 
 
@@ -153,14 +123,14 @@ function Login(props) {
 
                                     <a className="login-form-forgot" href="">
                                         Forgot password
-  </a>
+                                        </a>
                                 </Form.Item>
 
                                 <Form.Item>
                                     <Button type="primary" htmlType="submit" className="login-form-button">
                                         Log in
-  </Button>
-  Or <a href="/register">register now!</a>
+                                    </Button>
+                                    Or <a href="/register">register now!</a>
                                 </Form.Item>
                             </Form>
 

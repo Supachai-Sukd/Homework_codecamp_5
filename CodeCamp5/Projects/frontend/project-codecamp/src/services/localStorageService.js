@@ -1,19 +1,36 @@
-function setToken (token) {
+import jwtDecode from 'jwt-decode'
+
+function setToken(token) {
     localStorage.setItem("ACCESS_TOKEN", token)
 }
 
-function getToken () {
+function getToken() {
     return localStorage.getItem("ACCESS_TOKEN")
 }
 
-function removeToken () {
+function removeToken() {
     localStorage.removeItem("ACCESS_TOKEN")
 }
 
-function getRole () {
-    if (getToken()) {
-        return "user"
+
+
+function getRole() {
+    const token = getToken()
+
+
+    if (token) {
+        const user = jwtDecode(token)
+
+        console.log(user)
+        return user.user_level
     }
+
+    // if (getTokenUser()) {
+    //     return "user"
+    // }
+
+        
+
     return "guest"
 }
 
@@ -22,4 +39,5 @@ export default {
     getToken,
     removeToken,
     getRole
+    
 }

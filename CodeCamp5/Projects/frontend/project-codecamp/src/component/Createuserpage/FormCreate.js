@@ -147,7 +147,7 @@ function FormCreate(props) {
                             >
                                 <Select placeholder="Please select level employee">
                                     <Option value="admin">Admin</Option>
-                                    <Option value="staff">Staff</Option>
+                                    <Option value="user">User</Option>
                                 </Select>
                             </Form.Item>
                         </Col>

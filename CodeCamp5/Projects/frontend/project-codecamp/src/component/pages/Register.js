@@ -168,7 +168,6 @@ function Register(props) {
 
           <Select>
             <Select.Option value="admin">Admin</Select.Option>
-            <Select.Option value="staff">Staff</Select.Option>
           </Select>
 
 

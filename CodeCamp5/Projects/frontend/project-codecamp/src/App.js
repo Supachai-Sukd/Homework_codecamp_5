@@ -9,6 +9,7 @@ import { Button } from 'antd';
 
 function App(props) {
   const [role, setRole] = useState(LocalStorageServices.getRole())
+  // const [isCheckRole, setIsCheckRole] = useState(false);
 
   
   

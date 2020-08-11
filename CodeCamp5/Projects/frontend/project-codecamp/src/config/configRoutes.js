@@ -52,18 +52,17 @@ export default {
         ],
         redirectRoutes: "/login"
     },
-    user: {
+    admin: {
         allowedRoutes: [
             components.editNotebook,
             components.adddevice,
             components.createprofile,
-            components.profilepage,
             components.viewnotebooks,
             components.changenameuser
         ],
         redirectRoutes: "/create"
     },
-    staff: {
+    user: {
         allowedRoutes: [
             components.profilepage
         ],
