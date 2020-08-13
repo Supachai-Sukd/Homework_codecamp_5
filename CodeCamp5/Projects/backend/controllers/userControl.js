@@ -29,6 +29,7 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
     const { username, password } = req.body
     const targetUser = await db.User.findOne({ where: { username: username } })
+    
     if (!targetUser) {
         res.status(400).send({ message: 'Username or password is wrong' })
     } else {
@@ -39,6 +40,7 @@ const loginUser = async (req, res) => {
                 id: targetUser.id,
                 company_id: targetUser.company_id,
                 user_level: targetUser.user_level
+                
             }
             const token = jwt.sign(payload, process.env.SECRET_OR_KEY, { expiresIn: 3600 })
 
@@ -52,6 +54,41 @@ const loginUser = async (req, res) => {
     }
 
 }
+
+
+
+// const loginUser = async (req, res) => {
+//     const { username, password } = req.body
+//     const targetUser = await db.User.findOne({ where: { username: username } })
+//     if (!targetUser) {
+//         res.status(400).send({ message: 'Username or password is wrong' })
+//     } else {
+//         const isCorrectPassword = bcryptjs.compareSync(password, targetUser.password)
+//         if (isCorrectPassword) {
+//             const payload = {
+//                 name: targetUser.name,
+//                 id: targetUser.id,
+//                 company_id: targetUser.company_id,
+//                 user_level: targetUser.user_level
+//             }
+//             const token = jwt.sign(payload, process.env.SECRET_OR_KEY, { expiresIn: 3600 })
+
+//             res.status(200).send({
+//                 token: token,
+//                 message: "Login successful"
+//             })
+//         } else {
+//             res.status(400).send({ message: 'Username or password is wrong' })
+//         }
+//     }
+
+// }
+
+
+
+
+
+
 
 // const getAllUsers = async (req, res) => {
 //     // const targetUserCompany = await db.User.findOne({ where: { company_id: company_id } })

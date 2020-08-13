@@ -17,7 +17,6 @@ function removeToken() {
 function getRole() {
     const token = getToken()
 
-
     if (token) {
         const user = jwtDecode(token)
 
@@ -25,14 +24,10 @@ function getRole() {
         return user.user_level
     }
 
-    // if (getTokenUser()) {
-    //     return "user"
-    // }
-
-        
-
     return "guest"
 }
+
+
 
 export default {
     setToken,

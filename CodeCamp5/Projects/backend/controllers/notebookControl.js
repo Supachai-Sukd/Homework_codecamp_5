@@ -1,11 +1,26 @@
 const db = require('../models')
+const jwt = require('jsonwebtoken')
 
 
 
 const getAllNoteBooks = async (req, res) => {
+
+   
+    const allBrands = await db.Notebook.findAll({ 
+        where: { user_id: req.user.id },
+        include: db.User.name
+     })
+
+    
+
+    res.status(200).send(allBrands)
+}
+
+const getNoteBooksForAdmin = async (req, res) => {
+    
     const allBrands = await db.Notebook.findAll({
         include: 
-            db.User
+        db.User.name
         })
     res.status(200).send(allBrands)
 }
@@ -51,5 +66,6 @@ module.exports = {
     addNewNotebook,
     getAllNoteBooks,
     addNotebookToUser,
-    deleteNotebook
+    deleteNotebook,
+    getNoteBooksForAdmin
 };

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout, List, Typography, Divider, Col, Row, Button, Input } from 'antd';
+import { Layout, List, Typography, Divider, Col, Row, Button, Input, Card } from 'antd';
 import Leftmenu from '../Template-menu/Left-menu'
 import Navbar from '../Template-menu/Navbar'
 import axios from '../../config/axios'
@@ -21,7 +21,7 @@ export default function EditNotebooks() {
 
 
     const fetchNotebooks = async () => {
-        const httpResponse = await axios.get('/notebooks')
+        const httpResponse = await axios.get('/notebooks/addminnotebooks')
         setNoteBookLists(httpResponse.data)
     }
 

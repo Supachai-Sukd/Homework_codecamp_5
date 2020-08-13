@@ -28,7 +28,7 @@ export const fetchUser =  ()  => async dispatch => {
 }
 
 export const fetchNotebook = () => async dispatch => {
-    const response = await axios.get("/notebooks")
+    const response = await axios.get("/notebooks/addminnotebooks")
     dispatch({ type: FETCHING_NOTEBOOKS, payload: response.data })
 }
 

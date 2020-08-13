@@ -18,8 +18,6 @@ const { Header, Content, Sider, Footer } = Layout;
 
 function Login(props) {
 
-    
-
     const onFinish = values => {
 
         const body = {
@@ -27,31 +25,33 @@ function Login(props) {
             password: values.password
         }
 
-
         axios.post("/users/login", body)
             .then(result => {
                 console.log(result)
                 LocalStorageService.setToken(result.data.token)
 
                 const tokenLogin = LocalStorageService.getToken()
-                //const tokenUser = LocalStorageService.getTokenUser()
+
                 if (tokenLogin) {
                     const user = jwtDecode(tokenLogin)
                     props.setRole(user.user_level)
                 }
 
-               
-
-
-
             })
-        .catch( err => {
-            notification.error({
-                message: `การเข้าสู่ระบบล้มเหลว`,
-            });
-        } )
+            .catch(err => {
+                notification.error({
+                    message: `การเข้าสู่ระบบล้มเหลว`,
+                });
+            })
 
     }
+
+
+
+
+
+
+
 
 
 

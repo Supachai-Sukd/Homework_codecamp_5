@@ -9,13 +9,13 @@ import { Button } from 'antd';
 
 function App(props) {
   const [role, setRole] = useState(LocalStorageServices.getRole())
-  // const [isCheckRole, setIsCheckRole] = useState(false);
+  
 
   
   
   return (
     <div className="App">
-      <PrivateRoutes role={role} setRole={setRole}  />
+      <PrivateRoutes role={role} setRole={setRole}   />
      
     </div>
   );
