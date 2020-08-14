@@ -17,8 +17,11 @@ const getAllNoteBooks = async (req, res) => {
 }
 
 const getNoteBooksForAdmin = async (req, res) => {
+
+    const targetCompany = await db.User.findOne({ where: { company_id: req.user.company_id} })
     
     const allBrands = await db.Notebook.findAll({
+        where: { nb_company_id: targetCompany.company_id },
         include: 
         db.User.name
         })
@@ -28,6 +31,7 @@ const getNoteBooksForAdmin = async (req, res) => {
 const addNewNotebook = async (req, res) => {
     const { serialNotebook, modelNotebook , brandNotebook} = req.body
     const targetNotebook = await db.Notebook.findOne({ where: { serial_number: serialNotebook } })
+    const targetCompany = await db.User.findOne({ where: { company_id: req.user.company_id} })
     if (targetNotebook) {
         res.status(400).send({ message: "Notebook already taken" })
      } else {
@@ -35,7 +39,8 @@ const addNewNotebook = async (req, res) => {
         await db.Notebook.create({
             brand: brandNotebook,
             serial_number: serialNotebook,
-            model_name: modelNotebook
+            model_name: modelNotebook,
+            nb_company_id: targetCompany.company_id
         })
         res.status(201).send({ message: "Add notebook success" })
     }

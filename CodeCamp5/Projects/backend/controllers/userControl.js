@@ -57,32 +57,7 @@ const loginUser = async (req, res) => {
 
 
 
-// const loginUser = async (req, res) => {
-//     const { username, password } = req.body
-//     const targetUser = await db.User.findOne({ where: { username: username } })
-//     if (!targetUser) {
-//         res.status(400).send({ message: 'Username or password is wrong' })
-//     } else {
-//         const isCorrectPassword = bcryptjs.compareSync(password, targetUser.password)
-//         if (isCorrectPassword) {
-//             const payload = {
-//                 name: targetUser.name,
-//                 id: targetUser.id,
-//                 company_id: targetUser.company_id,
-//                 user_level: targetUser.user_level
-//             }
-//             const token = jwt.sign(payload, process.env.SECRET_OR_KEY, { expiresIn: 3600 })
 
-//             res.status(200).send({
-//                 token: token,
-//                 message: "Login successful"
-//             })
-//         } else {
-//             res.status(400).send({ message: 'Username or password is wrong' })
-//         }
-//     }
-
-// }
 
 
 
@@ -107,6 +82,7 @@ const loginUser = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
     const allUsers = await db.User.findAll({
+        where: { company_id: req.user.company_id },
         attributes: ['id','name', 'position', 'user_level']})
 
     res.status(200).send(allUsers)
