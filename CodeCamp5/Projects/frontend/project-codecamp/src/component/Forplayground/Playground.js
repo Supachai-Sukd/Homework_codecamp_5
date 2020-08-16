@@ -1,288 +1,177 @@
-import React, { useState } from 'react'
-import { Layout, List, Typography, Divider, Col, Row, Button, Input, Avatar } from 'antd';
-import axios from '../../config/axios';
-import { useEffect } from 'react';
+import { List, Avatar, Space } from 'antd';
+import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 
-const { Search } = Input;
+const listData = [];
+for (let i = 0; i < 23; i++) {
+  listData.push({
+    href: 'https://ant.design',
+    title: `ant design part ${i}`,
+    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    description:
+      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+    content:
+      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+  });
+}
 
-function Searchbars() {
+const IconText = ({ icon, text }) => (
+  <Space>
+    {React.createElement(icon)}
+    {text}
+  </Space>
+);
 
-    const [searchData, setSearchData] = useState("")
-    const [userList, setUserList] = useState([])
 
-    const fetchUsers = async () => {
-        const response = await axios.get('/users')
-        setUserList(response.data)
+const filterdUser = this.props.post.employees.filter(user => {
+    return user.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
+})
+
+ReactDOM.render(
+
+
+  <List
+
+
+
+
+
+
+
+
+    itemLayout="vertical"
+    size="large"
+    pagination={
+        {
+      onChange: page => {
+        console.log(page);
+      },
+      pageSize: 3,
+    }
+}
+    dataSource={listData}
+
+
+    footer={
+      <div>
+        <b>ant design</b> footer part
+      </div>
     }
 
-    useEffect(() => {
-        fetchUsers()
-    }, [])
-
-    let filteredContacts = this.props.contacts.filter(
-        (contact) => {
-            return contact.name.toLowerCase().indexOf(
-                this.state.search.toLowerCase()) !== -1
-        }
-    )
-
-    // Method will callback from parent component
-
-    return (
-        <div>
-
-            <Search placeholder="input search text" onSearch={value => console.log(value)} enterButton />
-
-            <input type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} />
-
-            <List
-                itemLayout="horizontal"
-                dataSource={userList}
-                renderItem={item => (
-                    <List.Item>
-                        <List.Item.Meta
-                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                            title={<a href="https://ant.design">{item.title}</a>}
-                            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                        />
-                    </List.Item>
-                )}
-            />
-
-            <ul>
-                {filteredContacts.map((contact) => {
-                    return <Contact contact={contact}
-                        key={contact.id} />
-                })}
-            </ul>
 
 
+    renderItem={item => (
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            import React, { useState } from 'react'
-import { Layout, List, Typography, Divider, Col, Row, Button, Input, Avatar } from 'antd';
-import axios from '../../config/axios';
-import { useEffect } from 'react';
-
-const { Search } = Input;
-
-function Searchbars(props) {
-
-    const [searchData, setSearchData] = useState("")
-    const [userList, setUserList] = useState([])
-
-    const fetchUsers = async () => {
-        const response = await axios.get('/users')
-        setUserList(response.data)
-    }
-
-    useEffect(() => {
-        fetchUsers()
-    }, [])
-
-    let filteredContacts = userList.filter(
-        (user) => {
-            return user.name.toString().toLowerCase().indexOf(
-                searchData.toString().toLowerCase()
-                ) !== -1
-                
-        }
         
-    )
-
-    // Method will callback from parent component
-    const updateSearch = e => {
-        setSearchData({ searchData: e.target.value })
-    }
-
-    return (
-        <div>
-
-            <Search type="text" placeholder="input search text" onChange={updateSearch} value={searchData.name}enterButton />
-
-            <List>
-            {filteredContacts.map((user) => {
-                  return <List.Item>
-                      <List.Item.Meta>    
-                        user={user}
-                            key={user.name}
-                            </List.Item.Meta>
-                  </List.Item>
-                
-                    
-            })}
-    </List>
+<List.Item
+ key={item.title}
 
 
-            {/* <List
-                itemLayout="horizontal"
-                dataSource={userList}
-                renderItem={userList.filter((user) => {
-                    return <List.Item>
-                        <List.Item.Meta
-                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                            title={<a href="https://ant.design">{user.name.toLowerCase().indexOf(
-                                searchData.toLowerCase()
-                            ) !== -1
-                            }</a>}
-                            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                        />
-                    </List.Item>
-                }
-                )
-                    /> */}
+ actions={[
+    <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
+    <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
+    <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
+  ]}
 
-               
+      
+  extra={
+    <img
+      width={272}
+      alt="logo"
+      src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+    />
+  }
 
-</div>
-    )
+
        
-}
-
-export default Searchbars
+  >
 
 
-        </div>
-    )
-}
 
-export default Searchbars
-import React, { useState } from 'react'
-import { Layout, List, Typography, Divider, Col, Row, Button, Input, Avatar } from 'antd';
-import axios from '../../config/axios';
-import { useEffect } from 'react';
-
-const { Search } = Input;
-
-function Searchbars(props) {
-
-    const [searchData, setSearchData] = useState("")
-    const [userList, setUserList] = useState([])
-
-    const fetchUsers = async () => {
-        const response = await axios.get('/users')
-        setUserList(response.data)
-    }
-
-    useEffect(() => {
-        fetchUsers()
-    }, [])
-
-    let filteredContacts = userList => {
-        
-        if (searchData !== "" && userList.name.toLowerCase().indexOf( searchData.toLowerCase() ) === -1 ) {
-            return null
-        }
-
-    }
-
-    // Method will callback from parent component
-    const updateSearch = e => {
-        setSearchData({ searchData: e.target.value })
-    }
-
-    return (
-        <div>
-
-            <Search type="text" placeholder="input search text" onChange={updateSearch} value={searchData.name}enterButton />
-
-            <List>
-            
-                   <List.Item>
-                      <List.Item.Meta>    
-    <title>{userList.name}</title>
-                            </List.Item.Meta>
-                  </List.Item>
-                
-                    
-            )
-    </List>
-
-
-            {/* <List
-                itemLayout="horizontal"
-                dataSource={userList}
-                renderItem={userList.filter((user) => {
-                    return <List.Item>
-                        <List.Item.Meta
-                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                            title={<a href="https://ant.design">{user.name.toLowerCase().indexOf(
-                                searchData.toLowerCase()
-                            ) !== -1
-                            }</a>}
-                            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                        />
-                    </List.Item>
-                }
-                )
-                    /> */}
-
-               
-
-</div>
-    )
        
+
+
+
+
+
+     
+
+
+
+
+
+        <List.Item.Meta
+          avatar={<Avatar src={item.avatar} />}
+          title={<a href={item.href}>{item.title}</a>}
+          description={item.description}
+        />
+
+
+
+
+        {item.content}
+
+
+      
+
+
+
+        </List.Item>
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
-export default Searchbars
 
 
 
 
 
-<List
-              
-              dataSource={this.props.posts.employees}
-              bordered
-              renderItem={post => (
-
-
-                <List.Item 
-                style={{ textAlign: "left" }}
-                >
-                
-               
-                  
-                 <List.Item.Meta
-                    avatar={
-                      <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
-                    }
-                    title="Name"
-                    description={post.name}
-                    
-                  />
-                  <List.Item.Meta
-                    
-                    title="Position"
-                    description={post.position}
-                    
-                  />
-                  
-
-                </List.Item>
 
 
 
 
-              )}
-            />
+
+
+
+
+
+
+
+
+
+
+
+
+  />,
+  mountNode,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+);

@@ -65,9 +65,9 @@ export default function EditNotebooks() {
                             <Col span={12}>
                                 <List
 
-                                    style={{ width: '1000px' }}
+                                    style={{ width: '1000px', marginLeft: '30px' }}
                                     
-                                    bordered
+                                    
                                     dataSource={notebookList}
                                     renderItem={item => (
 
