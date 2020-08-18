@@ -80,6 +80,12 @@ class Searchbars extends Component {
                 return this.renderUser(user)
             })
             )
+
+        let showError = (
+             <div>No wird</div>
+        )
+
+        
            
 
         if (!this.state.isShow) {
@@ -88,7 +94,7 @@ class Searchbars extends Component {
             )
         } else if (this.state.search.length <= 0) {
             this.setState({ isShow: false })
-        }
+        } 
 
         
 

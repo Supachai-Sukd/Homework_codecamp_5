@@ -1,35 +1,11 @@
-import { List, Avatar, Space } from 'antd';
-import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
-
-const listData = [];
-for (let i = 0; i < 23; i++) {
-  listData.push({
-    href: 'https://ant.design',
-    title: `ant design part ${i}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description:
-      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content:
-      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-  });
-}
-
-const IconText = ({ icon, text }) => (
-  <Space>
-    {React.createElement(icon)}
-    {text}
-  </Space>
-);
-
-
-const filterdUser = this.props.post.employees.filter(user => {
-    return user.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
-})
-
-ReactDOM.render(
-
-
-  <List
+import React from 'react'
+import { Layout, List, Typography, Divider, Col, Row, Button, Input, Card } from 'antd';
+import Leftmenu from '../Template-menu/Left-menu'
+import Navbar from '../Template-menu/Navbar'
+import axios from '../../config/axios'
+import { useEffect, useState } from 'react';
+import EditNotebooknaKub from '../Editnotebook/editNotebook'
+import Searchbar from '../SearchBar/Searchbars'
 
 
 
@@ -37,107 +13,115 @@ ReactDOM.render(
 
 
 
+export default function EditNotebooks() {
 
-    itemLayout="vertical"
-    size="large"
-    pagination={
-        {
-      onChange: page => {
-        console.log(page);
-      },
-      pageSize: 3,
+
+
+    const [notebookList, setNoteBookLists] = useState([])
+
+
+    const fetchNotebooks = async () => {
+        const httpResponse = await axios.get('/notebooks/addminnotebooks')
+        setNoteBookLists(httpResponse.data)
     }
-}
-    dataSource={listData}
+
+    useEffect(() => {
+        fetchNotebooks()
+    }, []);
 
 
-    footer={
-      <div>
-        <b>ant design</b> footer part
-      </div>
+
+
+
+
+    const deleteNotebook = async (id) => {
+        await axios.delete(`/notebooks/remove/${id}`)
+        fetchNotebooks()
     }
 
 
-
-    renderItem={item => (
-
-
-        
-<List.Item
- key={item.title}
-
-
- actions={[
-    <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-    <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-    <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
-  ]}
-
-      
-  extra={
-    <img
-      width={272}
-      alt="logo"
-      src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-    />
-  }
+    return (
+        <div>
+            <Layout>
+                <Navbar />
+                <Layout>
+                    <Leftmenu />
+                    <Layout>
+                       
+                        
+                        <Row style={{ textAlign: "center", fontSize: "20px" }}>
+                            <Col span={12}>
+                            <Divider orientation="Center" style={{ fontSize: "25px" }} >Notebook List</Divider>
+                            </Col>
+                            <Col span={12}>
+                            <Divider orientation="Center" style={{ fontSize: "25px" }} >Directory</Divider>
+                            </Col>
 
 
-       
-  >
+                            
+                        </Row>
+                        <Row>
+                            
+                            <Col span={12}>
+                                <List
 
+                                    style={{ width: '1000px', marginLeft: '30px' }}
+                                    
+                                    
+                                    dataSource={notebookList}
+                                    renderItem={item => (
 
-
-       
-
-
-
-
-
-     
+                                        <List.Item style={{ display: "block", alignSelf: "center" }}>
+                                            <EditNotebooknaKub delete={deleteNotebook} item={item} fetchData={fetchNotebooks} />
+                                        </List.Item>
 
 
 
-
-
-        <List.Item.Meta
-          avatar={<Avatar src={item.avatar} />}
-          title={<a href={item.href}>{item.title}</a>}
-          description={item.description}
-        />
+                                    )}
+                                />
+                            </Col>
+                            <Col span={12}>
+                                <Searchbar />
+                            </Col>
+                        </Row>
 
 
 
 
-        {item.content}
+
+                    </Layout>
+                </Layout>
+            </Layout>
 
 
-      
 
 
-
-        </List.Item>
+        </div>
     )
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
 
 
 
+style={{ width: '1000px', marginLeft: '30px' }}
+
+
+dataSource={notebookList}
+
+
+renderItem={item => (
+
+  <List.Item style={{ display: "block", alignSelf: "center" }}>
+      <EditNotebooknaKub delete={deleteNotebook} item={item} fetchData={fetchNotebooks} />
+  </List.Item>
+
+
+
+)}
 
 
 
@@ -155,8 +139,6 @@ ReactDOM.render(
 
 
 
-  />,
-  mountNode,
 
 
 
@@ -171,7 +153,187 @@ ReactDOM.render(
 
 
 
+import React, { useState, useEffect } from 'react'
+// import axios from '../../config/axios'
+import axios from 'axios'
+import { Cascader, Select, Layout, List, Typography, Divider, Col, Row, Button, Input, notification, Form } from 'antd';
+import jwtDecode from 'jwt-decode'
+import LocalStorageService from '../../services/localStorageService'
+import localStorageService from '../../services/localStorageService';
+
+const { Option } = Select;
 
 
 
-);
+function EditNotebooknaKub(props) {
+
+    const [changeInput, setChangeInput] = useState("");
+    const [isEdit, setIsEdit] = useState(false);
+    const [idCom, setIdCom] = useState("")
+
+    useEffect(() => {
+        const token = localStorageService.getToken()
+        if (token) {
+            const user = jwtDecode(token)
+            setIdCom(user.company_id)
+        }
+    })
+    
+
+
+
+    const updateNotebookToUser = async (id) => {
+        await axios.put(`/notebooks/update/${id}`, { targetUser: changeInput })
+            
+            .then(res => {
+                props.fetchData()
+                setIsEdit(false)
+                
+                notification.success({
+                    message: `Add notebook to user success.`
+                })
+            })
+            .catch(err => {
+                notification.error({
+                    message: `Add failed.`
+                })
+            })
+    }
+
+
+    const toggleEdit = () => {
+        setChangeInput(props.item.user_id)
+        setIsEdit(true)
+    }
+
+    let contents = (
+        
+
+        <List.Item style={{ justifyContent: "center" }}>
+            <Row style={{ width: "100%", textAlign: "left", fontSize: "16px" }}>
+
+                <Col span={3}>
+                    <p>S/N : {props.item.serial_number}</p>
+                    {/* <Typography.Text >{props.item.serial_number}</Typography.Text> */}
+                </Col>
+
+
+                {/* <Col span={4}>
+
+                    
+                    <Typography.Text >
+                        Brand : {props.item.brand}
+                    </Typography.Text>
+                </Col> */}
+
+
+                <Col span={6}>
+
+                    <Input value={changeInput} onChange={(e) => setChangeInput(e.target.value)} />
+                </Col>
+
+
+
+
+
+
+
+                <Col span={3}>
+                    <Button
+                        onClick={() => updateNotebookToUser(props.item.id)}
+                        type="primary">Done</Button>
+                </Col>
+
+            </Row>
+
+        </List.Item>
+
+
+    )
+
+
+
+    if (!isEdit) {
+        contents = (
+
+           
+
+
+            <List.Item style={{ justifyContent: "center" }}>
+                <Row style={{ width: "100%", textAlign: "left", fontSize: "16px" }}>
+
+
+
+                    <Col span={3}>
+                        <p>S/N : {props.item.serial_number}</p>
+                        {/* <Typography.Text >{props.item.serial_number}</Typography.Text> */}
+                    </Col>
+
+
+                    {/* <Col span={4}>
+                        <Typography.Text >
+                            Brand : {props.item.brand}
+                        </Typography.Text>
+                    </Col> */}
+
+
+                    <Col span={3}>
+                        <p>ID : {props.item.user_id}</p>
+                        {/* <Typography.Text >
+                            {props.item.user_id}
+                        </Typography.Text> */}
+                    </Col>
+
+                    <Col span={3}>
+                        <Button
+                            onClick={() => toggleEdit()}
+                            style={{ backgroundColor: 'yellow' }}>Edit</Button>
+                    </Col>
+
+                    <Col span={3}>
+                        <Button
+                            onClick={() => props.delete(props.item.id)}
+                            type="danger">Delete</Button>
+                    </Col>
+
+
+
+
+                </Row>
+
+            </List.Item>
+
+
+
+
+          
+        )
+    }
+
+
+
+    return (
+        <div>
+
+
+
+            
+            
+              {contents} 
+            
+             
+
+                   
+
+               
+
+
+
+        </div>
+    )
+}
+
+
+
+
+export default EditNotebooknaKub

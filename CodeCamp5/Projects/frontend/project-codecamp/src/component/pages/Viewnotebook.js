@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
 import Navbar from '../Template-menu/Navbar'
 import Leftmenu from '../Template-menu/Left-menu'
 import { Layout, Menu, Button, Row, Col, Input, Avatar, List, Space } from 'antd';
