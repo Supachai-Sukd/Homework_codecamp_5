@@ -1,5 +1,6 @@
 import RegisterPage from '../component/pages/Register'
 import LoginPage from '../component/pages/Login'
+import LogoutPage from '../component/pages/Logout'
 import EditNotebooknaKub from '../component/pages/Editnotebook'
 import createPage from '../component/pages/Createpage'
 import AddItemUser from '../component/pages/Addallitemuser'
@@ -39,6 +40,10 @@ const components = {
     changenameuser: {
         url: "/change",
         component: ChangeName
+    },
+    logoutpageuser: {
+        url: "/logout",
+        component: LogoutPage
     }
 }
 
@@ -58,13 +63,15 @@ export default {
             components.adddevice,
             components.createprofile,
             components.viewnotebooks,
-            components.changenameuser
+            components.changenameuser,
+            components.logoutpageuser
         ],
         redirectRoutes: "/create"
     },
     user: {
         allowedRoutes: [
-            components.profilepage
+            components.profilepage,
+            components.logoutpageuser
         ],
         redirectRoutes: "/profile"
     }

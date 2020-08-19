@@ -87,16 +87,12 @@ class Viewnotebooks extends React.Component {
 
                                     <List.Item
                                         key={item.title}
-                                        actions={[
-                                            <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-                                            <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-                                            <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
-                                        ]}
+                                       
                                         extra={
                                             <img
-                                                width={272}
+                                                width={100}
                                                 alt="logo"
-                                                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                                                src="https://www.aozodo.com/415-large_default/notebook-asus-zenbook-ux430uq-gv145t-gold.jpg"
                                             />
                                         }
                                     >
