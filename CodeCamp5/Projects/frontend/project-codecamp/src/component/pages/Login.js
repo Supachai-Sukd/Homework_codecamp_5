@@ -66,7 +66,7 @@ function Login(props) {
                     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
 
                         <Menu.Item key="1"><Link to={"/"} >Inventory System</Link>  </Menu.Item>
-                        <Menu.Item key="2"><Link to={"/"}>คำแนะนำ</Link>  </Menu.Item>
+                        
                     </Menu>
                 </Header>
 

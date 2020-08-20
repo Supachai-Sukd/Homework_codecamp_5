@@ -8,6 +8,7 @@ import '../../App.css'
 import { connect } from 'react-redux';
 import { fetchNotebook } from '../../actions'
 import { MessageOutlined, LikeOutlined, StarOutlined, RocketOutlined } from '@ant-design/icons'
+import picNote from '../../images/notebook.jpg'
 
 
 
@@ -90,9 +91,9 @@ class Viewnotebooks extends React.Component {
                                        
                                         extra={
                                             <img
-                                                width={100}
+                                                width={150}
                                                 alt="logo"
-                                                src="../../../public/notebook.jpg"
+                                                src={picNote}
                                             />
                                         }
                                     >

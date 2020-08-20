@@ -6,6 +6,7 @@ import axios from '../../config/axios';
 import { connect } from 'react-redux'
 import { fetchUser } from '../../actions'
 import '../../App.css'
+import picEmployee from '../../images/human.jpg'
 
 
 const { Search } = Input;
@@ -146,26 +147,18 @@ class Createpage extends React.Component {
                   pageSize: 3,
                 }}
                 dataSource={this.props.posts.employees}
-                footer={
-                  <div>
-                    <b>ant design</b> footer part
-  </div>
-                }
+               
                 renderItem={item => (
 
 
                   <List.Item
                     key={item.title}
-                    actions={[
-                      <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-                      <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-                      <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
-                    ]}
+                    
                     extra={
                       <img
-                        width={272}
+                        width={150}
                         alt="logo"
-                        src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                        src={picEmployee}
                       />
                     }
                   >
