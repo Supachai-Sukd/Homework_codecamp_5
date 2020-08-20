@@ -92,7 +92,7 @@ class Viewnotebooks extends React.Component {
                                             <img
                                                 width={100}
                                                 alt="logo"
-                                                src="https://www.aozodo.com/415-large_default/notebook-asus-zenbook-ux430uq-gv145t-gold.jpg"
+                                                src="../../../public/notebook.jpg"
                                             />
                                         }
                                     >

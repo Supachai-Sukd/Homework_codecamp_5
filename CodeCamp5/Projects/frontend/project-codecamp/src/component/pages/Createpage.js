@@ -11,10 +11,7 @@ const { Header, Content, Sider } = Layout;
 
 function Createpage(props) {
 
-    const logout = () => {
-        LocalStorageService.removeToken()
-        props.setRole("guest")
-    }
+    
 
 
     return (
@@ -24,7 +21,7 @@ function Createpage(props) {
                 <Layout>
                     <Leftmenu />
                     <Layout>
-                    <Button type={"primary"} danger className="logout" onClick={logout} >Logout</Button>
+                    
                         <Createuser />
                     </Layout>
                 </Layout>
