@@ -15,11 +15,8 @@
 
 - [About](#about)
 - [Homework](#homework)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
+- [Project](#my_project)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -43,12 +40,13 @@
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+- [Mr.Supachai](https://github.com/Supachai-Sukd) - My Git.
 
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
 
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+## 🎉 Project จบของผม <a name = "my_project"></a>
 
-- Hat tip to anyone whose code was used
+[Inventory Management System](https://github.com/Supachai-Sukd/Homework_codecamp_5/tree/master/CodeCamp5/Projects)
+
+- Minimum knowledge
 - Inspiration
 - References
