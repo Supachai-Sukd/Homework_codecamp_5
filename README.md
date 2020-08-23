@@ -64,3 +64,8 @@ Security
 - [Authentication](https://github.com/Supachai-Sukd/Homework_codecamp_5/blob/master/CodeCamp5/Projects/backend/controllers/userControl.js) - อยู่ใน function loginUser.
 - [Authorization/User roles](https://github.com/Supachai-Sukd/Homework_codecamp_5/blob/master/CodeCamp5/Projects/frontend/project-codecamp/src/component/pages/Login.js) - อยู่ใน function onFinish.
 - [Bcrypt](https://github.com/Supachai-Sukd/Homework_codecamp_5/blob/master/CodeCamp5/Projects/backend/controllers/userControl.js) - อยู่ใน function createNewCompanyAndAdmin,employeeRegister.
+
+Sequelize
+- [Data Validation](https://github.com/Supachai-Sukd/Homework_codecamp_5/tree/master/CodeCamp5/Projects/backend/models) - Data Validation.
+- [CRUD](https://github.com/Supachai-Sukd/Homework_codecamp_5/tree/master/CodeCamp5/Projects/backend/controllers) - CRUD.
+
