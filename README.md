@@ -60,3 +60,7 @@ React
 - [Component Design](https://github.com/Supachai-Sukd/Homework_codecamp_5/tree/master/CodeCamp5/Projects/frontend/project-codecamp/src/component) - ใช้อยู่ใน Component ต่างๆ
 
 Security
+- [Json Web Token](https://github.com/Supachai-Sukd/Homework_codecamp_5/blob/master/CodeCamp5/Projects/frontend/project-codecamp/src/services/localStorageService.js) - Json Web Token.
+- [Authentication](https://github.com/Supachai-Sukd/Homework_codecamp_5/blob/master/CodeCamp5/Projects/backend/controllers/userControl.js) - อยู่ใน function loginUser.
+- [Authorization/User roles](https://github.com/Supachai-Sukd/Homework_codecamp_5/blob/master/CodeCamp5/Projects/frontend/project-codecamp/src/component/pages/Login.js) - อยู่ใน function onFinish.
+- [Bcrypt](https://github.com/Supachai-Sukd/Homework_codecamp_5/blob/master/CodeCamp5/Projects/backend/controllers/userControl.js) - อยู่ใน function createNewCompanyAndAdmin,employeeRegister.
