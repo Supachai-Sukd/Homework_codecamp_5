@@ -47,6 +47,9 @@
 
 [Inventory Management System](https://github.com/Supachai-Sukd/Homework_codecamp_5/tree/master/CodeCamp5/Projects)
 
-- Minimum knowledge
-- Inspiration
-- References
+Minimum knowledge
+
+Express JS
+- [CORS](https://github.com/Supachai-Sukd/Homework_codecamp_5/blob/master/CodeCamp5/Projects/backend/index.js) - CORS.
+- [Passport](https://github.com/Supachai-Sukd/Homework_codecamp_5/blob/master/CodeCamp5/Projects/backend/config/passport.js) - Passport.
+- 
