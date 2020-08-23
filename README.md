@@ -3,7 +3,7 @@
  <img width=200px height=200px src="https://getcode.dev/wp-content/uploads/2019/10/9-600x600.png" alt="I am a student CodeCamp 5."></a>
 </p>
 
-<h3 align="center">Project Title</h3>
+<h3 align="center">I am a student CodeCamp 5</h3>
 
 <div align="center">
 
