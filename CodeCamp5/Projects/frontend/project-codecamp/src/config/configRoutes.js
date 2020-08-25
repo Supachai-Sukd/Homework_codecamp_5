@@ -7,6 +7,11 @@ import AddItemUser from '../component/pages/Addallitemuser'
 import ProfilePage from '../component/pages/Profile'
 import ViewNotebook from '../component/pages/Viewnotebook'
 import ChangeName from '../component/pages/Edituser'
+import ViewPhone from '../component/pages/ViewPhone'
+import AddPhone from '../component/pages/Addphone'
+
+
+
 
 const components = {
     register: {
@@ -44,6 +49,14 @@ const components = {
     logoutpageuser: {
         url: "/logout",
         component: LogoutPage
+    },
+    showphones: {
+        url: "/phone",
+        component: ViewPhone
+    },
+    addphone: {
+        url: "/addphone",
+        component: AddPhone
     }
 }
 
@@ -64,7 +77,9 @@ export default {
             components.createprofile,
             components.viewnotebooks,
             components.changenameuser,
-            components.logoutpageuser
+            components.logoutpageuser,
+            components.showphones,
+            components.addphone
         ],
         redirectRoutes: "/create"
     },

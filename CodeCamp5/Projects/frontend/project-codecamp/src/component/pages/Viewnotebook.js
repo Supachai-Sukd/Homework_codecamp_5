@@ -81,7 +81,7 @@ class Viewnotebooks extends React.Component {
                                 footer={
                                     <div>
                                         <b>ant design</b> footer part
-  </div>
+                                    </div>
                                 }
                                 renderItem={item => (
 
