@@ -1,7 +1,8 @@
 import React from 'react'
-import { Form, Input, Button, Select, Layout, Col, Row } from 'antd';
+import { Form, Input, Button, Select, Layout, Col, Row, notification } from 'antd';
 import Navbar from '../Template-menu/Navbar'
 import Leftmenu from '../Template-menu/Left-menu'
+import axios from '../../config/axios'
 
 const { Option } = Select;
 const layout = {
@@ -19,9 +20,10 @@ const tailLayout = {
     },
 };
 
-function Addphone() {
+function Addphone(props) {
 
     const [form] = Form.useForm();
+    
 
     const onGenderChange = value => {
         switch (value) {
@@ -46,6 +48,21 @@ function Addphone() {
 
     const onFinish = values => {
         console.log(values);
+        const body = {
+            phoneNum: values.phone_num,
+            providerOfPhone: values.provider
+          }
+          axios.post("/phones/add", body)
+            .then(res => {
+              notification.success({
+                message: `เพิ่มหมายเลข ${values.phone_num} เรียบร้อยแล้ว`,
+              })
+            })
+            .catch(err => {
+              notification.error({
+                message: `เพิ่มหมายเลข ${values.phone_num} ล้มเหลว`,
+              })
+            })
     };
 
     const onReset = () => {
@@ -81,8 +98,8 @@ function Addphone() {
                         >
                             
                             <Form.Item
-                                name="note"
-                                label="Note"
+                                name="phone_num"
+                                label="Phone"
                                 rules={[
                                     {
                                         required: true,
@@ -92,8 +109,8 @@ function Addphone() {
                                 <Input />
                             </Form.Item>
                             <Form.Item
-                                name="gender"
-                                label="Gender"
+                                name="provider"
+                                label="Provider"
                                 rules={[
                                     {
                                         required: true,
@@ -101,8 +118,8 @@ function Addphone() {
                                 ]}
                             >
                                 <Select
-                                    placeholder="Select a option and change input text above"
-                                    onChange={onGenderChange}
+                                    placeholder="Select a provider"
+                                    
                                     allowClear
                                 >
                                     <Option value="ais">Ais</Option>
@@ -110,7 +127,7 @@ function Addphone() {
                                     <Option value="dtac">Dtac</Option>
                                 </Select>
                             </Form.Item>
-                            <Form.Item
+                            {/* <Form.Item
                                 noStyle
                                 shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
                             >
@@ -129,12 +146,12 @@ function Addphone() {
                                         </Form.Item>
                                     ) : null
                                 }
-                            </Form.Item>
+                            </Form.Item> */}
                             <Form.Item 
                              {...tailLayout}
                             >
                                 <Button type="primary" htmlType="submit" className="button-phone-add" >
-                                    Submit
+                                    Add
                                 </Button>
                                 <Button htmlType="button" onClick={onReset} className="button-phone-add">
                                     Reset

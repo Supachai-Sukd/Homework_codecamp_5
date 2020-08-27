@@ -195,7 +195,7 @@ function FormCreate(props) {
 
                         <Col>
                             <Button style={{ marginRight: 8 }} danger type="primary" onClick={onReset} htmlType="reset" >
-                                Cancel
+                                Reset
                         </Button>
                         </Col>
                         <Col>

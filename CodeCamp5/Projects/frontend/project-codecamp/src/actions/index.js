@@ -1,4 +1,4 @@
-import { FETCHING_DATA, FETCHING_DATA_FAILURE, FETCHING_DATA_SUCCESS, ADD_USER, FETCHING_NOTEBOOKS, UPDATE_NOTEBOOKS, IS_EDIT, IS_EDIT_TRUE, TOGGLE_EDIT } from '../constance'
+import { FETCHING_DATA, FETCHING_DATA_FAILURE, FETCHING_DATA_SUCCESS, ADD_USER, FETCHING_NOTEBOOKS, FETCHING_PHONES } from '../constance'
 import axios from '../config/axios'
 
 
@@ -30,6 +30,11 @@ export const fetchUser =  ()  => async dispatch => {
 export const fetchNotebook = () => async dispatch => {
     const response = await axios.get("/notebooks/addminnotebooks")
     dispatch({ type: FETCHING_NOTEBOOKS, payload: response.data })
+}
+
+export const fetchPhoneNum = () => async dispatch => {
+    const response = await axios.get("/phones")
+    dispatch({ type: FETCHING_PHONES, payload: response.data })
 }
 
 // targetUser นั้นคือ ตัวที่ต้องเหมือนใน backend เฉยๆ

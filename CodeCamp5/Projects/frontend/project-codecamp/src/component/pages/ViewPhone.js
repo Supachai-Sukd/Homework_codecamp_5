@@ -4,21 +4,11 @@ import { List, Avatar, Space, Layout } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 import Navbar from '../Template-menu/Navbar'
 import Leftmenu from '../Template-menu/Left-menu'
+import { fetchPhoneNum } from '../../actions'
 
 
 
-const listData = [];
-for (let i = 0; i < 23; i++) {
-    listData.push({
-        href: 'https://ant.design',
-        title: `ant design part ${i}`,
-        avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-        description:
-            'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-        content:
-            'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-    });
-}
+
 
 const IconText = ({ icon, text }) => (
     <Space>
@@ -29,7 +19,12 @@ const IconText = ({ icon, text }) => (
 
 
 
-export default class ViewPhone extends Component {
+class ViewPhone extends Component {
+
+    componentDidMount() {
+        this.props.fetchPhoneNum()
+    }
+
     render() {
         return (
             <div>
@@ -46,7 +41,7 @@ export default class ViewPhone extends Component {
 
 
 
-
+                        <h1 style={{ marginTop: "30px", fontSize: "30px" }}>Phones List</h1>
 
 
 
@@ -61,7 +56,7 @@ export default class ViewPhone extends Component {
                                     },
                                     pageSize: 3,
                                 }}
-                                dataSource={listData}
+                                dataSource={this.props.posts_phones.phone_number}
                                 footer={
                                     <div>
                                         <b>ant design</b> footer part
@@ -85,8 +80,8 @@ export default class ViewPhone extends Component {
                                     >
                                         <List.Item.Meta
                                             avatar={<Avatar src={item.avatar} />}
-                                            title={<a href={item.href}>{item.title}</a>}
-                                            description={item.description}
+                                            title={<a href={item.href}>{item.phone_number}</a>}
+                                            description={item.provider}
                                         />
                                         {item.content}
                                     </List.Item>
@@ -99,3 +94,15 @@ export default class ViewPhone extends Component {
         )
     }
 }
+
+
+const mapStateToProps = (state) => {
+    return { posts_phones: state.posts_phone }
+}
+
+const mapDispatchToProps = {
+    fetchPhoneNum
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewPhone)

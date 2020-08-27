@@ -11,12 +11,14 @@ const getAllPhones = async (req, res) => {
 const addNewPhones = async (req, res) => {
     const { phoneNum, providerOfPhone } = req.body
     const targetPhone = await db.Phone.findOne({ where: { phone_number: phoneNum } })
+    const targetCompany = await db.User.findOne({ where: { company_id: req.user.company_id } })
     if (targetPhone) {
         res.status(400).send({ message: "Phone number already taken" })
     } else {
         const newPhone = await db.Phone.create({
             phone_number: phoneNum,
-            provider: providerOfPhone
+            provider: providerOfPhone,
+            phone_company_id: targetCompany.company_id
         })
 
         res.status(201).send({ message: "Add phone number success" })
