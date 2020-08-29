@@ -14,6 +14,12 @@ const { Meta } = Card;
 function Profile(props) {
 
     const [notebookList, setNoteBookLists] = useState([])
+    const [phoneList, setPhoneList] = useState([])
+
+    const fetchPhone = async () => {
+        const httpResponse = await axios.get('/phones')
+        setPhoneList(httpResponse.data)
+    }
 
 
     const fetchNotebooks = async () => {
@@ -23,7 +29,7 @@ function Profile(props) {
 
     useEffect(() => {
         fetchNotebooks()
-
+        fetchPhone()
     }, []);
 
 
@@ -44,17 +50,17 @@ function Profile(props) {
                 <Layout>
 
                     <Layout>
-                        <h1 style={{ fontSize:"40px" }} >My Item</h1>
+                        <h1 style={{ fontSize: "40px" }} >My Item</h1>
 
                         <List
                             grid={{ gutter: 16, column: 4 }}
-                            style={{ 
+                            style={{
                                 alignItems: "center",
                                 marginLeft: "10px",
                                 marginRight: "10px"
-                                
-                                
-                             }}
+
+
+                            }}
                             dataSource={notebookList}
                             renderItem={item => (
                                 <List.Item>
@@ -67,13 +73,13 @@ function Profile(props) {
                                                 src={notePic}
                                             />
                                         }
-                                        
+
                                     >
                                         <Meta
                                             avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                                             title={`Name : ${item.User.name}`}
                                         />
-                                   <p style={{ fontWeight: "bold"}} >Brand : {item.brand} Serial : {item.serial_number}</p>     
+                                        <p style={{ fontWeight: "bold" }} >Brand : {item.brand} Serial : {item.serial_number}</p>
                                     </Card>
                                 </List.Item>
                             )}

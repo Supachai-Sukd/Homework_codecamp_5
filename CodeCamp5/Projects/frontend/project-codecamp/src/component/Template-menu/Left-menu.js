@@ -37,7 +37,7 @@ function Leftmenu() {
           <SubMenu key="sub3" icon={<PhoneOutlined />} title="Phone">
             <Menu.Item key="6" icon={<PlusSquareOutlined />} > <Link to="/addphone" >Add phone</Link>   </Menu.Item>
             <Menu.Item key="7" icon={<MonitorOutlined />} >  <Link to="/phone">View phone</Link> </Menu.Item>
-            <Menu.Item key="8" icon={<EditOutlined />} >Edit phone</Menu.Item>
+            <Menu.Item key="8" icon={<EditOutlined />} > <Link to="/editphone" >Edit phone</Link>   </Menu.Item>
             <Menu.Item key="9" icon={<ScissorOutlined />} >Delete phone</Menu.Item>
           </SubMenu>
         </Menu>

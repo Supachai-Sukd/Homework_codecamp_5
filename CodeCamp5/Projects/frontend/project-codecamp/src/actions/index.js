@@ -33,7 +33,7 @@ export const fetchNotebook = () => async dispatch => {
 }
 
 export const fetchPhoneNum = () => async dispatch => {
-    const response = await axios.get("/phones")
+    const response = await axios.get("/phones/phoneadmin")
     dispatch({ type: FETCHING_PHONES, payload: response.data })
 }
 

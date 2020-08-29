@@ -4,9 +4,26 @@ const db = require('../models')
 
 
 const getAllPhones = async (req, res) => {
-    const allBrands = await db.Phone.findAll({ include: db.User })
+    const allBrands = await db.Phone.findAll({
+        where: { user_id: req.user.id },
+        include: db.User.name
+    })
     res.status(200).send(allBrands)
 }
+
+const getPhoneForAdmin = async (req, res) => {
+    const targetCompany = await db.User.findOne({ where: { company_id: req.user.company_id } })
+
+    const allBrands = await db.Phone.findAll({
+        where: { phone_company_id: targetCompany.company_id },
+        include:
+            db.User.name
+    })
+    res.status(200).send(allBrands)
+
+}
+
+
 
 const addNewPhones = async (req, res) => {
     const { phoneNum, providerOfPhone } = req.body
@@ -53,5 +70,6 @@ module.exports = {
     getAllPhones,
     addNewPhones,
     addPhonesToUser,
-    deletePhoneNumber
+    deletePhoneNumber,
+    getPhoneForAdmin
 };

@@ -1,7 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Form, Input, InputNumber, Modal, Button, Avatar, Typography } from 'antd';
-import { SmileOutlined, UserOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
+import { Form, Input, Select, Button, Layout, notification } from 'antd';
+import Navbar from '../Template-menu/Navbar'
+import Leftmenu from '../Template-menu/Left-menu'
+import axios from '../../config/axios'
+import { useEffect } from 'react';
+import '../../App.css'
 
+
+
+const { Option } = Select;
 const layout = {
   labelCol: {
     span: 8,
@@ -17,142 +24,134 @@ const tailLayout = {
   },
 };
 
-// reset form fields when modal is form, closed
-const useResetFormOnCloseModal = ({ form, visible }) => {
-  const prevVisibleRef = useRef();
-  useEffect(() => {
-    prevVisibleRef.current = visible;
-  }, [visible]);
-  const prevVisible = prevVisibleRef.current;
-  useEffect(() => {
-    if (!visible && prevVisible) {
-      form.resetFields();
-    }
-  }, [visible]);
-};
 
-const ModalForm = ({ visible, onCancel }) => {
+const EditPhone = () => {
   const [form] = Form.useForm();
-  useResetFormOnCloseModal({
-    form,
-    visible,
-  });
+  const [phoneList, setPhoneList] = useState([])
+  const [emp_list, setEmpList] = useState([])
+  const [changeInput, setChangeInput] = useState("")
+  const [idPhone, setIdPhone] = useState("")
 
-  const onOk = () => {
-    form.submit();
-  };
 
-  return (
-    <Modal title="Basic Drawer" visible={visible} onOk={onOk} onCancel={onCancel}>
-      <Form form={form} layout="vertical" name="userForm">
-        <Form.Item
-          name="name"
-          label="User Name"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="age"
-          label="User Age"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <InputNumber />
-        </Form.Item>
-      </Form>
-    </Modal>
-  );
-};
+  
 
-const Demo = () => {
-  const [visible, setVisible] = useState(false);
+  const fetchPhone = async () => {
+    const httpResponse = await axios.get('/phones/phoneadmin')
+    setPhoneList(httpResponse.data)
+  }
 
-  const showUserModal = () => {
-    setVisible(true);
-  };
+  const fetchEmployee = async () => {
+    const response = await axios.get('/users')
+    setEmpList(response.data)
+  }
 
-  const hideUserModal = () => {
-    setVisible(false);
-  };
+  useEffect(() => {
+    fetchPhone()
+    fetchEmployee()
+  }, [])
+
+  const updatePhoneToUser = async (id) => {
+    await axios.put(`/phones/update/${id}`, { targetUser: changeInput })
+      .then(res => {
+        fetchPhone()
+        fetchEmployee()
+
+        notification.success({
+          message: `Add phone to user success.`
+        })
+      })
+      .catch(err => {
+        notification.error({
+          message: `Add phone to user failed.`
+        })
+      })
+}
 
   const onFinish = values => {
-    console.log('Finish:', values);
+    console.log(values);
+  };
+
+  const onReset = () => {
+    form.resetFields();
   };
 
   return (
-    <>
-      <Form.Provider
-        onFormFinish={(name, { values, forms }) => {
-          if (name === 'userForm') {
-            const { basicForm } = forms;
-            const users = basicForm.getFieldValue('users') || [];
-            basicForm.setFieldsValue({
-              users: [...users, values],
-            });
-            setVisible(false);
-          }
-        }}
-      >
-        <Form {...layout} name="basicForm" onFinish={onFinish}>
-          <Form.Item
-            name="group"
-            label="Group Name"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            label="User List"
-            shouldUpdate={(prevValues, curValues) => prevValues.users !== curValues.users}
-          >
-            {({ getFieldValue }) => {
-              const users = getFieldValue('users') || [];
-              return users.length ? (
-                <ul>
-                  {users.map((user, index) => (
-                    <li key={index} className="user">
-                      <Avatar icon={<UserOutlined />} />
-                      {user.name} - {user.age}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <Typography.Text className="ant-form-text" type="secondary">
-                  ( <SmileOutlined /> No user yet. )
-                </Typography.Text>
-              );
-            }}
-          </Form.Item>
-          <Form.Item {...tailLayout}>
-            <Button htmlType="submit" type="primary">
-              Submit
-            </Button>
-            <Button
-              htmlType="button"
-              style={{
-                margin: '0 8px',
-              }}
-              onClick={showUserModal}
-            >
-              Add User
-            </Button>
-          </Form.Item>
-        </Form>
+    <Layout>
+      <Navbar />
+      <Layout>
+        <Leftmenu />
+        <Layout>
+        <h1 style={{ marginTop: "30px", fontSize: "30px" }}>Edit Phonenumber</h1>
 
-        <ModalForm visible={visible} onCancel={hideUserModal} />
-      </Form.Provider>
-    </>
+
+          <Form 
+          {...layout} 
+          form={form} 
+          name="control-hooks" 
+          onFinish={onFinish}
+          className="width-details"
+          >
+            <Form.Item
+            name="employee"
+              label="Employee"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Select
+                placeholder="Select a option and change input text above"
+
+                allowClear
+              >
+                {emp_list.map( (obj, idx) => <Option value={obj.id}>{obj.name}</Option> )}
+                
+              </Select>
+            </Form.Item>
+            <Form.Item
+              name="phone"
+              label="Phone"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Select
+                placeholder="Select a option and change input text above"
+
+                allowClear
+              >
+                {phoneList.map( (obj, idx) => <Option value={obj.provider}>{obj.phone_number}</Option> )}
+               
+              </Select>
+            </Form.Item>
+
+            <Form.Item {...tailLayout}>
+              <Button type="primary" htmlType="submit">
+                Submit
+        </Button>
+              <Button htmlType="button" onClick={onReset}>
+                Reset
+        </Button>
+
+            </Form.Item>
+          </Form>
+
+
+
+
+
+        </Layout>
+      </Layout>
+    </Layout>
+
+
   );
 };
+
+export default EditPhone
+
+
+

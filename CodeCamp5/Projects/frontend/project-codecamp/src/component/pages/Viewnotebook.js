@@ -7,7 +7,7 @@ import jwtDecode from 'jwt-decode'
 import '../../App.css'
 import { connect } from 'react-redux';
 import { fetchNotebook } from '../../actions'
-import { MessageOutlined, LikeOutlined, StarOutlined, RocketOutlined } from '@ant-design/icons'
+import { RocketOutlined } from '@ant-design/icons'
 import picNote from '../../images/notebook.jpg'
 
 
@@ -78,11 +78,7 @@ class Viewnotebooks extends React.Component {
                                     pageSize: 3,
                                 }}
                                 dataSource={this.props.postsnotebooks.laptops}
-                                footer={
-                                    <div>
-                                        <b>ant design</b> footer part
-                                    </div>
-                                }
+                                
                                 renderItem={item => (
 
 

@@ -9,6 +9,7 @@ import ViewNotebook from '../component/pages/Viewnotebook'
 import ChangeName from '../component/pages/Edituser'
 import ViewPhone from '../component/pages/ViewPhone'
 import AddPhone from '../component/pages/Addphone'
+import EditPhone from '../component/pages/EditPhone'
 
 
 
@@ -57,6 +58,10 @@ const components = {
     addphone: {
         url: "/addphone",
         component: AddPhone
+    },
+    edit_phone: {
+        url: "/editphone",
+        component: EditPhone
     }
 }
 
@@ -79,7 +84,8 @@ export default {
             components.changenameuser,
             components.logoutpageuser,
             components.showphones,
-            components.addphone
+            components.addphone,
+            components.edit_phone
         ],
         redirectRoutes: "/create"
     },
@@ -91,4 +97,3 @@ export default {
         redirectRoutes: "/profile"
     }
 }
-            

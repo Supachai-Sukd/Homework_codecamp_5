@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { List, Avatar, Space, Layout } from 'antd';
-import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import { RocketOutlined } from '@ant-design/icons';
 import Navbar from '../Template-menu/Navbar'
 import Leftmenu from '../Template-menu/Left-menu'
 import { fetchPhoneNum } from '../../actions'
+import PicSim from '../../images/sim.jpg'
 
 
 
@@ -57,29 +58,21 @@ class ViewPhone extends Component {
                                     pageSize: 3,
                                 }}
                                 dataSource={this.props.posts_phones.phone_number}
-                                footer={
-                                    <div>
-                                        <b>ant design</b> footer part
-      </div>
-                                }
+                                
                                 renderItem={item => (
                                     <List.Item
                                         key={item.title}
-                                        actions={[
-                                            <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-                                            <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-                                            <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
-                                        ]}
+                                        
                                         extra={
                                             <img
-                                                width={272}
+                                                width={150}
                                                 alt="logo"
-                                                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                                                src={PicSim}
                                             />
                                         }
                                     >
                                         <List.Item.Meta
-                                            avatar={<Avatar src={item.avatar} />}
+                                            avatar={<RocketOutlined />}
                                             title={<a href={item.href}>{item.phone_number}</a>}
                                             description={item.provider}
                                         />
