@@ -107,7 +107,7 @@ class Viewnotebooks extends React.Component {
                                                             Model : {item.model_name}
                                                         </Col>
                                                         <Col span={8}>
-                                                            User : {item.user_id}
+                                                            ID : {item.user_id}
                                                         </Col>
 
                                                     </Row>

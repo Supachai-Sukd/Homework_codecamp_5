@@ -12,39 +12,39 @@ const { Header, Content, Sider } = Layout;
 
 function Leftmenu() {
 
-   
 
-    return (
-        <div>
-            <Sider width={200} className="site-layout-background">
+
+  return (
+    <div>
+      <Sider width={200} className="site-layout-background">
         <Menu
           mode="inline"
-          defaultSelectedKeys= {'key'}
+          defaultSelectedKeys={'key'}
           // selectedKeys={["selectMenu"]}
-          defaultOpenKeys={['sub1','sub2','sub3']}
+          defaultOpenKeys={['sub1', 'sub2', 'sub3']}
           style={{ height: '100%', borderRight: 0 }}
         >
           <SubMenu key="sub1" icon={<GlobalOutlined />} title="User">
-            <Menu.Item key="1" icon={<UserAddOutlined />}   ><Link   to="/create" >  Add user</Link></Menu.Item>
+            <Menu.Item key="1" icon={<UserAddOutlined />}   ><Link to="/create" >  Add user</Link></Menu.Item>
             <Menu.Item key="2" icon={<TeamOutlined />}   ><Link to="/change"  >  Edit user </Link> </Menu.Item>
-            
+
           </SubMenu>
-          <SubMenu key="sub2" icon={<LaptopOutlined /> } title="Notebook">
-            <Menu.Item key="3"  icon={<PlusSquareOutlined />}  ><Link to="/add" >  Add notebook</Link></Menu.Item>
-            <Menu.Item  icon={<MonitorOutlined />} ><Link to="/notebooks" key="4">  View notebook </Link></Menu.Item>
+          <SubMenu key="sub2" icon={<LaptopOutlined />} title="Notebook">
+            <Menu.Item key="3" icon={<PlusSquareOutlined />}  ><Link to="/add" >  Add notebook</Link></Menu.Item>
+            <Menu.Item icon={<MonitorOutlined />} ><Link to="/notebooks" key="4">  View notebook </Link></Menu.Item>
             <Menu.Item key="5" icon={<EditOutlined />}  ><Link to="/editprofile">Edit notebook</Link></Menu.Item>
           </SubMenu>
           <SubMenu key="sub3" icon={<PhoneOutlined />} title="Phone">
             <Menu.Item key="6" icon={<PlusSquareOutlined />} > <Link to="/addphone" >Add phone</Link>   </Menu.Item>
             <Menu.Item key="7" icon={<MonitorOutlined />} >  <Link to="/phone">View phone</Link> </Menu.Item>
             <Menu.Item key="8" icon={<EditOutlined />} > <Link to="/editphone" >Edit phone</Link>   </Menu.Item>
-            <Menu.Item key="9" icon={<ScissorOutlined />} >Delete phone</Menu.Item>
+            <Menu.Item key="9" icon={<ScissorOutlined />} ><Link to="/deletephone" >Delete phone</Link>   </Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>
-      
-        </div>
-    )
+
+    </div>
+  )
 }
 
 export default Leftmenu

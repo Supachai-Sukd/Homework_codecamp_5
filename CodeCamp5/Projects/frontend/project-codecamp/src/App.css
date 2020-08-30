@@ -108,3 +108,9 @@
 .font-details {
   font-size: 20px;
 }
+
+.item-user {
+  display: block;
+  align-items: start;
+  text-align: center;
+}

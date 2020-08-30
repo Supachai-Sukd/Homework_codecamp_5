@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { List, Avatar, Space, Layout } from 'antd';
+import { List, Avatar, Space, Layout, Row, Col } from 'antd';
 import { RocketOutlined } from '@ant-design/icons';
 import Navbar from '../Template-menu/Navbar'
 import Leftmenu from '../Template-menu/Left-menu'
@@ -74,9 +74,22 @@ class ViewPhone extends Component {
                                         <List.Item.Meta
                                             avatar={<RocketOutlined />}
                                             title={<a href={item.href}>{item.phone_number}</a>}
-                                            description={item.provider}
+                                            description={
+                                                <h4>
+                                                    <Row>
+                                                        <Col span={12}>
+                                                            ID :  {item.user_id}
+                                                        </Col>
+                                                        <Col span={12}>
+                                                            Provider : {item.provider}
+                                                        </Col>
+                                                        
+
+                                                    </Row>
+                                                </h4>
+                                            }
                                         />
-                                        {item.content}
+                                        
                                     </List.Item>
                                 )}
                             />

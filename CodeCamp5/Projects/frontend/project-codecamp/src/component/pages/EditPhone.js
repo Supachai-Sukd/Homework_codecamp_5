@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Select, Button, Layout, notification } from 'antd';
+import { Form, Input, Select, Button, Layout, notification, Row, Col } from 'antd';
 import Navbar from '../Template-menu/Navbar'
 import Leftmenu from '../Template-menu/Left-menu'
 import axios from '../../config/axios'
@@ -11,7 +11,7 @@ import '../../App.css'
 const { Option } = Select;
 const layout = {
   labelCol: {
-    span: 8,
+    span: 4,
   },
   wrapperCol: {
     span: 16,
@@ -19,7 +19,7 @@ const layout = {
 };
 const tailLayout = {
   wrapperCol: {
-    offset: 8,
+    offset: 4,
     span: 16,
   },
 };
@@ -29,8 +29,7 @@ const EditPhone = () => {
   const [form] = Form.useForm();
   const [phoneList, setPhoneList] = useState([])
   const [emp_list, setEmpList] = useState([])
-  const [changeInput, setChangeInput] = useState("")
-  const [idPhone, setIdPhone] = useState("")
+  
 
 
 
@@ -50,22 +49,7 @@ const EditPhone = () => {
     fetchEmployee()
   }, [])
 
-  // const updatePhoneToUser = async (id) => {
-  //   await axios.put(`/phones/update/${id}`, { targetUser: changeInput })
-  //     .then(res => {
-  //       fetchPhone()
-  //       fetchEmployee()
-
-  //       notification.success({
-  //         message: `Add phone to user success.`
-  //       })
-  //     })
-  //     .catch(err => {
-  //       notification.error({
-  //         message: `Add phone to user failed.`
-  //       })
-  //     })
-  // }
+  
 
   const onFinish = async values => {
     console.log(values);
@@ -150,13 +134,20 @@ const EditPhone = () => {
             </Form.Item>
 
             <Form.Item {...tailLayout}>
+              <Row>
+              <Col span={6}></Col>
+              <Col span={6}>
               <Button type="primary" htmlType="submit" >
                 Submit
               </Button>
+              </Col>
+              <Col span={6}>
               <Button htmlType="button" onClick={onReset}>
                 Reset
               </Button>
-
+              </Col>
+              <Col span={6}></Col>
+              </Row>
             </Form.Item>
           </Form>
 
