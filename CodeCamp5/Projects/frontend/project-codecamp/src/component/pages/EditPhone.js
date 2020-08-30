@@ -33,7 +33,7 @@ const EditPhone = () => {
   const [idPhone, setIdPhone] = useState("")
 
 
-  
+
 
   const fetchPhone = async () => {
     const httpResponse = await axios.get('/phones/phoneadmin')
@@ -50,25 +50,43 @@ const EditPhone = () => {
     fetchEmployee()
   }, [])
 
-  const updatePhoneToUser = async (id) => {
-    await axios.put(`/phones/update/${id}`, { targetUser: changeInput })
-      .then(res => {
-        fetchPhone()
-        fetchEmployee()
+  // const updatePhoneToUser = async (id) => {
+  //   await axios.put(`/phones/update/${id}`, { targetUser: changeInput })
+  //     .then(res => {
+  //       fetchPhone()
+  //       fetchEmployee()
 
+  //       notification.success({
+  //         message: `Add phone to user success.`
+  //       })
+  //     })
+  //     .catch(err => {
+  //       notification.error({
+  //         message: `Add phone to user failed.`
+  //       })
+  //     })
+  // }
+
+  const onFinish = async values => {
+    console.log(values);
+    const body = {
+      targetUser: values.employee,
+      targetPhone: values.phone
+    }
+    let id = body.targetPhone
+    console.log(body.targetUser);
+    await axios.put(`/phones/update/${id}`, body )
+      .then(res => {
         notification.success({
-          message: `Add phone to user success.`
+          message: `Update ${values.employee} success.`
         })
       })
       .catch(err => {
         notification.error({
-          message: `Add phone to user failed.`
+          message: `Update failed.`
         })
       })
-}
 
-  const onFinish = values => {
-    console.log(values);
   };
 
   const onReset = () => {
@@ -81,18 +99,18 @@ const EditPhone = () => {
       <Layout>
         <Leftmenu />
         <Layout>
-        <h1 style={{ marginTop: "30px", fontSize: "30px" }}>Edit Phonenumber</h1>
+          <h1 style={{ marginTop: "30px", fontSize: "30px" }}>Edit Phonenumber</h1>
 
 
-          <Form 
-          {...layout} 
-          form={form} 
-          name="control-hooks" 
-          onFinish={onFinish}
-          className="width-details"
+          <Form
+            {...layout}
+            form={form}
+            name="control-hooks"
+            onFinish={onFinish}
+            className="width-details"
           >
             <Form.Item
-            name="employee"
+              name="employee"
               label="Employee"
               rules={[
                 {
@@ -105,8 +123,11 @@ const EditPhone = () => {
 
                 allowClear
               >
-                {emp_list.map( (obj, idx) => <Option value={obj.id}>{obj.name}</Option> )}
-                
+                {emp_list.map((obj, idx) => <Option
+                  value={obj.id}
+
+                >{obj.name}</Option>)}
+
               </Select>
             </Form.Item>
             <Form.Item
@@ -123,18 +144,18 @@ const EditPhone = () => {
 
                 allowClear
               >
-                {phoneList.map( (obj, idx) => <Option value={obj.provider}>{obj.phone_number}</Option> )}
-               
+                {phoneList.map((obj, idx) => <Option value={obj.id}>{obj.phone_number}</Option>)}
+
               </Select>
             </Form.Item>
 
             <Form.Item {...tailLayout}>
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" >
                 Submit
-        </Button>
+              </Button>
               <Button htmlType="button" onClick={onReset}>
                 Reset
-        </Button>
+              </Button>
 
             </Form.Item>
           </Form>

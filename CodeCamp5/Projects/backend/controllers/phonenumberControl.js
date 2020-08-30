@@ -43,6 +43,24 @@ const addNewPhones = async (req, res) => {
 }
 
 
+// const addPhonesToUser = async (req, res) => {
+//     const { targetUser, targetPhone } = req.body
+//     const targetPhoneInDB = await db.Phone.findOne({ where: { id: targetPhone } })
+
+    
+    
+//     await db.Phone.update({
+        
+//         user_id: targetUser
+//     }, {
+//         where: targetPhoneInDB
+//     }
+//     )
+
+//     res.status(201).send({ message: "Update phone number success" })
+// }
+
+
 const addPhonesToUser = async (req, res) => {
     const targetPhone = req.params.id
     const { targetUser } = req.body
