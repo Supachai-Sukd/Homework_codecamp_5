@@ -4,24 +4,46 @@ const db = require('../models')
 
 
 const getAllPhones = async (req, res) => {
-    const allBrands = await db.Phone.findAll({ include: db.User })
+    const allBrands = await db.Phone.findAll({
+        where: { user_id: req.user.id },
+        include: db.User.name
+    })
     res.status(200).send(allBrands)
 }
+
+const getPhoneForAdmin = async (req, res) => {
+    const targetCompany = await db.User.findOne({ where: { company_id: req.user.company_id } })
+
+    const allBrands = await db.Phone.findAll({
+        where: { phone_company_id: targetCompany.company_id },
+        include:
+            db.User.name
+    })
+    res.status(200).send(allBrands)
+
+}
+
+
 
 const addNewPhones = async (req, res) => {
     const { phoneNum, providerOfPhone } = req.body
     const targetPhone = await db.Phone.findOne({ where: { phone_number: phoneNum } })
+    const targetCompany = await db.User.findOne({ where: { company_id: req.user.company_id } })
     if (targetPhone) {
         res.status(400).send({ message: "Phone number already taken" })
     } else {
         const newPhone = await db.Phone.create({
             phone_number: phoneNum,
-            provider: providerOfPhone
+            provider: providerOfPhone,
+            phone_company_id: targetCompany.company_id
         })
 
         res.status(201).send({ message: "Add phone number success" })
     }
 }
+
+
+
 
 
 const addPhonesToUser = async (req, res) => {
@@ -51,5 +73,6 @@ module.exports = {
     getAllPhones,
     addNewPhones,
     addPhonesToUser,
-    deletePhoneNumber
+    deletePhoneNumber,
+    getPhoneForAdmin
 };

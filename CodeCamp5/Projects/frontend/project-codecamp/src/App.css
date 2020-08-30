@@ -95,6 +95,22 @@
   
 }
 
+.width-form-phone {
+  width: 400px;
+  display: block;
+  align-self: center;
+}
+
+.button-phone-add {
+  margin: 5px;
+}
+
 .font-details {
   font-size: 20px;
+}
+
+.item-user {
+  display: block;
+  align-items: start;
+  text-align: center;
 }

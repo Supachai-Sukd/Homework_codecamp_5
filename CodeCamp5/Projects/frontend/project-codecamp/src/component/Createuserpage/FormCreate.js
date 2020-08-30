@@ -13,6 +13,11 @@ const { Option } = Select;
 function FormCreate(props) {
 
     const [companyID, setCompanyID] = useState("")
+    const [form] = Form.useForm();
+
+    const onReset = () => {
+        form.resetFields();
+    };
 
     useEffect(() => {
         const token = LocalStorageService.getToken()
@@ -60,7 +65,7 @@ function FormCreate(props) {
                 <Form layout="vertical"
                     hideRequiredMark
                     onFinish={onFinish}
-
+                    form={form}
                 >
                     <Row gutter={16}>
                         <Col span={12}>
@@ -189,8 +194,8 @@ function FormCreate(props) {
                     <Row gutter={16}>
 
                         <Col>
-                            <Button style={{ marginRight: 8 }} danger type="primary" htmlType="reset" >
-                                Cancel
+                            <Button style={{ marginRight: 8 }} danger type="primary" onClick={onReset} htmlType="reset" >
+                                Reset
                         </Button>
                         </Col>
                         <Col>

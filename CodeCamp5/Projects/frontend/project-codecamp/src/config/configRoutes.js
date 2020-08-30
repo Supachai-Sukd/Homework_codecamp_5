@@ -7,6 +7,13 @@ import AddItemUser from '../component/pages/Addallitemuser'
 import ProfilePage from '../component/pages/Profile'
 import ViewNotebook from '../component/pages/Viewnotebook'
 import ChangeName from '../component/pages/Edituser'
+import ViewPhone from '../component/pages/ViewPhone'
+import AddPhone from '../component/pages/Addphone'
+import EditPhone from '../component/pages/EditPhone'
+import DeletePhone from '../component/pages/DeletePhone'
+
+
+
 
 const components = {
     register: {
@@ -44,6 +51,22 @@ const components = {
     logoutpageuser: {
         url: "/logout",
         component: LogoutPage
+    },
+    showphones: {
+        url: "/phone",
+        component: ViewPhone
+    },
+    addphone: {
+        url: "/addphone",
+        component: AddPhone
+    },
+    edit_phone: {
+        url: "/editphone",
+        component: EditPhone
+    },
+    delete_phone: {
+        url: "/deletephone",
+        component: DeletePhone
     }
 }
 
@@ -64,7 +87,11 @@ export default {
             components.createprofile,
             components.viewnotebooks,
             components.changenameuser,
-            components.logoutpageuser
+            components.logoutpageuser,
+            components.showphones,
+            components.addphone,
+            components.edit_phone,
+            components.delete_phone
         ],
         redirectRoutes: "/create"
     },
@@ -76,4 +103,3 @@ export default {
         redirectRoutes: "/profile"
     }
 }
-            
