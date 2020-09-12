@@ -1,21 +1,25 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import * as calculatorAct from './../actions/calculatorAction'
+import * as calculatorAction from './../actions/calculatorAction'
+import { Typography } from 'antd';
+
+const { Title } = Typography;
+
 
 
 const Box2 = props => {
 
-    const calReducer = useSelector(({calculatorReducer}) => calculatorReducer)
+    const calReducer = useSelector(({ calculatorReducer }) => calculatorReducer)
     const dispatch = useDispatch()
 
 
     return (
         <div>
-            <view>
-                <Text>
-                    Box2 {calReducer.count}s
-                </Text>
-            </view>
+
+
+            <Title>Box 2 : {calReducer.count}</Title>
+
+
         </div>
     )
 }

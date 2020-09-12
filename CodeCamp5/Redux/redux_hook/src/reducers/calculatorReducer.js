@@ -12,7 +12,7 @@ export default (state = initialState, { type, payload }) => {
     case ACTION_REM:
         return { ...state, count: state.count - 1 }
     case ACTION_CLR:
-        return { ...state, ...payload }
+        return { ...state, count: payload }
 
     default:
         return state
