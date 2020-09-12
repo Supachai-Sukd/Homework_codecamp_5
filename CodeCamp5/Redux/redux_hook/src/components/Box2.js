@@ -13,7 +13,7 @@ const Box2 = props => {
         <div>
             <view>
                 <Text>
-                    Box2 {calReducer.count}
+                    Box2 {calReducer.count}s
                 </Text>
             </view>
         </div>
