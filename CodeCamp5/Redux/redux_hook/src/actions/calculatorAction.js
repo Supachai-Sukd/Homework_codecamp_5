@@ -16,27 +16,26 @@ export const setStateToClr = (payload) => ({
 
 export const add = () => {
     return dispatch => {
-        setTimeout(() => {
-
-            dispatch(setStateToAdd())
-        }, 1000)
+        dispatch(setStateToAdd())
     }
 }
+
+
+
 
 export const remove = () => {
     return dispatch => {
-        setTimeout(() => {
-
-            dispatch(setStateToRem())
-        }, 1000)
+        dispatch(setStateToRem())
     }
 }
+
+
+
 
 export const clear = (payload) => {
     return dispatch => {
-        
-
-            dispatch(setStateToClr(payload))
-        
+        dispatch(setStateToClr(payload))
     }
 }
+
+

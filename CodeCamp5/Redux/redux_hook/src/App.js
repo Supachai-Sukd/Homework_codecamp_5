@@ -20,11 +20,21 @@ function App() {
       <h2>{calReducer.count}</h2>
       <Row>
         <Col>
-          <Button style={{ justifyContent: "space-around" }} >Add</Button>
-          <Button style={{ justifyContent: "space-around" }} >Rem</Button>
-          <Button style={{ justifyContent: "space-around" }} >Clr</Button>
-          {/* <Button onKeyPress={() => dispatch(calculatorAction.remove()) }>Rem</Button>
-        <Button onKeyPress={() => dispatch(calculatorAction.clear(0)) }>Clr</Button> */}
+          <Button 
+          style={{ justifyContent: "space-around" }}
+          onClick={() => dispatch(calculatorAction.add())}
+           >Add</Button>
+
+          <Button 
+          style={{ justifyContent: "space-around" }}
+          onClick={() => dispatch(calculatorAction.remove())}
+           >Rem</Button>
+
+          <Button 
+          style={{ justifyContent: "space-around" }}
+          onClick={() => dispatch(calculatorAction.clear(0))}
+           >Clr</Button>
+          
         </Col>
       </Row>
 

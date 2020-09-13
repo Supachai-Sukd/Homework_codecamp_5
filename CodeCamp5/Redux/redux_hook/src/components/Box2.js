@@ -18,6 +18,7 @@ const Box2 = props => {
 
 
             <Title>Box 2 : {calReducer.count}</Title>
+                
 
 
         </div>
