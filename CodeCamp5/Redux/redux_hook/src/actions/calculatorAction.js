@@ -1,8 +1,10 @@
 import { ACTION_ADD, ACTION_REM, ACTION_CLR } from '../Constant'
 
-export const setStateToAdd = () => ({
+export const setStateToAdd = (payload) => ({
     type: ACTION_ADD,
+    payload
 })
+    
 
 export const setStateToRem = () => ({
     type: ACTION_REM,
@@ -14,9 +16,9 @@ export const setStateToClr = (payload) => ({
 })
 
 
-export const add = () => {
+export const add = (payload) => {
     return dispatch => {
-        dispatch(setStateToAdd())
+        dispatch(setStateToAdd(payload))
     }
 }
 

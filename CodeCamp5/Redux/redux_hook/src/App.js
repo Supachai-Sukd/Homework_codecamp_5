@@ -22,8 +22,12 @@ function App() {
         <Col>
           <Button 
           style={{ justifyContent: "space-around" }}
-          onClick={() => dispatch(calculatorAction.add())}
+          onClick={() => dispatch(calculatorAction.add(10))}
            >Add</Button>
+          <Button 
+          style={{ justifyContent: "space-around" }}
+          onClick={() => dispatch(calculatorAction.add(15))}
+           >Add1</Button>
 
           <Button 
           style={{ justifyContent: "space-around" }}
@@ -32,7 +36,7 @@ function App() {
 
           <Button 
           style={{ justifyContent: "space-around" }}
-          onClick={() => dispatch(calculatorAction.clear(0))}
+          onClick={() => dispatch(calculatorAction.clear(10))}
            >Clr</Button>
           
         </Col>

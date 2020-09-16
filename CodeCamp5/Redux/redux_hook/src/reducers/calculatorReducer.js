@@ -8,7 +8,7 @@ export default (state = initialState, { type, payload }) => {
     switch (type) {
 
     case ACTION_ADD:
-        return { ...state, count: state.count + 1 }
+        return { ...state, ...payload, count: state.count += payload}
     case ACTION_REM:
         return { ...state, count: state.count - 1 }
     case ACTION_CLR:
@@ -18,3 +18,20 @@ export default (state = initialState, { type, payload }) => {
         return state
     }
 }
+
+
+
+// const initialState = {
+
+// }
+
+// export default (state = initialState, { type, payload }) => {
+//     switch (type) {
+
+//     case typeName:
+//         return { ...state, ...payload }
+
+//     default:
+//         return state
+//     }
+// }
