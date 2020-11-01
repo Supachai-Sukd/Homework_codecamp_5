@@ -46,29 +46,7 @@ const addNewNotebook = async (req, res) => {
     }
 }
 
-// const addNotebookToUser = async (req, res) => {
-//     const targetNotebook = req.params.id
-//     const { targetUser } = req.body
-//     const targetCompany = await db.User.findOne({ where: { company_id: req.user.company_id } })
-//     const targetNotebookLogin = await db.Notebook.findOne({ where: { nb_company_id: req.user.nb_company_id } })
 
-   
-//         await db.Notebook.update({
-//             user_id: targetUser
-//         }, {
-//             where: { id: targetNotebook  }
-
-           
-//         })
-//         res.status(201).send({ message: "Update notebook success" })
-    
-
-
-
-
-
-
-// }
 
 
 const addNotebookToUser = async (req, res) => {

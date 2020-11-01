@@ -9,7 +9,7 @@ router.get('/phoneadmin',authentiCation, phonesControllers.getPhoneForAdmin)
 router.post('/add',authentiCation, phonesControllers.addNewPhones)
 router.delete('/remove/:id',authentiCation, phonesControllers.deletePhoneNumber)
 router.put('/update/:id',authentiCation, phonesControllers.addPhonesToUser)
-// router.put('/update/:id',authentiCation, phonesControllers.addPhonesToUser)
+
 
 
 module.exports = router

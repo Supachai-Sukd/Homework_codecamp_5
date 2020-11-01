@@ -65,18 +65,7 @@ const loginUser = async (req, res) => {
 
 
 
-// const getAllUsers = async (req, res) => {
-//     // const targetUserCompany = await db.User.findOne({ where: { company_id: company_id } })
-//     // const tarGetCom = req.params.id
-//     const allUsers = await db.User.findAll({
-//         attributes: ['id','name', 'position', 'user_level', 'company_id']
-//     }, {
-//         group: ['company_id']
-//     }
-//         )
 
-//     res.status(200).send(allUsers)
-// }
 
 
 
