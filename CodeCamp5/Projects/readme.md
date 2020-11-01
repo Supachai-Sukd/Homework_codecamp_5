@@ -45,6 +45,7 @@
 ## 🎉 Project จบของผม <a name = "my_project"></a>
 
 [Inventory Management System](https://github.com/Supachai-Sukd/Homework_codecamp_5/tree/master/CodeCamp5/Projects)
+[Inventory Management System on Youtube](https://youtu.be/LIc49TMDHR0)
 
 Minimum knowledge
 

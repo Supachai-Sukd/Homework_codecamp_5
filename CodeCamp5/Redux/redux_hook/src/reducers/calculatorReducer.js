@@ -1,7 +1,8 @@
-import {ACTION_ADD, ACTION_REM, ACTION_CLR} from '../Constant'
+import {ACTION_ADD, ACTION_REM, ACTION_CLR, ADD_PERSON} from '../Constant'
 
 const initialState = {
-    count: 0
+    count: 0,
+    arrObj: []
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -13,6 +14,9 @@ export default (state = initialState, { type, payload }) => {
         return { ...state, count: state.count - 1 }
     case ACTION_CLR:
         return { ...state, count: payload }
+    case ADD_PERSON :
+        const newObj = [...state.arrObj,  {name: payload}]
+        return {...state, ...payload, arrObj: newObj}
 
     default:
         return state
